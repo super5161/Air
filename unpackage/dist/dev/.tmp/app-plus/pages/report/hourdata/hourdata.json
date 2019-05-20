@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "2019/05/05市空气质量",
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
+}

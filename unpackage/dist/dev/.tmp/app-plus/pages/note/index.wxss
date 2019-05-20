@@ -1,0 +1,36 @@
+
+.text {
+	margin: 16rpx 0;
+	width: 100%;
+	background-color: #fff;
+	height: 120rpx;
+	line-height: 120rpx;
+	text-align: center;
+	color: #555;
+	border-radius: 8rpx;
+}
+.uni-card {
+	margin-top: 50rpx;
+}
+.uni-card-content-inner {
+	height: 90rpx;
+	word-break: break-all;
+	display: -webkit-box;
+	overflow: hidden;
+	line-height: 1.5;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+.uni-card-header {
+	font-size: 30rpx;
+}
+.uni-card-content-inner{
+	font-size: 25rpx;
+}
+.uni-card-footer{
+	font-size: 22rpx;
+}
+
+

@@ -1,0 +1,35 @@
+
+.text1 {
+		width: 350rpx;
+		background-color:#FFFFFF;
+		text-align: center;
+		height: 70rpx;
+		line-height: 70rpx;
+}
+.text2 {
+	width: 175rpx;
+	background-color:#FFFFFF;
+	text-align: center;
+	height: 70rpx;
+	line-height: 70rpx;
+}
+.image {
+	margin:40rpx 0;
+	width: 200rpx;
+}
+.canvasViewBar {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 550rpx;
+	width: 750rpx;
+}
+.charts3{position: absolute;width: 250rpx; height:250rpx;background-color: #FFFFFF;}
+
+
+

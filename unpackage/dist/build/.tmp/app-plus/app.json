@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/guide",
+    "pages/login/login",
+    "pages/index/index",
+    "pages/user/index",
+    "pages/report/quota",
+    "pages/report/other",
+    "pages/report/column"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "大气环境监测中心",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "Air",
+  "compilerVersion": "1.9.4",
+  "usingComponents": {
+    "page-foot": "/components/page-foot"
+  }
+}
