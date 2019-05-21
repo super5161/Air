@@ -60,37 +60,5 @@
 		width: 100%;
 	}
 
-	.area {
-		width: 98%;
-		margin-top: 20upx;
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.item {
-		width: 30%;
-		border: 1px solid #ccc;
-		background-color: #36BBFF;
-		color: #FFFFFF;
-		height: 150upx;
-		text-align: center;
-		padding-top: 30upx;
-		border-radius: 10upx;
-		margin-left: 10upx;
-		box-shadow: #365FFF;
-	}
-
-	.item image {
-		width: 60upx;
-		height: 60upx;
-	}
-
-	.item text {
-		display: block;
-		font-size: 30upx;
-	}
-
-	.item.other {
-		background-color: #365FFF;
-	}
+	
 </style>

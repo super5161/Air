@@ -2,7 +2,7 @@
 	<view>
 		<view class="footer-row"></view>
 		<view class="footer" :style="footerTop">
-			<navigator :url="item.page" open-type="redirect" :key="item.id" v-for="item in foots" hover-class="none">
+			<navigator :url="item.page" open-type="navigate" :key="item.id" v-for="item in foots" hover-class="none">
 				<view class="footer-item" :class="{active:tab==item.id}">
 					<view class="iconfont" :class="item.type"></view>
 					<text class="footer-text">{{item.text}}</text>
