@@ -38,7 +38,7 @@ const store = new Vuex.Store({
 					uni.login({
 						success: (data) => {
 							commit('login')
-							setTimeout(function () { //模拟异步请求服务器获取 openid
+							setTimeout(function () { 
 								const openid = '123456789'
 								console.log('uni.request mock openid[' + openid + ']');
 								commit('setOpenid', openid)

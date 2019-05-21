@@ -37,7 +37,7 @@
 			<canvas canvas-id="canvasArcbar2" id="canvasArcbar2" class="charts3" style="margin-left: 500upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row"> 
-			<canvas canvas-id="charts" id="charts" @touchstart="touch()" class="charts"></canvas>
+			<canvas canvas-id="charts" id="charts"  @touchstart="touch"  class="charts"></canvas>
 		</view>
 		
 		<view class="uni-flex uni-row">
@@ -138,8 +138,7 @@
 			this.ShowCharts("charts", Data);
 			this.showArcbar3("canvasArcbar3", Data3);
 			this.showArcbar3("canvasArcbar1", Data1);
-			this.ShowCharts2("canvasArcbar2", Data2);
-			//this.hideLoading();
+			this.ShowCharts2("canvasArcbar2", Data2);	
 		},
 		methods: {
 			ShowCharts2: function(canvasId, data) {
@@ -156,20 +155,11 @@
 					pixelRatio:1,
 				});
 			},
-			touch:function(e){
-				console.log(e)
-				// Charts1.getCurrentDataIndex('renderComplete', (e) => {
-				// 	// your code here
-				// 	console.log(e)
-				// });
-				// Charts1.getCurrentDataIndex(e, {
-				// 	// format: function (item, category) {
-				// 	// 	return category + ' ' + item.name + ':' + item.data 
-				// 	// }
-				// });
+			touch:function(e){		
+				 var index = Charts1.getCurrentDataIndex(e);
 				let detail = {
 						id: "100001",
-						storeName:"闵行区"
+						storeName:Data.categories[index]
 					}
 				uni.navigateTo({
 					url: "timedata02?detail=" + encodeURIComponent(JSON.stringify(detail))
@@ -244,7 +234,7 @@
 				
 				});
 				
-			}
+			},
 		}
 	}
 </script>
