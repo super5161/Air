@@ -90,13 +90,12 @@
 		text-align: center;
 		color: #999;
 		display: block;
-		padding: 16upx 0;
+		padding: 8upx 0;
 	}
 
 	.iconfont {
 		display: block;
-		font-size: 36upx;
-		margin-bottom: 2upx;
+		font-size: 32upx;
 	}
 	
 	.footer-item .footer-text {
