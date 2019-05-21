@@ -22,7 +22,7 @@
 		width: 100%;
 		height: 680upx;
 		background-color: #FFFFFF;
-		margin-top: 100upx;
+		margin-top: 50upx;
 	}
 
 	.area {
