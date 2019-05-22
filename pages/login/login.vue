@@ -87,6 +87,7 @@
 				}
 
 				if (uName == "555" && pwd == "123") {
+					this.$store.commit("login",uName);		
 					uni.redirectTo({
 						url: "/pages/index/index"
 					})
@@ -98,6 +99,7 @@
 					return;
 				}
 			},
+			//切换语言
 			ChangeLange: function() {
 				uni.showActionSheet({
 					itemList: langText,

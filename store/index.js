@@ -9,50 +9,47 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
 	state: {
 		hasLogin: false,
-		loginProvider: "",
-		openid: null
+		userId:'',
 	},
 	mutations: {
-		login(state, provider) {
+		login(state,userId) {
 			state.hasLogin = true;
-			state.loginProvider = provider;
+			state.userId=userId;
 		},
 		logout(state) {
 			state.hasLogin = false
-			state.openid = null
+			state.userId='';
 		},
-		setOpenid(state, openid) {
-			state.openid = openid
-		}
 	},
 	actions: {
+		
 		// lazy loading openid
-		getUserOpenId: async function ({
-			commit,
-			state
-		}) {
-			return await new Promise((resolve, reject) => {
-				if (state.openid) {
-					resolve(state.openid)
-				} else {
-					uni.login({
-						success: (data) => {
-							commit('login')
-							setTimeout(function () { 
-								const openid = '123456789'
-								console.log('uni.request mock openid[' + openid + ']');
-								commit('setOpenid', openid)
-								resolve(openid)
-							}, 1000)
-						},
-						fail: (err) => {
-							console.log('uni.login 接口调用失败，将无法正常使用开放接口等服务', err)
-							reject(err)
-						}
-					})
-				}
-			})
-		}
+		// getUserOpenId: async function ({
+		// 	commit,
+		// 	state
+		// }) {
+		// 	return await new Promise((resolve, reject) => {
+		// 		if (state.openid) {
+		// 			resolve(state.openid)
+		// 		} else {
+		// 			uni.login({
+		// 				success: (data) => {
+		// 					commit('login')
+		// 					setTimeout(function () { 
+		// 						const openid = '123456789'
+		// 						console.log('uni.request mock openid[' + openid + ']');
+		// 						commit('setOpenid', openid)
+		// 						resolve(openid)
+		// 					}, 1000)
+		// 				},
+		// 				fail: (err) => {
+		// 					console.log('uni.login 接口调用失败，将无法正常使用开放接口等服务', err)
+		// 					reject(err)
+		// 				}
+		// 			})
+		// 		}
+		// 	})
+		// }
 	}
 })
 
