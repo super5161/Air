@@ -12,7 +12,8 @@ const i18n = new VueI18n({
 	locale: 'zh-CN',
 	messages: {
 		'zh-CN': require("./static/i18n/langs/zh"),
-		'en-US': require('./static/i18n/langs/en')
+		'en-US': require('./static/i18n/langs/en'),
+		'zh-Tw': require('./static/i18n/langs/tw')
 	}
 });
 Vue.prototype._i18n = i18n;

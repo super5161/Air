@@ -28,6 +28,9 @@
 		key: "zh-CN",
 		text: "中文简体"
 	}, {
+		key: "zh-Tw",
+		text: "中文繁体"
+	}, {
 		key: "en-US",
 		text: "English"
 	}];
@@ -87,7 +90,7 @@
 				}
 
 				if (uName == "555" && pwd == "123") {
-					this.$store.commit("login",uName);		
+					this.$store.commit("login", uName);
 					uni.redirectTo({
 						url: "/pages/index/index"
 					})
