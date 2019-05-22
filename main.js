@@ -23,11 +23,16 @@ import http from './utils/http.js';
 Vue.prototype.http = http;
 /* end http */
 
+import store from './store/index.js';
+Vue.prototype.store = store;
+
+
 Vue.config.productionTip = false;
 App.mpType = 'app'
 
 const app = new Vue({
 	i18n,
+	store,
 	...App
 })
 app.$mount()

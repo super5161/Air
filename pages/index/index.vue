@@ -76,6 +76,7 @@
 		},
 		onLoad: function() {
 			that = this;
+			//console.log(this.$store.state.hasLogin)
 		},
 		onReady: function() {
 			//console.log(that.http)
