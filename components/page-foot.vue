@@ -43,7 +43,7 @@
 			}, {
 				id: 2,
 				text: that.res.mynote,
-				type: 'my',
+				type: 'message',
 				page: '/pages/note/index',
 			}, {
 				id: 3,
@@ -95,11 +95,13 @@
 
 	.iconfont {
 		display: block;
-		font-size: 32upx;
+		font-size: 38upx;
 	}
-	
+
 	.footer-item .footer-text {
 		font-size: 26upx;
 		display: block;
+		vertical-align: top;
+		line-height: 26upx;
 	}
 </style>

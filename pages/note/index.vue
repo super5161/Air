@@ -21,6 +21,7 @@
 				</view>
 			</view>
 		</view>
+		<page-foot tab="2"></page-foot>
 	</view>
 </template>
 <script>

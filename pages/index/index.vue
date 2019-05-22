@@ -20,19 +20,19 @@
 		<view class="area">
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/timedata/index" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont shishishipinjiankong"></view>
 					<text>实时监控</text>
 				</navigator>
 			</view>
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/hourdata/hourdata" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont yuejie"></view>
 					<text>每日空气</text>
 				</navigator>
 			</view>
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/mondata/mondata" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont tmonth"></view>
 					<text>每月空气</text>
 				</navigator>
 			</view>
@@ -53,7 +53,7 @@
 			</view>
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/dayitem/index" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont kongqizhiliangjianceshujufenxi"></view>
 					<text>空气指数</text>
 				</navigator>
 			</view>		
