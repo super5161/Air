@@ -21,6 +21,12 @@
 	/*每个页面公共css */
 	@import "./common/uni.css";
 
+	html,
+	body {
+		height: 100%;
+		margin: 1px 0 0 0;
+	}
+
 	.charts {
 		width: 100%;
 		height: 680upx;

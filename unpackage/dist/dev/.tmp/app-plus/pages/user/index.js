@@ -107,7 +107,7 @@ var that;var _default =
         success: function success(res) {
           if (res.confirm) {
             //that.$store.commit("logout");
-            uni.navigateTo({
+            uni.reLaunch({
               url: "../login/login" });
 
           }

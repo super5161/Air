@@ -20,20 +20,20 @@
 		methods: {
 			LoginOut: function() {
 				uni.showModal({
-					title: '提示',
-					content: '您确定要退当前用户吗？',
-					success: function(res) {
-						if (res.confirm) {
-							//that.$store.commit("logout");
-							uni.navigateTo({
-								url: "../login/login"
-							})
-						}
-					}
-				});
+						title: '提示',
+						content: '您确定要退当前用户吗？',
+						success: function(res) {
+							if (res.confirm) {
+								//that.$store.commit("logout");
+								uni.reLaunch({
+										url: "../login/login"
+									})
+								}
+							}
+						});
+				}
 			}
 		}
-	}
 </script>
 
 <style>

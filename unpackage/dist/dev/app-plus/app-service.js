@@ -28778,7 +28778,6 @@ define('components/page-foot.js',function(require, module, exports, window, docu
       name: 'page-foot',
       data: function data() {
         return {
-          footerTop: '',
           foots: [] };
 
       },
@@ -30147,7 +30146,7 @@ var that;var _default =
         success: function success(res) {
           if (res.confirm) {
             //that.$store.commit("logout");
-            uni.navigateTo({
+            uni.reLaunch({
               url: "../login/login" });
 
           }

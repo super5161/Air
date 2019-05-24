@@ -117,7 +117,6 @@ var that;var _default =
   name: 'page-foot',
   data: function data() {
     return {
-      footerTop: '',
       foots: [] };
 
   },

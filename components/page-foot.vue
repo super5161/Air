@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="footer-row"></view>
-		<view class="footer" :style="footerTop">
+		<view class="footer" >
 			<navigator :url="item.page" open-type="redirect" :key="item.id" v-for="item in foots" hover-class="none">
 				<view class="footer-item" :class="{active:tab==item.id}">
 					<view class="iconfont" :class="item.type"></view>
@@ -17,7 +17,6 @@
 		name: 'page-foot',
 		data() {
 			return {
-				footerTop: '',
 				foots: [],
 			}
 		},
