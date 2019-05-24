@@ -1,1 +1,1 @@
-<view bind:__l="__l"><navigator url="/pages/login/login" open-type="redirect" hover-class="none"><button style="width:50%;" type="warn">退出登录</button></navigator><page-foot tab="1"></page-foot></view>
+<view bind:__l="__l"><view>{{"当前登录用户:"+this.$store.state.userId}}</view><button style="width:50%;margin-top:100rpx;" type="warn" data-event-opts="{{[['tap',[['LoginOut',['$event']]]]]}}" bindtap="__e">退出登录</button><page-foot tab="3"></page-foot></view>

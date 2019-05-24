@@ -1,1 +1,0 @@
-<view bind:__l="__l"><canvas class="charts" canvas-id="charts" id="charts"></canvas><button style="width:80%;" type="primary">刷新数据</button></view>

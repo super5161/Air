@@ -91,7 +91,6 @@
 
 <style>
 	.iconfont {
-		margin: 10upx auto;
 		font-size: 50upx;
 	}
 

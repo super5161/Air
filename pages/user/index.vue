@@ -24,7 +24,7 @@
 					content: '您确定要退当前用户吗？',
 					success: function(res) {
 						if (res.confirm) {
-							that.$store.commit("logout");
+							//that.$store.commit("logout");
 							uni.navigateTo({
 								url: "../login/login"
 							})

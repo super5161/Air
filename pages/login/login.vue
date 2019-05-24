@@ -62,11 +62,7 @@
 			});
 		},
 		onReady: function() {
-			uni.getSystemInfo({
-				success(res) {
-					that.versionTop = 'top:' + (res.screenHeight - 32) + 'px';
-				}
-			})
+
 		},
 		methods: {
 			Login: function() {
@@ -90,7 +86,7 @@
 				}
 
 				if (uName == "555" && pwd == "123") {
-					this.$store.commit("login", uName);
+					//this.$store.commit("login", uName);
 					uni.redirectTo({
 						url: "/pages/index/index"
 					})
@@ -177,5 +173,7 @@
 		padding: 10upx 0;
 		margin-bottom: 10upx;
 		font-size: 22upx;
+		left: 0;
+		bottom: 20upx;
 	}
 </style>

@@ -17,39 +17,4 @@ image {
 .banner {
 		width: 100%;
 }
-.area {
-		width: 98%;
-		margin-top: 20rpx;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-justify-content: space-around;
-		    -ms-flex-pack: distribute;
-		        justify-content: space-around;
-}
-.item {
-		width: 30%;
-		border: 1px solid #ccc;
-		background-color: #36BBFF;
-		color: #FFFFFF;
-		height: 150rpx;
-		text-align: center;
-		padding-top: 30rpx;
-		border-radius: 10rpx;
-		margin-left: 10rpx;
-		-webkit-box-shadow: #365FFF;
-		        box-shadow: #365FFF;
-}
-.item image {
-		width: 60rpx;
-		height: 60rpx;
-}
-.item text {
-		display: block;
-		font-size: 30rpx;
-}
-.item.other {
-		background-color: #365FFF;
-}
 

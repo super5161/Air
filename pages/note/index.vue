@@ -10,7 +10,6 @@
 				</view>
 			</view>
 		</view>
-		
 		<view class="uni-padding-wrap uni-common-mt" @click="goDetail(1002,'AQI报警')">
 			<view class="uni-card">
 				<view class="uni-card-header">AQI报警</view>
@@ -57,12 +56,12 @@
 				return;
 			} else {
 				this.showLoadMore = true;
-				this.setDate();
+				//this.setDate();
 			}
 
 		},
 		onPullDownRefresh() {
-			this.initData();
+			//this.initData();
 		},
 		methods: {
 			initData() {
@@ -116,14 +115,16 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 	}
+
 	.uni-card-header {
 		font-size: 30upx;
 	}
-	.uni-card-content-inner{
+
+	.uni-card-content-inner {
 		font-size: 25upx;
 	}
-	.uni-card-footer{
+
+	.uni-card-footer {
 		font-size: 22upx;
 	}
-
 </style>

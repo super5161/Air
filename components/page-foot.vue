@@ -29,11 +29,11 @@
 			that = this;
 			//that.$i18n.locale="en-US";
 			/*解决输入法面板*/
-			uni.getSystemInfo({
-				success(res) {
-					that.footerTop = 'top:' + (res.screenHeight - 60) + 'px';
-				}
-			});
+			// uni.getSystemInfo({
+			// 	success(res) {
+			// 		that.footerTop = 'top:' + (res.screenHeight - 60-44) + 'px';
+			// 	}
+			// });
 			/*加载语言环境*/
 			that.foots = [{
 				id: 0,

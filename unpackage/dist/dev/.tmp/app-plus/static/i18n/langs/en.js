@@ -2,6 +2,7 @@
 export const res = {
 	foot: {
 		honeText: 'Hone',
+		mysmart:'Smart',
 		mynote: 'note',
 		myText: 'my'
 	},

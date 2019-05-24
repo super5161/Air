@@ -1,6 +1,7 @@
 export const res = {
 	foot:{
 		honeText: '首页',
+		mysmart:'Smart',
 		mynote: '通报',
 		myText: '我的'
 	},
