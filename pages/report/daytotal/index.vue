@@ -3,7 +3,7 @@
 		<view class="area">
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/daytotal/daytotal01" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont tmonth"></view>
 					<text>每月空气统计</text>
 				</navigator>
 			</view>
@@ -15,7 +15,7 @@
 			</view>
 			<view class="item">
 				<navigator hover-class="none" url="/pages/report/daytotal/daytotal31" open-type="navigate">
-					<view class="iconfont line"></view>
+					<view class="iconfont tyear"></view>
 					<text>每年空气统计</text>
 				</navigator>
 			</view>

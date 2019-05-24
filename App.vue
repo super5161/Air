@@ -8,6 +8,9 @@
 		},
 		onHide: function() {
 			//console.log('App Hide')
+		},
+		created: function() {
+			console.log('App created')
 		}
 	}
 </script>
@@ -22,7 +25,7 @@
 		width: 100%;
 		height: 680upx;
 		background-color: #FFFFFF;
-		margin-top: 50upx;
+		margin-top: 20upx;
 	}
 
 	.area {
