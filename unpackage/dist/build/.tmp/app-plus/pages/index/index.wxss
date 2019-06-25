@@ -1,6 +1,5 @@
 
 .iconfont {
-	margin: 10rpx auto;
 	font-size: 50rpx;
 }
 .content {
@@ -16,5 +15,23 @@ image {
 }
 .banner {
 	width: 100%;
+}
+.item1{
+	background-color: #3b4446;
+}
+.item2{
+	background-color: #002147;
+}
+.item3{ 
+	background-color: #abb8af;
+}
+.item4{
+	background-color: #ff7900;
+}
+.item5{
+	background-color: #057855;
+}
+.item6{
+	background-color: #766a65;
 }
 

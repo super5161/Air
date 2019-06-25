@@ -18,40 +18,39 @@
 			</swiper>
 		</view>
 		<view class="area">
-			<view class="item">
+			<view class="item item1">
 				<navigator hover-class="none" url="/pages/report/timedata/index" open-type="navigate">
 					<view class="iconfont shishishipinjiankong"></view>
 					<text>实时监控</text>
 				</navigator>
 			</view>
-			<view class="item">
+			<view class="item item2">
 				<navigator hover-class="none" url="/pages/report/hourdata/hourdata" open-type="navigate">
 					<view class="iconfont yuejie"></view>
 					<text>每日空气</text>
 				</navigator>
 			</view>
-			<view class="item">
+			<view class="item item3">
 				<navigator hover-class="none" url="/pages/report/mondata/mondata" open-type="navigate">
 					<view class="iconfont tmonth"></view>
 					<text>每月空气</text>
 				</navigator>
 			</view>
-		</view>
-		
+		</view>	
 		<view class="area">
-			<view class="item other">
+			<view class="item item4">
 				<navigator hover-class="none" url="/pages/report/daydata/index" open-type="navigate">
 					<view class="iconfont pie"></view>
 					<text>空气质量</text>
 				</navigator>
 			</view>
-			<view class="item">
+			<view class="item item5">
 				<navigator hover-class="none" url="/pages/report/daytotal/index" open-type="navigate">
 					<view class="iconfont line"></view>
 					<text>空气统计</text>
 				</navigator>
 			</view>
-			<view class="item">
+			<view class="item item6">
 				<navigator hover-class="none" url="/pages/report/dayitem/index" open-type="navigate">
 					<view class="iconfont kongqizhiliangjianceshujufenxi"></view>
 					<text>空气指数</text>
@@ -110,5 +109,23 @@
 
 	.banner {
 		width: 100%;
+	}	
+	.item1{
+		background-color: #3b4446;
+	}
+	.item2{
+		background-color: #002147;
+	}
+	.item3{ 
+		background-color: #abb8af;
+	}
+	.item4{
+		background-color: #ff7900;
+	}
+	.item5{
+		background-color: #057855;
+	}
+	.item6{
+		background-color: #766a65;
 	}
 </style>

@@ -64,10 +64,6 @@
 		font-size: 30upx;
 	}
 
-	.item.other {
-		background-color: #365FFF;
-	}
-
 	page {
 		background-color: #F4F5F6;
 		height: 100%;

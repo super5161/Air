@@ -19,7 +19,7 @@
 			</view>
 			<button type="primary" @click="Login">登录</button>
 		</view>
-		<view class="version" :style="versionTop">Copyright © 1996-2020 泓远软件.版权所有 ver 1.0</view>
+		<view class="version" :style="versionTop">Copyright © 1996-2020 轶伦.版权所有 ver 1.0</view>
 	</view>
 </template>
 <script>
@@ -37,6 +37,10 @@
 
 	var langKeys;
 	var langText;
+
+	import {
+		mapMutations
+	} from 'vuex';
 	export default {
 		data() {
 			return {
@@ -66,10 +70,9 @@
 		},
 		methods: {
 			Login: function() {
-				var uName = that.username.trim();
+				var uId = that.username.trim();
 				var pwd = that.password.trim();
-				//console.log(that.res.placPassword)
-				if (uName.length == 0) {
+				if (uId.length == 0) {
 					uni.showToast({
 						title: "用户名必须填写",
 						icon: "none"
@@ -85,8 +88,11 @@
 					return;
 				}
 
-				if (uName == "555" && pwd == "123") {
-					//this.$store.commit("login", uName);
+				if (uId == "555" && pwd == "123") {
+					var data = {};
+					data.userId = uId;
+					data.userName = "王梓涵";
+					this.login(data);
 					uni.redirectTo({
 						url: "/pages/index/index"
 					})
@@ -108,7 +114,8 @@
 						that.$i18n.locale = that.langKeys;
 					}
 				});
-			}
+			},
+			...mapMutations(['login'])
 		}
 	}
 </script>
@@ -167,13 +174,11 @@
 
 	.version {
 		text-align: center;
-		position: fixed;
 		height: 30px;
 		width: 100%;
 		padding: 10upx 0;
 		margin-bottom: 10upx;
 		font-size: 22upx;
-		left: 0;
-		bottom: 20upx;
+		margin-top: 150upx;
 	}
 </style>

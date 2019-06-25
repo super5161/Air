@@ -64,7 +64,7 @@
     "autoclose": false
   },
   "appname": "Air",
-  "compilerVersion": "1.9.4",
+  "compilerVersion": "1.9.9",
   "usingComponents": {
     "page-foot": "/components/page-foot"
   }
