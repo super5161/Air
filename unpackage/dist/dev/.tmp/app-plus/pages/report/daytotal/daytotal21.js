@@ -137,90 +137,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
-
-var Data = {
-  series: [{
-    data: 70,
-    name: '优良' },
-
-  {
-    data: 8,
-    name: '轻度污染' },
-
-  {
-    data: 5,
-    name: '中度污染' },
-
-  {
-    data: 5,
-    name: '重度污染' },
-
-  {
-    data: 2,
-    name: '严重污染' }] };
-
-
-
 var width;var _default =
 {
   components: {
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowQuarter() + '市空气统计' });
-
-
+    _self = this;
+    var date = this.getNowQuarter();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.setPageTitle(date);
+    var ds = date.split(' ');
+    var year = ds[0];
+    var quarter = this.getQuarter(ds[1]);
+    this.getDate(year, quarter);
   },
   data: function data() {
     return {
@@ -231,7 +167,8 @@ var width;var _default =
         name: "年季",
         value: [this.getNowYear(), 0] //年月在列表的序号
       }],
-      tabIndex: 0 };
+      tabIndex: 0,
+      dataList: [] };
 
   },
   computed: {
@@ -243,8 +180,7 @@ var width;var _default =
     } },
 
   onReady: function onReady() {
-    this.ShowCharts("charts", Data);
-    //this.hideLoading();
+
   },
   methods: {
     toggleTab: function toggleTab(index) {
@@ -252,41 +188,38 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
+      var date = val.result;
       //当前所选择的日期
-      this.sdate = val.result;
-      console.log(val.result, " at pages\\report\\daytotal\\daytotal21.vue:157");
-
-      uni.setNavigationBarTitle({
-        title: val.result + '市空气质量' });
-
+      this.sdate = date;
+      this.setPageTitle(date);
+      var ds = date.split('-');
+      var year = ds[0];
+      var quarter = this.getQuarter(ds[1]);
+      this.getDate(year, quarter);
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(canvasId, data) {
-      Charts = new wxCharts({
-        canvasId: canvasId,
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data.series,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getQuarterStatistics", {
+        year: year,
+        quarter: quarter,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
+            e.data.data.list.map(function (item) {
+              chartsData.push({
+                name: item.faqiName,
+                data: parseInt(item.faqiDay) });
 
+            });
+          }
+          _self.util.showChartPie('charts', chartsData, width);
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "daytotal22?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
-    },
-
     getNowQuarter: function getNowQuarter() {
       var date = new Date();
       var year = date.getFullYear();
@@ -311,6 +244,23 @@ var width;var _default =
       var year = date.getFullYear();
       var currentdate = year - 2018;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
+
+    },
+    getQuarter: function getQuarter(quarterstr) {
+      switch (quarterstr) {
+        case "第一季度":
+          return 1;
+        case "第二季度":
+          return 2;
+        case "第三季度":
+          return 3;
+        default:
+          return 4;}
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -342,6 +292,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -15516,7 +15516,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {//全局工具函数
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var wxCharts = __webpack_require__(/*! ./wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");var _default =
 {
   /*计算固定位置*/
   fixedTop: function fixedTop(h) {
@@ -15536,6 +15537,66 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     uni.showToast({
       title: msg,
       icon: "none" });
+
+  },
+  /*
+      *显示饼图
+      * chartid 图表ID
+      * data 饼图数据
+      * width 图表显示宽度
+      */
+  showChartPie: function showChartPie(chartid, data, width) {
+    data = data || [];
+    if (data.length <= 0) {
+      data.push({
+        name: '没有数据',
+        data: 0 });
+
+    }
+    var Charts = new wxCharts({
+      canvasId: chartid,
+      type: 'pie',
+      fontSize: 11,
+      background: '#FFFFFF',
+      animation: true,
+      series: data,
+      width: width,
+      height: 280,
+      dataLabel: true,
+      pixelRatio: 1 });
+
+  },
+
+  /*
+      * 显示折线图
+      * chartid 图表ID
+      * categories 组
+      * series 数据
+      * width 图表显示宽度
+      */
+  showChartLine: function showChartLine(chartid, categories, series, width) {
+    categories = categories || [];
+    if (categories.length <= 0) {
+      categories.push('');
+    }
+    series[0].data = series[0].data || [];
+    if (series[0].data.length <= 0) {
+      series[0].name = "没有数据";
+      series[0].data.push(0);
+    }
+
+    var Charts = new wxCharts({
+      canvasId: "charts",
+      type: 'line',
+      legend: true,
+      fontSize: 11,
+      background: '#FFFFFF',
+      animation: false,
+      series: series,
+      categories: categories,
+      width: width,
+      height: 280,
+      pixelRatio: 1 });
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))

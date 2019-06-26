@@ -138,49 +138,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -210,8 +167,7 @@ var width;var _default =
         value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
       }],
       tabIndex: 0,
-      dataList: [],
-      chartsData: [] };
+      dataList: [] };
 
   },
   computed: {
@@ -231,26 +187,11 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
-      this.sdate = val.result.replace('-', '');
-      this.setPageTitle(sdate);
-      this.getDate(sdate);
+      var date = val.result.replace('-', '');
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(data) {
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
-
-    },
-
     getDate: function getDate(date) {
       _self.http.get("getMonthStatistics", {
         month: date,
@@ -258,31 +199,20 @@ var width;var _default =
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
-          if (e.data.data.list) {
-            var chartsData = [];
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
             e.data.data.list.map(function (item) {
               chartsData.push({
                 name: item.faqiName,
-                data: item.faqiDay });
+                data: parseInt(item.faqiDay) });
 
             });
-            _self.ShowCharts(chartsData);
           }
+          _self.util.showChartPie('charts', chartsData, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-
-    },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "daytotal02?detail=" + encodeURIComponent(JSON.stringify(detail)) });
 
     },
 
@@ -349,6 +279,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

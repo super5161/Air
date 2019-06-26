@@ -133,71 +133,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var width;var _default =
+var width;
+var _self;var _default =
 {
   components: {
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowQuarter() + '市空气指数' });
+    _self = this;
+    var date = this.getNowQuarter();
+    this.setPageTitle(date);
 
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+
+    var ds = date.split(' ');
+    var year = ds[0];
+    var quarter = this.getQuarter(ds[1]);
+    this.getDate(year, quarter);
   },
   data: function data() {
     return {
@@ -208,7 +164,8 @@ var width;var _default =
         name: "年季",
         value: [1, 0] //年月在列表的序号
       }],
-      tabIndex: 0 };
+      tabIndex: 0,
+      dataList: [] };
 
   },
   computed: {
@@ -220,7 +177,7 @@ var width;var _default =
     } },
 
   onReady: function onReady() {
-    //this.hideLoading();
+
   },
   methods: {
     toggleTab: function toggleTab(index) {
@@ -228,23 +185,27 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
+      var date = val.result;
       //当前所选择的日期
-      this.sdate = val.result;
-      console.log(val.result, " at pages\\report\\dayitem\\dayitem21.vue:133");
-
-      uni.setNavigationBarTitle({
-        title: val.result + '市空气质量' });
-
+      this.sdate = date;
+      this.setPageTitle(date);
+      var ds = date.split('-');
+      var year = ds[0];
+      var quarter = this.getQuarter(ds[1]);
+      this.getDate(year, quarter);
     },
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "dayitem22?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getQuarterExponent", {
+        year: year,
+        quarter: quarter,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
     getNowQuarter: function getNowQuarter() {
       var date = new Date();
@@ -263,6 +224,23 @@ var width;var _default =
 
       var currentdate = year + ' ' + quarter;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气指数' });
+
+    },
+    getQuarter: function getQuarter(quarterstr) {
+      switch (quarterstr) {
+        case "第一季度":
+          return 1;
+        case "第二季度":
+          return 2;
+        case "第三季度":
+          return 3;
+        default:
+          return 4;}
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 

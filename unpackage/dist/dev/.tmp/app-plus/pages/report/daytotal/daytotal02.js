@@ -245,7 +245,6 @@ var width;var _default =
 
     },
     goDetail: function goDetail(id, storeName) {
-      console.log(storeName, " at pages\\report\\daytotal\\daytotal02.vue:148");
 
       var detail = {
         id: id,

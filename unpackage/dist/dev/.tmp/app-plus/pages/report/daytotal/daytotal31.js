@@ -129,156 +129,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
-
-var Data = {
-  series: [{
-    data: 70,
-    name: '优良' },
-
-  {
-    data: 8,
-    name: '轻度污染' },
-
-  {
-    data: 5,
-    name: '中度污染' },
-
-  {
-    data: 5,
-    name: '重度污染' },
-
-  {
-    data: 2,
-    name: '严重污染' }] };
-
-
-
 var width;var _default =
 {
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowFormatYear() + '市空气统计' });
-
-
+    _self = this;
+    var year = this.getNowFormatYear();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.setPageTitle(year);
+    this.getDate(year);
   },
   data: function data() {
     return {
       sdate: this.getNowFormatYear(),
       array: ['2017', '2018', '2019', '2020'],
-      index: 2 };
+      index: 2,
+      dataList: [] };
 
   },
   onReady: function onReady() {
-    this.ShowCharts("charts", Data);
-    //this.hideLoading();
+
   },
   methods: {
     bindPickerChange: function bindPickerChange(e) {
-      console.log('picker发送选择改变，携带值为', e.target.value, " at pages\\report\\daytotal\\daytotal31.vue:140");
-      this.index = e.target.value;
-
-      uni.setNavigationBarTitle({
-        title: this.array[this.index] + '市空气统计' });
-
-
+      var date = e.target.value;
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
     },
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getYearStatistics", {
+        year: year,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
+            e.data.data.list.map(function (item) {
+              chartsData.push({
+                name: item.faqiName,
+                data: parseInt(item.faqiDay) });
 
-    /*显示图表*/
-    ShowCharts: function ShowCharts(canvasId, data) {
-      Charts = new wxCharts({
-        canvasId: canvasId,
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data.series,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
-
+            });
+          }
+          _self.util.showChartPie('charts', chartsData, width);
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.array[this.index] };
-
-      uni.navigateTo({
-        url: "daytotal32?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
-    },
-
     getNowFormatYear: function getNowFormatYear() {
       var date = new Date();
       var seperator1 = "-";
       var year = date.getFullYear();
       var currentdate = year;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -310,6 +227,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

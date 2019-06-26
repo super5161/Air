@@ -123,7 +123,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -162,8 +161,7 @@ var width;var _default =
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
-          var categories = [];
-          categories = e.data.data.list.map(function (item) {
+          var categories = e.data.data.list.map(function (item) {
             return parseInt(item.ftime);
           });
           var series = [];
@@ -175,32 +173,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
     /*
         * 获取列表数据
         * sDate 查询日期
@@ -219,7 +197,7 @@ var width;var _default =
     },
 
     goDetail: function goDetail(id, storeName) {
-      console.log(storeName, " at pages\\report\\daydata\\daydata02.vue:122");
+      console.log(storeName, " at pages\\report\\daydata\\daydata02.vue:100");
 
       var detail = {
         id: id,

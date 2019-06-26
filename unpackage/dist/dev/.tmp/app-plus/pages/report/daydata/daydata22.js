@@ -124,7 +124,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -180,7 +179,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }

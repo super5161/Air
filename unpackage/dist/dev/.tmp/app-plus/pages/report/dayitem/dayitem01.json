@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "市2019/05空气指数",
-  "usingComponents": {}
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
 }

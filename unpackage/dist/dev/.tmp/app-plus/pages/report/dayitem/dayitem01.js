@@ -128,81 +128,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var width;var _default =
+var width;
+var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default =
+
 {
+  components: {
+    wPicker: wPicker },
+
   onLoad: function onLoad() {
+    _self = this;
+    var date = this.getNowFormatMonth();
+    this.setPageTitle(date);
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.getDate(date);
   },
   data: function data() {
-    return {};
-
+    return {
+      title: 'Hello',
+      sdate: this.getNowFormatMonth(),
+      tabList: [{
+        mode: "yearMonth",
+        name: "年月",
+        value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+      }],
+      tabIndex: 0,
+      dataList: [] };
 
   },
+  computed: {
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+
   onReady: function onReady() {
-    //this.hideLoading();
+
   },
   methods: {
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName };
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      var date = val.result.replace('-', '');
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
+    },
+    getDate: function getDate(date) {
+      _self.http.get("getMonthExponent", {
+        month: date,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
 
-      uni.navigateTo({
-        url: "dayitem02?detail=" + encodeURIComponent(JSON.stringify(detail)) });
+    },
+
+    getNowFormatMonth: function getNowFormatMonth() {
+      var date = new Date();
+      var seperator1 = "";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      var currentdate = year + seperator1 + month;
+      return currentdate;
+    },
+
+    getNowYear: function getNowYear() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getNowMonth: function getNowMonth() {
+      var date = new Date();
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))

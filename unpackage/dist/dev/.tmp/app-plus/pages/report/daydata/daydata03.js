@@ -125,7 +125,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -163,8 +162,7 @@ var width;var _default =
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
-          var categories = [];
-          categories = e.data.data.list.map(function (item) {
+          var categories = e.data.data.list.map(function (item) {
             return parseInt(item.ftime);
           });
           var series = [];
@@ -176,7 +174,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }

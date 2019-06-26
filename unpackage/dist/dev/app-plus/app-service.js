@@ -1208,6 +1208,17 @@ function gz$gwx_18(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_18)return __WXML_GLOBAL__.ops_cached.$gwx_18
 __WXML_GLOBAL__.ops_cached.$gwx_18=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'__l'])
+Z([3,'__e'])
+Z([3,'vue-ref'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
+Z([3,'picker'])
+Z([[7],[3,'defaultVal']])
+Z([3,'2030'])
+Z([[7],[3,'mode']])
+Z([3,'2018'])
+Z([3,'1'])
+Z([3,'#f00'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_18);return __WXML_GLOBAL__.ops_cached.$gwx_18
 }
 function gz$gwx_19(){
@@ -1699,6 +1710,15 @@ e_[x[16]]={f:m16,j:[],i:[],ti:[],ic:[]}
 d_[x[17]]={}
 var m17=function(e,s,r,gg){
 var z=gz$gwx_18()
+cs.push("./pages/report/dayitem/dayitem01.wxml:view:1:1")
+var lCB=_n('view')
+_rz(z,lCB,'bind:__l',0,e,s,gg)
+cs.push("./pages/report/dayitem/dayitem01.wxml:w-picker:1:160")
+var aDB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+cs.pop()
+_(lCB,aDB)
+cs.pop()
+_(r,lCB)
 return r
 }
 e_[x[17]]={f:m17,j:[],i:[],ti:[],ic:[]}
@@ -1718,14 +1738,14 @@ d_[x[20]]={}
 var m20=function(e,s,r,gg){
 var z=gz$gwx_21()
 cs.push("./pages/report/dayitem/dayitem21.wxml:view:1:1")
-var eFB=_n('view')
-_rz(z,eFB,'bind:__l',0,e,s,gg)
+var oHB=_n('view')
+_rz(z,oHB,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/dayitem/dayitem21.wxml:w-picker:1:160")
-var bGB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var xIB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(eFB,bGB)
+_(oHB,xIB)
 cs.pop()
-_(r,eFB)
+_(r,oHB)
 return r
 }
 e_[x[20]]={f:m20,j:[],i:[],ti:[],ic:[]}
@@ -1769,14 +1789,14 @@ d_[x[27]]={}
 var m27=function(e,s,r,gg){
 var z=gz$gwx_28()
 cs.push("./pages/report/daytotal/daytotal01.wxml:view:1:1")
-var cOB=_n('view')
-_rz(z,cOB,'bind:__l',0,e,s,gg)
+var lQB=_n('view')
+_rz(z,lQB,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/daytotal/daytotal01.wxml:w-picker:1:160")
-var oPB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var aRB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(cOB,oPB)
+_(lQB,aRB)
 cs.pop()
-_(r,cOB)
+_(r,lQB)
 return r
 }
 e_[x[27]]={f:m27,j:[],i:[],ti:[],ic:[]}
@@ -1796,14 +1816,14 @@ d_[x[30]]={}
 var m30=function(e,s,r,gg){
 var z=gz$gwx_31()
 cs.push("./pages/report/daytotal/daytotal21.wxml:view:1:1")
-var eTB=_n('view')
-_rz(z,eTB,'bind:__l',0,e,s,gg)
+var oVB=_n('view')
+_rz(z,oVB,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/daytotal/daytotal21.wxml:w-picker:1:160")
-var bUB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var xWB=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(eTB,bUB)
+_(oVB,xWB)
 cs.pop()
-_(r,eTB)
+_(r,oVB)
 return r
 }
 e_[x[30]]={f:m30,j:[],i:[],ti:[],ic:[]}
@@ -1847,14 +1867,14 @@ d_[x[37]]={}
 var m37=function(e,s,r,gg){
 var z=gz$gwx_38()
 cs.push("./pages/report/hourdata/hourdata.wxml:view:1:1")
-var c3B=_n('view')
-_rz(z,c3B,'bind:__l',0,e,s,gg)
+var l5B=_n('view')
+_rz(z,l5B,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/hourdata/hourdata.wxml:w-picker:1:160")
-var o4B=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var a6B=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(c3B,o4B)
+_(l5B,a6B)
 cs.pop()
-_(r,c3B)
+_(r,l5B)
 return r
 }
 e_[x[37]]={f:m37,j:[],i:[],ti:[],ic:[]}
@@ -1874,14 +1894,14 @@ d_[x[40]]={}
 var m40=function(e,s,r,gg){
 var z=gz$gwx_41()
 cs.push("./pages/report/mondata/mondata.wxml:view:1:1")
-var e8B=_n('view')
-_rz(z,e8B,'bind:__l',0,e,s,gg)
+var o0B=_n('view')
+_rz(z,o0B,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/mondata/mondata.wxml:w-picker:1:160")
-var b9B=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var xAC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(e8B,b9B)
+_(o0B,xAC)
 cs.pop()
-_(r,e8B)
+_(r,o0B)
 return r
 }
 e_[x[40]]={f:m40,j:[],i:[],ti:[],ic:[]}
@@ -1955,15 +1975,15 @@ d_[x[52]]={}
 var m52=function(e,s,r,gg){
 var z=gz$gwx_53()
 cs.push("./pages/user/index.wxml:view:1:1")
-var eLC=_n('view')
-_rz(z,eLC,'bind:__l',0,e,s,gg)
+var oNC=_n('view')
+_rz(z,oNC,'bind:__l',0,e,s,gg)
 cs.push("./pages/user/index.wxml:page-foot:1:433")
-var bMC=_n('page-foot')
-_rz(z,bMC,'tab',1,e,s,gg)
+var xOC=_n('page-foot')
+_rz(z,xOC,'tab',1,e,s,gg)
 cs.pop()
-_(eLC,bMC)
+_(oNC,xOC)
 cs.pop()
-_(r,eLC)
+_(r,oNC)
 return r
 }
 e_[x[52]]={f:m52,j:[],i:[],ti:[],ic:[]}
@@ -2041,7 +2061,7 @@ __wxAppCode__['pages/report/daydata/daydata33.wxml']=$gwx('./pages/report/daydat
 __wxAppCode__['pages/report/daydata/index.json']={"usingComponents":{}};
 __wxAppCode__['pages/report/daydata/index.wxml']=$gwx('./pages/report/daydata/index.wxml');
 
-__wxAppCode__['pages/report/dayitem/dayitem01.json']={"navigationBarTitleText":"市2019/05空气指数","usingComponents":{}};
+__wxAppCode__['pages/report/dayitem/dayitem01.json']={"navigationBarTitleText":"市2019/05空气指数","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/dayitem/dayitem01.wxml']=$gwx('./pages/report/dayitem/dayitem01.wxml');
 
 __wxAppCode__['pages/report/dayitem/dayitem02.json']={"navigationBarTitleText":"闵行区2019/05空气指数","usingComponents":{}};
@@ -2059,7 +2079,7 @@ __wxAppCode__['pages/report/dayitem/dayitem22.wxml']=$gwx('./pages/report/dayite
 __wxAppCode__['pages/report/dayitem/dayitem23.json']={"navigationBarTitleText":"莘庄中学2019/1季空气指数","usingComponents":{}};
 __wxAppCode__['pages/report/dayitem/dayitem23.wxml']=$gwx('./pages/report/dayitem/dayitem23.wxml');
 
-__wxAppCode__['pages/report/dayitem/dayitem31.json']={"navigationBarTitleText":"市2019年空气指数","usingComponents":{}};
+__wxAppCode__['pages/report/dayitem/dayitem31.json']={"navigationBarTitleText":"市2019年空气指数","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/dayitem/dayitem31.wxml']=$gwx('./pages/report/dayitem/dayitem31.wxml');
 
 __wxAppCode__['pages/report/dayitem/dayitem32.json']={"navigationBarTitleText":"闵行区2019年空气指数","usingComponents":{}};
@@ -18048,7 +18068,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {//全局工具函数
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var wxCharts = __webpack_require__(/*! ./wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");var _default =
 {
   /*计算固定位置*/
   fixedTop: function fixedTop(h) {
@@ -18068,6 +18089,66 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     uni.showToast({
       title: msg,
       icon: "none" });
+
+  },
+  /*
+      *显示饼图
+      * chartid 图表ID
+      * data 饼图数据
+      * width 图表显示宽度
+      */
+  showChartPie: function showChartPie(chartid, data, width) {
+    data = data || [];
+    if (data.length <= 0) {
+      data.push({
+        name: '没有数据',
+        data: 0 });
+
+    }
+    var Charts = new wxCharts({
+      canvasId: chartid,
+      type: 'pie',
+      fontSize: 11,
+      background: '#FFFFFF',
+      animation: true,
+      series: data,
+      width: width,
+      height: 280,
+      dataLabel: true,
+      pixelRatio: 1 });
+
+  },
+
+  /*
+      * 显示折线图
+      * chartid 图表ID
+      * categories 组
+      * series 数据
+      * width 图表显示宽度
+      */
+  showChartLine: function showChartLine(chartid, categories, series, width) {
+    categories = categories || [];
+    if (categories.length <= 0) {
+      categories.push('');
+    }
+    series[0].data = series[0].data || [];
+    if (series[0].data.length <= 0) {
+      series[0].name = "没有数据";
+      series[0].data.push(0);
+    }
+
+    var Charts = new wxCharts({
+      canvasId: "charts",
+      type: 'line',
+      legend: true,
+      fontSize: 11,
+      background: '#FFFFFF',
+      animation: false,
+      series: series,
+      categories: categories,
+      width: width,
+      height: 280,
+      pixelRatio: 1 });
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
@@ -30949,8 +31030,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -31013,8 +31092,7 @@ var width;var _default =
         fsiteNo: this.$store.state.userInfo.userOrgNo }).
       then(function (e) {
         if (e.data.code === 200) {
-          var categories = [];
-          categories = e.data.data.list.map(function (item) {
+          var categories = e.data.data.list.map(function (item) {
             return parseInt(item.ftime);
           });
           var series = [];
@@ -31026,30 +31104,11 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-    },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
     },
     /*
         * 获取列表数据
@@ -31302,7 +31361,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -31341,8 +31399,7 @@ var width;var _default =
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
-          var categories = [];
-          categories = e.data.data.list.map(function (item) {
+          var categories = e.data.data.list.map(function (item) {
             return parseInt(item.ftime);
           });
           var series = [];
@@ -31354,32 +31411,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
     /*
         * 获取列表数据
         * sDate 查询日期
@@ -31398,7 +31435,7 @@ var width;var _default =
     },
 
     goDetail: function goDetail(id, storeName) {
-      console.log(storeName, " at pages\\report\\daydata\\daydata02.vue:122");
+      console.log(storeName, " at pages\\report\\daydata\\daydata02.vue:100");
 
       var detail = {
         id: id,
@@ -31602,7 +31639,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -31640,8 +31676,7 @@ var width;var _default =
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
-          var categories = [];
-          categories = e.data.data.list.map(function (item) {
+          var categories = e.data.data.list.map(function (item) {
             return parseInt(item.ftime);
           });
           var series = [];
@@ -31653,7 +31688,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -32081,8 +32116,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -32167,7 +32200,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -32459,7 +32492,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -32515,7 +32547,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -32772,7 +32804,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -32828,33 +32859,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
-
     getListData: function getListData() {
       var ds = this.detail.date.split(' ');
       var year = ds[0];
@@ -33092,7 +33102,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -33135,7 +33144,6 @@ var width;var _default =
         fsiteNo: this.$store.state.userInfo.userOrgNo }).
       then(function (e) {
         if (e.data.code === 200) {
-          console.log(e.data.data.list, " at pages\\report\\daydata\\daydata31.vue:86");
           var categories = [];
           categories = e.data.data.list.map(function (item) {
             return item.ftime;
@@ -33149,7 +33157,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -33172,25 +33180,7 @@ var width;var _default =
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
 
-    },
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
@@ -33201,7 +33191,6 @@ var width;var _default =
         url: "daydata32?detail=" + encodeURIComponent(JSON.stringify(detail)) });
 
     },
-
     getNowFormatYear: function getNowFormatYear() {
       var date = new Date();
       var seperator1 = "-";
@@ -33411,7 +33400,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -33463,7 +33451,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -33486,27 +33474,6 @@ var width;var _default =
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
-
     goDetail: function goDetail(id, storeName) {
 
       var detail = {
@@ -33710,7 +33677,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -33762,7 +33728,7 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -33784,25 +33750,6 @@ var width;var _default =
           _self.util.showToast(e.data.msg);
         }
       });
-    },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -34186,49 +34133,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -34258,8 +34162,7 @@ var width;var _default =
         value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
       }],
       tabIndex: 0,
-      dataList: [],
-      chartsData: [] };
+      dataList: [] };
 
   },
   computed: {
@@ -34279,26 +34182,11 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
-      this.sdate = val.result.replace('-', '');
-      this.setPageTitle(sdate);
-      this.getDate(sdate);
+      var date = val.result.replace('-', '');
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(data) {
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
-
-    },
-
     getDate: function getDate(date) {
       _self.http.get("getMonthStatistics", {
         month: date,
@@ -34306,31 +34194,20 @@ var width;var _default =
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
-          if (e.data.data.list) {
-            var chartsData = [];
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
             e.data.data.list.map(function (item) {
               chartsData.push({
                 name: item.faqiName,
-                data: item.faqiDay });
+                data: parseInt(item.faqiDay) });
 
             });
-            _self.ShowCharts(chartsData);
           }
+          _self.util.showChartPie('charts', chartsData, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-
-    },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "daytotal02?detail=" + encodeURIComponent(JSON.stringify(detail)) });
 
     },
 
@@ -34397,6 +34274,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -34658,7 +34566,6 @@ var width;var _default =
 
     },
     goDetail: function goDetail(id, storeName) {
-      console.log(storeName, " at pages\\report\\daytotal\\daytotal02.vue:148");
 
       var detail = {
         id: id,
@@ -35154,90 +35061,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
-
-var Data = {
-  series: [{
-    data: 70,
-    name: '优良' },
-
-  {
-    data: 8,
-    name: '轻度污染' },
-
-  {
-    data: 5,
-    name: '中度污染' },
-
-  {
-    data: 5,
-    name: '重度污染' },
-
-  {
-    data: 2,
-    name: '严重污染' }] };
-
-
-
 var width;var _default =
 {
   components: {
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowQuarter() + '市空气统计' });
-
-
+    _self = this;
+    var date = this.getNowQuarter();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.setPageTitle(date);
+    var ds = date.split(' ');
+    var year = ds[0];
+    var quarter = this.getQuarter(ds[1]);
+    this.getDate(year, quarter);
   },
   data: function data() {
     return {
@@ -35248,7 +35091,8 @@ var width;var _default =
         name: "年季",
         value: [this.getNowYear(), 0] //年月在列表的序号
       }],
-      tabIndex: 0 };
+      tabIndex: 0,
+      dataList: [] };
 
   },
   computed: {
@@ -35260,8 +35104,7 @@ var width;var _default =
     } },
 
   onReady: function onReady() {
-    this.ShowCharts("charts", Data);
-    //this.hideLoading();
+
   },
   methods: {
     toggleTab: function toggleTab(index) {
@@ -35269,41 +35112,38 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
+      var date = val.result;
       //当前所选择的日期
-      this.sdate = val.result;
-      console.log(val.result, " at pages\\report\\daytotal\\daytotal21.vue:157");
-
-      uni.setNavigationBarTitle({
-        title: val.result + '市空气质量' });
-
+      this.sdate = date;
+      this.setPageTitle(date);
+      var ds = date.split('-');
+      var year = ds[0];
+      var quarter = this.getQuarter(ds[1]);
+      this.getDate(year, quarter);
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(canvasId, data) {
-      Charts = new wxCharts({
-        canvasId: canvasId,
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data.series,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getQuarterStatistics", {
+        year: year,
+        quarter: quarter,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
+            e.data.data.list.map(function (item) {
+              chartsData.push({
+                name: item.faqiName,
+                data: parseInt(item.faqiDay) });
 
+            });
+          }
+          _self.util.showChartPie('charts', chartsData, width);
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "daytotal22?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
-    },
-
     getNowQuarter: function getNowQuarter() {
       var date = new Date();
       var year = date.getFullYear();
@@ -35328,6 +35168,23 @@ var width;var _default =
       var year = date.getFullYear();
       var currentdate = year - 2018;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
+
+    },
+    getQuarter: function getQuarter(quarterstr) {
+      switch (quarterstr) {
+        case "第一季度":
+          return 1;
+        case "第二季度":
+          return 2;
+        case "第三季度":
+          return 3;
+        default:
+          return 4;}
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -35359,6 +35216,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36107,156 +35995,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
-
-var Data = {
-  series: [{
-    data: 70,
-    name: '优良' },
-
-  {
-    data: 8,
-    name: '轻度污染' },
-
-  {
-    data: 5,
-    name: '中度污染' },
-
-  {
-    data: 5,
-    name: '重度污染' },
-
-  {
-    data: 2,
-    name: '严重污染' }] };
-
-
-
 var width;var _default =
 {
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowFormatYear() + '市空气统计' });
-
-
+    _self = this;
+    var year = this.getNowFormatYear();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.setPageTitle(year);
+    this.getDate(year);
   },
   data: function data() {
     return {
       sdate: this.getNowFormatYear(),
       array: ['2017', '2018', '2019', '2020'],
-      index: 2 };
+      index: 2,
+      dataList: [] };
 
   },
   onReady: function onReady() {
-    this.ShowCharts("charts", Data);
-    //this.hideLoading();
+
   },
   methods: {
     bindPickerChange: function bindPickerChange(e) {
-      console.log('picker发送选择改变，携带值为', e.target.value, " at pages\\report\\daytotal\\daytotal31.vue:140");
-      this.index = e.target.value;
-
-      uni.setNavigationBarTitle({
-        title: this.array[this.index] + '市空气统计' });
-
-
+      var date = e.target.value;
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
     },
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getYearStatistics", {
+        year: year,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+          var chartsData = [];
+          if (e.data.data.list && e.data.data.list.length > 0) {
+            e.data.data.list.map(function (item) {
+              chartsData.push({
+                name: item.faqiName,
+                data: parseInt(item.faqiDay) });
 
-    /*显示图表*/
-    ShowCharts: function ShowCharts(canvasId, data) {
-      Charts = new wxCharts({
-        canvasId: canvasId,
-        type: 'pie',
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: true,
-        series: data.series,
-        width: width,
-        height: 280,
-        dataLabel: true,
-        pixelRatio: 1 });
-
+            });
+          }
+          _self.util.showChartPie('charts', chartsData, width);
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
-
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.array[this.index] };
-
-      uni.navigateTo({
-        url: "daytotal32?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
-    },
-
     getNowFormatYear: function getNowFormatYear() {
       var date = new Date();
       var seperator1 = "-";
       var year = date.getFullYear();
       var currentdate = year;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -36288,6 +36093,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.dataList.map(function(item, index) {
+    var f0 = _vm._f("intFielter")(item.faqiDay)
+
+    var f1 = _vm._f("emptyFielter")(item.faqiRate)
+
+    var f2 = _vm._f("emptyFielter")(item.ftbDay)
+
+    var f3 = _vm._f("intFielter")(item.ftbRate)
+
+    var f4 = _vm._f("emptyFielter")(item.fhbDay)
+
+    var f5 = _vm._f("emptyFielter")(item.fhbRate)
+
+    return {
+      $orig: _vm.__get_orig(item),
+      f0: f0,
+      f1: f1,
+      f2: f2,
+      f3: f3,
+      f4: f4,
+      f5: f5
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37211,81 +37047,103 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var width;var _default =
+var width;
+var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default =
+
 {
+  components: {
+    wPicker: wPicker },
+
   onLoad: function onLoad() {
+    _self = this;
+    var date = this.getNowFormatMonth();
+    this.setPageTitle(date);
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.getDate(date);
   },
   data: function data() {
-    return {};
-
+    return {
+      title: 'Hello',
+      sdate: this.getNowFormatMonth(),
+      tabList: [{
+        mode: "yearMonth",
+        name: "年月",
+        value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+      }],
+      tabIndex: 0,
+      dataList: [] };
 
   },
+  computed: {
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+
   onReady: function onReady() {
-    //this.hideLoading();
+
   },
   methods: {
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName };
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      var date = val.result.replace('-', '');
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
+    },
+    getDate: function getDate(date) {
+      _self.http.get("getMonthExponent", {
+        month: date,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
 
-      uni.navigateTo({
-        url: "dayitem02?detail=" + encodeURIComponent(JSON.stringify(detail)) });
+    },
+
+    getNowFormatMonth: function getNowFormatMonth() {
+      var date = new Date();
+      var seperator1 = "";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      var currentdate = year + seperator1 + month;
+      return currentdate;
+    },
+
+    getNowYear: function getNowYear() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getNowMonth: function getNowMonth() {
+      var date = new Date();
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气统计' });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
@@ -37989,71 +37847,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var width;var _default =
+var width;
+var _self;var _default =
 {
   components: {
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    uni.setNavigationBarTitle({
-      title: this.getNowQuarter() + '市空气指数' });
+    _self = this;
+    var date = this.getNowQuarter();
+    this.setPageTitle(date);
 
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+
+    var ds = date.split(' ');
+    var year = ds[0];
+    var quarter = this.getQuarter(ds[1]);
+    this.getDate(year, quarter);
   },
   data: function data() {
     return {
@@ -38064,7 +37878,8 @@ var width;var _default =
         name: "年季",
         value: [1, 0] //年月在列表的序号
       }],
-      tabIndex: 0 };
+      tabIndex: 0,
+      dataList: [] };
 
   },
   computed: {
@@ -38076,7 +37891,7 @@ var width;var _default =
     } },
 
   onReady: function onReady() {
-    //this.hideLoading();
+
   },
   methods: {
     toggleTab: function toggleTab(index) {
@@ -38084,23 +37899,27 @@ var width;var _default =
       this.$refs.picker.show();
     },
     onConfirm: function onConfirm(val) {
+      var date = val.result;
       //当前所选择的日期
-      this.sdate = val.result;
-      console.log(val.result, " at pages\\report\\dayitem\\dayitem21.vue:133");
-
-      uni.setNavigationBarTitle({
-        title: val.result + '市空气质量' });
-
+      this.sdate = date;
+      this.setPageTitle(date);
+      var ds = date.split('-');
+      var year = ds[0];
+      var quarter = this.getQuarter(ds[1]);
+      this.getDate(year, quarter);
     },
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName,
-        date: this.sdate };
-
-      uni.navigateTo({
-        url: "dayitem22?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
+    getDate: function getDate(year, quarter) {
+      _self.http.get("getQuarterExponent", {
+        year: year,
+        quarter: quarter,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
     },
     getNowQuarter: function getNowQuarter() {
       var date = new Date();
@@ -38119,6 +37938,23 @@ var width;var _default =
 
       var currentdate = year + ' ' + quarter;
       return currentdate;
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气指数' });
+
+    },
+    getQuarter: function getQuarter(quarterstr) {
+      switch (quarterstr) {
+        case "第一季度":
+          return 1;
+        case "第二季度":
+          return 2;
+        case "第三季度":
+          return 3;
+        default:
+          return 4;}
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -38791,112 +38627,103 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
-var width;var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var width;
+var _self;var _default =
 {
+  components: {
+    wPicker: wPicker },
+
   onLoad: function onLoad() {
+    _self = this;
+    var year = this.getNowFormatYear();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
+    this.setPageTitle(year);
+    this.getDate(year);
   },
   data: function data() {
-    return {};
-
+    return {
+      sdate: this.getNowFormatYear(),
+      array: ['2017', '2018', '2019', '2020'],
+      index: 2,
+      dataList: [] };
 
   },
   onReady: function onReady() {
-    //this.hideLoading();
+
   },
   methods: {
-    goDetail: function goDetail(id, storeName) {
-      var detail = {
-        id: id,
-        storeName: storeName };
+    getDate: function getDate(year) {
+      _self.http.get("getYearExponent", {
+        year: year,
+        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          _self.dataList = e.data.data.list;
+        } else {
+          _self.util.showToast(e.data.msg);
+        }
+      });
+    },
+    setPageTitle: function setPageTitle(sDate) {
+      uni.setNavigationBarTitle({
+        title: sDate + ' 市空气指数' });
 
-      uni.navigateTo({
-        url: "dayitem32?detail=" + encodeURIComponent(JSON.stringify(detail)) });
-
+    },
+    getNowFormatYear: function getNowFormatYear() {
+      var date = new Date();
+      var seperator1 = "-";
+      var year = date.getFullYear();
+      var currentdate = year;
+      return currentdate;
+    },
+    bindPickerChange: function bindPickerChange(e) {
+      var date = e.target.value;
+      this.sdate = date;
+      this.setPageTitle(date);
+      this.getDate(date);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
@@ -40868,7 +40695,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -40964,30 +40790,11 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-    },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
     },
 
     goDetail: function goDetail(id, storeName) {
@@ -41236,7 +41043,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 
@@ -41295,30 +41101,11 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-    },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
     },
     goDetail: function goDetail(id, storeName) {
       var detail = {
@@ -41535,7 +41322,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -41587,30 +41373,11 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
-    },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
     },
     /*
         * 获取列表数据
@@ -41623,7 +41390,7 @@ var width;var _default =
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
-          console.log(e.data.data.list, " at pages\\report\\hourdata\\hourdata03.vue:112");
+          console.log(e.data.data.list, " at pages\\report\\hourdata\\hourdata03.vue:92");
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -41835,8 +41602,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -41912,32 +41677,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
     /*
         * 获取列表数据
         * sDate 查询日期
@@ -42205,7 +41950,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -42257,32 +42001,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
     /*
         * 获取列表数据
         * sDate 查询日期
@@ -42517,7 +42241,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
-var wxCharts = __webpack_require__(/*! ../../../utils/wxcharts.js */ "../../../Projects/AirApp/utils/wxcharts.js");
 var _self;
 var Charts;
 var width;var _default =
@@ -42568,32 +42291,12 @@ var width;var _default =
             return item.faqi;
           });
           series[0].data = datas || [];
-          _self.ShowCharts(categories, series);
+          _self.util.showChartLine("charts", categories, series, width);
         } else {
           _self.util.showToast(e.data.msg);
         }
       });
     },
-    /*显示图表*/
-    ShowCharts: function ShowCharts(categories, series) {
-      if (series[0].data.length <= 0) {
-        series[0].data.push(0);
-      }
-      Charts = new wxCharts({
-        canvasId: "charts",
-        type: 'line',
-        legend: true,
-        fontSize: 11,
-        background: '#FFFFFF',
-        animation: false,
-        categories: categories,
-        series: series,
-        width: width,
-        height: 280,
-        pixelRatio: 1 });
-
-    },
-
     /*
         * 获取列表数据
         * sDate 查询日期
