@@ -1,7 +1,16 @@
 <template>
 
 	<view>
-	
+		<view class="uni-list-cell">
+			<view class="uni-list-cell-left">
+				年份选择
+			</view>
+			<view class="uni-list-cell-db">
+				<picker @change="bindPickerChange" :value="index" :range="array">
+					<view class="uni-input">{{array[index]}}</view>
+				</picker>
+			</view>
+		</view>
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">指标</view>
@@ -11,111 +20,92 @@
 				<view class="text2">同比</view>
 				<view class="text2">环比浓度</view>
 				<view class="text2">环比</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100001,'PM2.5')">
-				<view class="text1">PM2.5</view>
-				<view class="text2">31~35</view>
-				<view class="text2">34</view>
-				<view class="text2">36~42</view>
-				<view class="text2">38</view>
-				<view class="text2">40~50</view>
-				<view class="text2">45</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100003,'O3')">
-				<view class="text1">O3</view>
-				<view class="text2">13~20</view>
-				<view class="text2">16</view>
-				<view class="text2">18~30</view>
-				<view class="text2">24</view>
-				<view class="text2">20~30</view>
-				<view class="text2">25</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100004,'重度污染')">
-				<view class="text1">SO2</view>
-				<view class="text2">1~5</view>
-				<view class="text2">3</view>
-				<view class="text2">6~10</view>
-				<view class="text2">8</view>
-				<view class="text2">3~9</view>
-				<view class="text2">6</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100005,'PM10')">
-				<view class="text1">PM10</view>
-				<view class="text2">52~60</view>
-				<view class="text2">56</view>
-				<view class="text2">58~68</view>
-				<view class="text2">63</view>
-				<view class="text2">50~56</view>
-				<view class="text2">53</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100006,'NO2')">
-				<view class="text1">NO2</view>
-				<view class="text2">21~31</view>
-				<view class="text2">26</view>
-				<view class="text2">31~41</view>
-				<view class="text2">36</view>
-				<view class="text2">18~20</view>
-				<view class="text2">19</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100007,'CO')">
-				<view class="text1">CO</view>
-				<view class="text2">4~10</view>
-				<view class="text2">7</view>
-				<view class="text2">6~8</view>
-				<view class="text2">7</view>
-				<view class="text2">10~12</view>
-				<view class="text2">11</view>
-			</view>	
+			</view>
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in dataList" :key="item.fsiteNo">
+				<view class="text1">{{item.fitemName}}</view>
+				<view class="text2">{{item.fitemRange}}</view>
+				<view class="text2">{{item.fitemValue}}</view>
+				<view class="text2">{{item.ftbValue}}</view>
+				<view class="text2">{{item.ftbRate}}</view>
+				<view class="text2">{{item.fhbValue}}</view>
+				<view class="text2">{{item.fhbRate}}</view>
+			</view>
 		</view>
-	
+
 	</view>
 </template>
 
 <script>
+	import wPicker from "@/components/w-picker/w-picker.vue";
 	var width;
+	var _self;
 	export default {
+		components: {
+			wPicker
+		},
 		onLoad: function() {
+			_self = this;
+			let year = this.getNowFormatYear();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
+			this.setPageTitle(year);
+			this.getDate(year);
 		},
 		data() {
 			return {
-	
+				sdate: this.getNowFormatYear(),
+				array: ['2017', '2018', '2019', '2020'],
+				index: 2,
+				dataList: [],
 			}
 		},
 		onReady: function() {
-			//this.hideLoading();
+
 		},
-		methods: {	
-			goDetail:function(id,storeName){			
-				let detail = {
-						id: id,
-						storeName:storeName
+		methods: {
+			getDate: function(year) {
+				_self.http.get("getYearExponent", {
+					year: year,
+					fsiteNo: this.$store.state.userInfo.userOrgNo
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.dataList = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
 					}
-					uni.navigateTo({
-						url: "dayitem32?detail=" + encodeURIComponent(JSON.stringify(detail))
-					})
-			}
+				});
+			},
+			setPageTitle: function(sDate) {
+				uni.setNavigationBarTitle({
+					title: sDate + ' 市空气指数'
+				});
+			},
+			getNowFormatYear: function() {
+				var date = new Date();
+				var seperator1 = "-";
+				var year = date.getFullYear();
+				var currentdate = year;
+				return currentdate;
+			},
+			bindPickerChange: function(e) {
+				let date = e.target.value;
+				this.sdate = date;
+				this.setPageTitle(date);
+				this.getDate(date);
+			},
 		}
 	}
 </script>
 
 <style>
-		
 	page {
 		height: auto;
 	}
-	
-   .text1 {
+
+	.text1 {
 		width: 150upx;
 		color: #FFFFFF;
 		text-align: center;

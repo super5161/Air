@@ -1,7 +1,10 @@
 <template>
-
 	<view>
-	
+		<view class="content">
+			<view class="tab" @tap="toggleTab(0)">月份选择 {{sdate}}</view>
+			<w-picker :mode="mode" startYear="2018" endYear="2030" step="1" :defaultVal="defaultVal" @confirm="onConfirm" ref="picker"
+			 themeColor="#f00"></w-picker>
+		</view>
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">指标</view>
@@ -11,111 +14,129 @@
 				<view class="text2">同比</view>
 				<view class="text2">环比浓度</view>
 				<view class="text2">环比</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100001,'PM2.5')">
-				<view class="text1">PM2.5</view>
-				<view class="text2">31~35</view>
-				<view class="text2">34</view>
-				<view class="text2">36~42</view>
-				<view class="text2">38</view>
-				<view class="text2">40~50</view>
-				<view class="text2">45</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100003,'O3')">
-				<view class="text1">O3</view>
-				<view class="text2">13~20</view>
-				<view class="text2">16</view>
-				<view class="text2">18~30</view>
-				<view class="text2">24</view>
-				<view class="text2">20~30</view>
-				<view class="text2">25</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100004,'重度污染')">
-				<view class="text1">SO2</view>
-				<view class="text2">1~5</view>
-				<view class="text2">3</view>
-				<view class="text2">6~10</view>
-				<view class="text2">8</view>
-				<view class="text2">3~9</view>
-				<view class="text2">6</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100005,'PM10')">
-				<view class="text1">PM10</view>
-				<view class="text2">52~60</view>
-				<view class="text2">56</view>
-				<view class="text2">58~68</view>
-				<view class="text2">63</view>
-				<view class="text2">50~56</view>
-				<view class="text2">53</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100006,'NO2')">
-				<view class="text1">NO2</view>
-				<view class="text2">21~31</view>
-				<view class="text2">26</view>
-				<view class="text2">31~41</view>
-				<view class="text2">36</view>
-				<view class="text2">18~20</view>
-				<view class="text2">19</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100007,'CO')">
-				<view class="text1">CO</view>
-				<view class="text2">4~10</view>
-				<view class="text2">7</view>
-				<view class="text2">6~8</view>
-				<view class="text2">7</view>
-				<view class="text2">10~12</view>
-				<view class="text2">11</view>
-			</view>	
+			</view>
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in dataList" :key="item.fsiteNo">
+				<view class="text1">{{item.fitemName}}</view>
+				<view class="text2">{{item.fitemRange}}</view>
+				<view class="text2">{{item.fitemValue}}</view>
+				<view class="text2">{{item.ftbValue}}</view>
+				<view class="text2">{{item.ftbRate}}</view>
+				<view class="text2">{{item.fhbValue}}</view>
+				<view class="text2">{{item.fhbRate}}</view>
+			</view>
 		</view>
-	
 	</view>
 </template>
 
 <script>
 	var width;
+	var _self;
+	import wPicker from "@/components/w-picker/w-picker.vue";
 	export default {
+		components: {
+			wPicker
+		},
 		onLoad: function() {
+			_self = this;
+			let date = this.getNowFormatMonth();
+			this.setPageTitle(date)
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
-			})
+			});
+			this.getDate(date)
 		},
 		data() {
 			return {
-	
+				title: 'Hello',
+				sdate: this.getNowFormatMonth(),
+				tabList: [{
+					mode: "yearMonth",
+					name: "年月",
+					value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+				}],
+				tabIndex: 0,
+				dataList: [],
+			}
+		},
+		computed: {
+			mode() {
+				return this.tabList[this.tabIndex].mode
+			},
+			defaultVal() {
+				return this.tabList[this.tabIndex].value
 			}
 		},
 		onReady: function() {
-			//this.hideLoading();
+
 		},
-		methods: {	
-			goDetail:function(id,storeName){			
-				let detail = {
-						id: id,
-						storeName:storeName
+		methods: {
+			toggleTab(index) {
+				this.tabIndex = index;
+				this.$refs.picker.show();
+			},
+			onConfirm(val) {
+				let date = val.result.replace('-', '');
+				this.sdate = date;
+				this.setPageTitle(date);
+				this.getDate(date);
+			},
+			getDate: function(date) {
+				_self.http.get("getMonthExponent", {
+					month: date,
+					fsiteNo: this.$store.state.userInfo.userOrgNo
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.dataList = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
 					}
-					uni.navigateTo({
-						url: "dayitem02?detail=" + encodeURIComponent(JSON.stringify(detail))
-					})
-			}
+				});
+
+			},
+
+			getNowFormatMonth: function() {
+				var date = new Date();
+				var seperator1 = "";
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				var currentdate = year + seperator1 + month;
+				return currentdate;
+			},
+
+			getNowYear: function() {
+				var date = new Date();
+				var year = date.getFullYear();
+				var currentdate = year - 2018;
+				return currentdate;
+			},
+
+			getNowMonth: function() {
+				var date = new Date();
+				var month = date.getMonth() + 1;
+				var currentdate = month - 1;
+				return currentdate;
+			},
+
+			setPageTitle: function(sDate) {
+				uni.setNavigationBarTitle({
+					title: sDate + ' 市空气统计'
+				});
+			},
 		}
 	}
 </script>
 
 <style>
-		
 	page {
 		height: auto;
 	}
-	
-   .text1 {
+
+	.text1 {
 		width: 150upx;
 		color: #FFFFFF;
 		text-align: center;
