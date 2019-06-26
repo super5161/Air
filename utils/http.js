@@ -10,7 +10,7 @@ http.delete('user/1').then((res)=>{console.log(JSON.stringify(res))})
 export default {
 	/*基本配置*/
 	config: {
-		baseUrl: "", //请求基本地址
+		url: '',
 		header: {
 			'Content-Type': 'application/json;charset=UTF-8',
 			'Content-Type': 'application/x-www-form-urlencoded'
@@ -20,9 +20,12 @@ export default {
 		dataType: "json",
 		responseType: "text",
 	},
+
 	//基础请求方式
 	request(options) {
+		let baseUrl = "http://139.224.13.75:8080/airReport/"; //请求基本地址
 		options = options || {};
+		options.url = baseUrl + options.url;
 		/*
 		_token  数据签名
 		*/
@@ -31,6 +34,7 @@ export default {
 		 */
 		return new Promise((resolve, reject) => {
 			let _config = Object.assign({}, this.config, options);
+
 			_config.requestId = new Date().getTime();
 			_config.success = function(res) {
 				resolve(res)

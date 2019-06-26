@@ -25,7 +25,12 @@ Vue.prototype.http = http;
 /* end http */
 
 import store from './store/index.js';
-Vue.prototype.store = store;
+Vue.prototype.$store = store;
+
+/* begin fixedTop */
+import util from './utils/util.js';
+Vue.prototype.util = util;
+/* end fixedTop */
 
 
 Vue.config.productionTip = false;
@@ -36,4 +41,14 @@ const app = new Vue({
 	store,
 	...App
 })
+
+/*空数据处理*/
+Vue.filter('emptyFielter', function(value) {
+	return value || '';
+});
+
+Vue.filter('intFielter', function(value) {
+	return value ? parseInt(value) : '';
+});
+
 app.$mount()

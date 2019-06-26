@@ -14,7 +14,8 @@ const store = new Vuex.Store({
 			state.hasLogin = true;
 			state.userInfo={
 				userId:provider.userId,
-				userName:provider.userName
+				userName:provider.userName,
+				userOrgNo:provider.userOrgNo,
 			}; 
 			//保存到本地
 			uni.setStorage({

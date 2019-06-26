@@ -145,8 +145,7 @@
 				});
 			},
 			goDetail:function(id,storeName){
-				console.log(storeName);
-				
+
 				let detail = {
 						id: id,
 						storeName:storeName,

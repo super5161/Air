@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
 
-/***/ "../../../Projects/Air/common/util.js":
-/*!**************************************!*\
-  !*** E:/Projects/Air/common/util.js ***!
-  \**************************************/
+/***/ "../../../Projects/AirApp/common/util.js":
+/*!*****************************************!*\
+  !*** E:/Projects/AirApp/common/util.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -74,10 +74,10 @@ function initPicker(start, end) {var mode = arguments.length > 2 && arguments[2]
 
 /***/ }),
 
-/***/ "../../../Projects/Air/components/w-picker/city-data/area.js":
-/*!*************************************************************!*\
-  !*** E:/Projects/Air/components/w-picker/city-data/area.js ***!
-  \*************************************************************/
+/***/ "../../../Projects/AirApp/components/w-picker/city-data/area.js":
+/*!****************************************************************!*\
+  !*** E:/Projects/AirApp/components/w-picker/city-data/area.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12627,10 +12627,10 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ "../../../Projects/Air/components/w-picker/city-data/city.js":
-/*!*************************************************************!*\
-  !*** E:/Projects/Air/components/w-picker/city-data/city.js ***!
-  \*************************************************************/
+/***/ "../../../Projects/AirApp/components/w-picker/city-data/city.js":
+/*!****************************************************************!*\
+  !*** E:/Projects/AirApp/components/w-picker/city-data/city.js ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14141,10 +14141,10 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ "../../../Projects/Air/components/w-picker/city-data/province.js":
-/*!*****************************************************************!*\
-  !*** E:/Projects/Air/components/w-picker/city-data/province.js ***!
-  \*****************************************************************/
+/***/ "../../../Projects/AirApp/components/w-picker/city-data/province.js":
+/*!********************************************************************!*\
+  !*** E:/Projects/AirApp/components/w-picker/city-data/province.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14291,29 +14291,23 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js":
-/*!*******************************!*\
-  !*** E:/Projects/Air/main.js ***!
-  \*******************************/
+/***/ "../../../Projects/AirApp/main.js":
+/*!**********************************!*\
+  !*** E:/Projects/AirApp/main.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "../../../Projects/Air/App.vue"));
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "../../../Projects/AirApp/App.vue"));
 
 
 
 
 
-var _vueI18nMin = _interopRequireDefault(__webpack_require__(/*! ./static/i18n/vue-i18n.min.js */ "../../../Projects/Air/static/i18n/vue-i18n.min.js"));
-
-
-
-
-
-
+var _vueI18nMin = _interopRequireDefault(__webpack_require__(/*! ./static/i18n/vue-i18n.min.js */ "../../../Projects/AirApp/static/i18n/vue-i18n.min.js"));
 
 
 
@@ -14322,12 +14316,23 @@ var _vueI18nMin = _interopRequireDefault(__webpack_require__(/*! ./static/i18n/v
 
 
 
-var _http = _interopRequireDefault(__webpack_require__(/*! ./utils/http.js */ "../../../Projects/Air/utils/http.js"));
 
 
 
-var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ "../../../Projects/Air/store/index.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var pageFoot = function pageFoot() {return __webpack_require__.e(/*! import() | components/page-foot */ "components/page-foot").then(__webpack_require__.bind(null, /*! ./components/page-foot */ "../../../Projects/Air/components/page-foot.vue"));};_vue.default.component("page-foot", pageFoot); /*begin 多语言支持*/_vue.default.use(_vueI18nMin.default);var i18n = new _vueI18nMin.default({ locale: 'zh-CN', messages: { 'zh-CN': __webpack_require__(/*! ./static/i18n/langs/zh */ "../../../Projects/Air/static/i18n/langs/zh.js"), 'en-US': __webpack_require__(/*! ./static/i18n/langs/en */ "../../../Projects/Air/static/i18n/langs/en.js"), 'zh-Tw': __webpack_require__(/*! ./static/i18n/langs/tw */ "../../../Projects/Air/static/i18n/langs/tw.js") } });_vue.default.prototype._i18n = i18n; /*end 多语言支持*/ /* begin http */_vue.default.prototype.http = _http.default; /* end http */
-_vue.default.prototype.store = _index.default;
+
+
+
+var _http = _interopRequireDefault(__webpack_require__(/*! ./utils/http.js */ "../../../Projects/AirApp/utils/http.js"));
+
+
+
+var _index = _interopRequireDefault(__webpack_require__(/*! ./store/index.js */ "../../../Projects/AirApp/store/index.js"));
+
+
+
+var _util = _interopRequireDefault(__webpack_require__(/*! ./utils/util.js */ "../../../Projects/AirApp/utils/util.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var pageFoot = function pageFoot() {return __webpack_require__.e(/*! import() | components/page-foot */ "components/page-foot").then(__webpack_require__.bind(null, /*! ./components/page-foot */ "../../../Projects/AirApp/components/page-foot.vue"));};_vue.default.component("page-foot", pageFoot); /*begin 多语言支持*/_vue.default.use(_vueI18nMin.default);var i18n = new _vueI18nMin.default({ locale: 'zh-CN', messages: { 'zh-CN': __webpack_require__(/*! ./static/i18n/langs/zh */ "../../../Projects/AirApp/static/i18n/langs/zh.js"), 'en-US': __webpack_require__(/*! ./static/i18n/langs/en */ "../../../Projects/AirApp/static/i18n/langs/en.js"), 'zh-Tw': __webpack_require__(/*! ./static/i18n/langs/tw */ "../../../Projects/AirApp/static/i18n/langs/tw.js") } });_vue.default.prototype._i18n = i18n; /*end 多语言支持*/ /* begin http */_vue.default.prototype.http = _http.default; /* end http */_vue.default.prototype.$store = _index.default; /* begin fixedTop */
+_vue.default.prototype.util = _util.default;
+/* end fixedTop */
 
 
 _vue.default.config.productionTip = false;
@@ -14338,882 +14343,892 @@ var app = new _vue.default(_objectSpread({
   store: _index.default },
 _App.default));
 
+
+/*空数据处理*/
+_vue.default.filter('emptyFielter', function (value) {
+  return value || '';
+});
+
+_vue.default.filter('intFielter', function (value) {
+  return value ? parseInt(value) : '';
+});
+
 createApp(app).$mount();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createApp"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Findex%2Fguide\"}":
-/*!****************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Findex%2Fguide"} ***!
-  \****************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Findex%2Fguide\"}":
+/*!*******************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Findex%2Fguide"} ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _guide = _interopRequireDefault(__webpack_require__(/*! ./pages/index/guide.vue */ "../../../Projects/Air/pages/index/guide.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _guide = _interopRequireDefault(__webpack_require__(/*! ./pages/index/guide.vue */ "../../../Projects/AirApp/pages/index/guide.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_guide.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Findex%2Findex\"}":
-/*!****************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \****************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Findex%2Findex\"}":
+/*!*******************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ "../../../Projects/Air/pages/index/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ "../../../Projects/AirApp/pages/index/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Flogin%2Flogin\"}":
-/*!****************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
-  \****************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Flogin%2Flogin\"}":
+/*!*******************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ "../../../Projects/Air/pages/login/login.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ "../../../Projects/AirApp/pages/login/login.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_login.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Fnote%2Findex\"}":
-/*!***************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Fnote%2Findex"} ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/note/index.vue */ "../../../Projects/Air/pages/note/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Fnote%2Fnotedata\"}":
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Fnote%2Findex\"}":
 /*!******************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Fnote%2Fnotedata"} ***!
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Fnote%2Findex"} ***!
   \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _notedata = _interopRequireDefault(__webpack_require__(/*! ./pages/note/notedata.vue */ "../../../Projects/Air/pages/note/notedata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/note/index.vue */ "../../../Projects/AirApp/pages/note/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Fnote%2Fnotedata\"}":
+/*!*********************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Fnote%2Fnotedata"} ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _notedata = _interopRequireDefault(__webpack_require__(/*! ./pages/note/notedata.vue */ "../../../Projects/AirApp/pages/note/notedata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_notedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata01\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata01"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata01\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata01"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata01.vue */ "../../../Projects/Air/pages/report/daydata/daydata01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata01.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata02\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata02"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata02\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata02"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata02.vue */ "../../../Projects/Air/pages/report/daydata/daydata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata02.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata03\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata03"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata03\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata03"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata03.vue */ "../../../Projects/Air/pages/report/daydata/daydata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata03.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata21\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata21"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata21\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata21"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata21.vue */ "../../../Projects/Air/pages/report/daydata/daydata21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata21.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata22\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata22"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata22\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata22"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata22.vue */ "../../../Projects/Air/pages/report/daydata/daydata22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata22.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata23\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata23"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata23\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata23"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata23.vue */ "../../../Projects/Air/pages/report/daydata/daydata23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata23.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata31\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata31"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata31\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata31"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata31.vue */ "../../../Projects/Air/pages/report/daydata/daydata31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata31.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata32\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata32"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata32\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata32"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata32.vue */ "../../../Projects/Air/pages/report/daydata/daydata32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata32.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata33\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata33"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Fdaydata33\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Fdaydata33"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata33.vue */ "../../../Projects/Air/pages/report/daydata/daydata33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daydata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/daydata33.vue */ "../../../Projects/AirApp/pages/report/daydata/daydata33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daydata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Findex\"}":
-/*!***************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaydata%2Findex"} ***!
-  \***************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaydata%2Findex\"}":
+/*!******************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaydata%2Findex"} ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/index.vue */ "../../../Projects/Air/pages/report/daydata/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daydata/index.vue */ "../../../Projects/AirApp/pages/report/daydata/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem01\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem01"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem01\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem01"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem01.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem01.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem02\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem02"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem02\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem02"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem02.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem02.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem03\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem03"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem03\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem03"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem03.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem03.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem21\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem21"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem21\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem21"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem21.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem21.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem22\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem22"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem22\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem22"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem22.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem22.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem23\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem23"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem23\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem23"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem23.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem23.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem31\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem31"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem31\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem31"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem31.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem31.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem32\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem32"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem32\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem32"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem32.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem32.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem33\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem33"} ***!
-  \*******************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Fdayitem33\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Fdayitem33"} ***!
+  \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem33.vue */ "../../../Projects/Air/pages/report/dayitem/dayitem33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _dayitem = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/dayitem33.vue */ "../../../Projects/AirApp/pages/report/dayitem/dayitem33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_dayitem.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Findex\"}":
-/*!***************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdayitem%2Findex"} ***!
-  \***************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdayitem%2Findex\"}":
+/*!******************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdayitem%2Findex"} ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/index.vue */ "../../../Projects/Air/pages/report/dayitem/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/dayitem/index.vue */ "../../../Projects/AirApp/pages/report/dayitem/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal01\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal01"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal01\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal01"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal01.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal01.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal02\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal02"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal02\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal02"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal02.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal02.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal03\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal03"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal03\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal03"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal03.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal03.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal21\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal21"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal21\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal21"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal21.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal21.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal22\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal22"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal22\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal22"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal22.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal22.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal23\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal23"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal23\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal23"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal23.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal23.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal31\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal31"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal31\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal31"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal31.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal31.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal32\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal32"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal32\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal32"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal32.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal32.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal32.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal33\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal33"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Fdaytotal33\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Fdaytotal33"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal33.vue */ "../../../Projects/Air/pages/report/daytotal/daytotal33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _daytotal = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/daytotal33.vue */ "../../../Projects/AirApp/pages/report/daytotal/daytotal33.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_daytotal.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Findex\"}":
-/*!****************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fdaytotal%2Findex"} ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/index.vue */ "../../../Projects/Air/pages/report/daytotal/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata\"}":
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fdaytotal%2Findex\"}":
 /*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata"} ***!
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fdaytotal%2Findex"} ***!
   \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata.vue */ "../../../Projects/Air/pages/report/hourdata/hourdata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/daytotal/index.vue */ "../../../Projects/AirApp/pages/report/daytotal/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata.vue */ "../../../Projects/AirApp/pages/report/hourdata/hourdata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_hourdata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata02\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata02"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata02\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata02"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata02.vue */ "../../../Projects/Air/pages/report/hourdata/hourdata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata02.vue */ "../../../Projects/AirApp/pages/report/hourdata/hourdata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_hourdata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata03\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata03"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fhourdata%2Fhourdata03\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fhourdata%2Fhourdata03"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata03.vue */ "../../../Projects/Air/pages/report/hourdata/hourdata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _hourdata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/hourdata/hourdata03.vue */ "../../../Projects/AirApp/pages/report/hourdata/hourdata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_hourdata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata\"}":
-/*!*****************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata"} ***!
-  \*****************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata\"}":
+/*!********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata"} ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata.vue */ "../../../Projects/Air/pages/report/mondata/mondata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata.vue */ "../../../Projects/AirApp/pages/report/mondata/mondata.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_mondata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata02\"}":
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata02\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata02"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata02.vue */ "../../../Projects/AirApp/pages/report/mondata/mondata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_mondata.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata03\"}":
+/*!**********************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata03"} ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata03.vue */ "../../../Projects/AirApp/pages/report/mondata/mondata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_mondata.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Findex\"}":
 /*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata02"} ***!
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Findex"} ***!
   \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata02.vue */ "../../../Projects/Air/pages/report/mondata/mondata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_mondata.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Fmondata%2Fmondata03\"}":
-/*!*******************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Fmondata%2Fmondata03"} ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _mondata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/mondata/mondata03.vue */ "../../../Projects/Air/pages/report/mondata/mondata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_mondata.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Findex\"}":
-/*!****************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Findex"} ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/index.vue */ "../../../Projects/Air/pages/report/timedata/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/index.vue */ "../../../Projects/AirApp/pages/report/timedata/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata01\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata01"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata01\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata01"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata01.vue */ "../../../Projects/Air/pages/report/timedata/timedata01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata01.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata01.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata02\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata02"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata02\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata02"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata02.vue */ "../../../Projects/Air/pages/report/timedata/timedata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata02.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata02.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata03\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata03"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata03\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata03"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata03.vue */ "../../../Projects/Air/pages/report/timedata/timedata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata03.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata03.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata21\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata21"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata21\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata21"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata21.vue */ "../../../Projects/Air/pages/report/timedata/timedata21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata21.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata21.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata22\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata22"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata22\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata22"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata22.vue */ "../../../Projects/Air/pages/report/timedata/timedata22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata22.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata22.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata23\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata23"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata23\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata23"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata23.vue */ "../../../Projects/Air/pages/report/timedata/timedata23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata23.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata23.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata31\"}":
-/*!*********************************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata31"} ***!
-  \*********************************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Freport%2Ftimedata%2Ftimedata31\"}":
+/*!************************************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Freport%2Ftimedata%2Ftimedata31"} ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata31.vue */ "../../../Projects/Air/pages/report/timedata/timedata31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _timedata = _interopRequireDefault(__webpack_require__(/*! ./pages/report/timedata/timedata31.vue */ "../../../Projects/AirApp/pages/report/timedata/timedata31.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_timedata.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Fsmart%2Findex\"}":
-/*!****************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Fsmart%2Findex"} ***!
-  \****************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Fsmart%2Findex\"}":
+/*!*******************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Fsmart%2Findex"} ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/smart/index.vue */ "../../../Projects/Air/pages/smart/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/smart/index.vue */ "../../../Projects/AirApp/pages/smart/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/main.js?{\"page\":\"pages%2Fuser%2Findex\"}":
-/*!***************************************************************!*\
-  !*** E:/Projects/Air/main.js?{"page":"pages%2Fuser%2Findex"} ***!
-  \***************************************************************/
+/***/ "../../../Projects/AirApp/main.js?{\"page\":\"pages%2Fuser%2Findex\"}":
+/*!******************************************************************!*\
+  !*** E:/Projects/AirApp/main.js?{"page":"pages%2Fuser%2Findex"} ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/Air/pages.json");
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../Projects/AirApp/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/user/index.vue */ "../../../Projects/Air/pages/user/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/user/index.vue */ "../../../Projects/AirApp/pages/user/index.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_index.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["createPage"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/pages.json":
-/*!**********************************!*\
-  !*** E:/Projects/Air/pages.json ***!
-  \**********************************/
+/***/ "../../../Projects/AirApp/pages.json":
+/*!*************************************!*\
+  !*** E:/Projects/AirApp/pages.json ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15222,10 +15237,10 @@ createPage(_index.default);
 
 /***/ }),
 
-/***/ "../../../Projects/Air/static/i18n/langs/en.js":
-/*!***********************************************!*\
-  !*** E:/Projects/Air/static/i18n/langs/en.js ***!
-  \***********************************************/
+/***/ "../../../Projects/AirApp/static/i18n/langs/en.js":
+/*!**************************************************!*\
+  !*** E:/Projects/AirApp/static/i18n/langs/en.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15248,10 +15263,10 @@ var res = {
 
 /***/ }),
 
-/***/ "../../../Projects/Air/static/i18n/langs/tw.js":
-/*!***********************************************!*\
-  !*** E:/Projects/Air/static/i18n/langs/tw.js ***!
-  \***********************************************/
+/***/ "../../../Projects/AirApp/static/i18n/langs/tw.js":
+/*!**************************************************!*\
+  !*** E:/Projects/AirApp/static/i18n/langs/tw.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15273,10 +15288,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.res = void
 
 /***/ }),
 
-/***/ "../../../Projects/Air/static/i18n/langs/zh.js":
-/*!***********************************************!*\
-  !*** E:/Projects/Air/static/i18n/langs/zh.js ***!
-  \***********************************************/
+/***/ "../../../Projects/AirApp/static/i18n/langs/zh.js":
+/*!**************************************************!*\
+  !*** E:/Projects/AirApp/static/i18n/langs/zh.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15298,10 +15313,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.res = void
 
 /***/ }),
 
-/***/ "../../../Projects/Air/static/i18n/vue-i18n.min.js":
-/*!***************************************************!*\
-  !*** E:/Projects/Air/static/i18n/vue-i18n.min.js ***!
-  \***************************************************/
+/***/ "../../../Projects/AirApp/static/i18n/vue-i18n.min.js":
+/*!******************************************************!*\
+  !*** E:/Projects/AirApp/static/i18n/vue-i18n.min.js ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15315,36 +15330,57 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.res = void
 
 /***/ }),
 
-/***/ "../../../Projects/Air/store/index.js":
-/*!**************************************!*\
-  !*** E:/Projects/Air/store/index.js ***!
-  \**************************************/
+/***/ "../../../Projects/AirApp/static/image/fa.jpg":
+/*!**********************************************!*\
+  !*** E:/Projects/AirApp/static/image/fa.jpg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/jpeg;base64,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"
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/store/index.js":
+/*!*****************************************!*\
+  !*** E:/Projects/AirApp/store/index.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /*
-                                                                                                                                                  *
-                                                                                                                                                  */_vue.default.use(_vuex.default);
+_vue.default.use(_vuex.default);
 
 var store = new _vuex.default.Store({
   state: {
-    hasLogin: false,
-    userId: '' },
-
-
+    hasLogin: false, //是否登录
+    userInfo: {} //用户信息
+  },
   mutations: {
-    login: function login(state, userId) {
+    //用户登录
+    login: function login(state, provider) {
       state.hasLogin = true;
-      state.userId = userId;
-    },
+      state.userInfo = {
+        userId: provider.userId,
+        userName: provider.userName,
+        userOrgNo: provider.userOrgNo };
+
+      //保存到本地
+      uni.setStorage({
+        key: 'userInfo',
+        data: provider });
+
+    }, //用户退出
     logout: function logout(state) {
       state.hasLogin = false;
-      state.userId = '';
+      state.userInfo = {};
+
+      uni.removeStorage({
+        key: 'userInfo' });
+
     } },
 
   actions: {
@@ -15380,13 +15416,14 @@ var store = new _vuex.default.Store({
 
 
 store;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),
 
-/***/ "../../../Projects/Air/utils/http.js":
-/*!*************************************!*\
-  !*** E:/Projects/Air/utils/http.js ***!
-  \*************************************/
+/***/ "../../../Projects/AirApp/utils/http.js":
+/*!****************************************!*\
+  !*** E:/Projects/AirApp/utils/http.js ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15403,7 +15440,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   /*基本配置*/
   config: {
-    baseUrl: "", //请求基本地址
+    url: '',
     header: _defineProperty({
       'Content-Type': 'application/json;charset=UTF-8' }, "Content-Type",
     'application/x-www-form-urlencoded'),
@@ -15413,17 +15450,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     dataType: "json",
     responseType: "text" },
 
+
   //基础请求方式
   request: function request(options) {var _this = this;
+    var baseUrl = "http://139.224.13.75:8080/airReport/"; //请求基本地址
     options = options || {};
+    options.url = baseUrl + options.url;
     /*
-                             _token  数据签名
-                             */
+                                         _token  数据签名
+                                         */
     /*
-                                 * Promise  then 成功调用 catch 失败调用  
-                                 */
+                                             * Promise  then 成功调用 catch 失败调用  
+                                             */
     return new Promise(function (resolve, reject) {
       var _config = Object.assign({}, _this.config, options);
+
       _config.requestId = new Date().getTime();
       _config.success = function (res) {
         resolve(res);
@@ -15466,10 +15507,45 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ "../../../Projects/Air/utils/wxcharts.js":
-/*!*****************************************!*\
-  !*** E:/Projects/Air/utils/wxcharts.js ***!
-  \*****************************************/
+/***/ "../../../Projects/AirApp/utils/util.js":
+/*!****************************************!*\
+  !*** E:/Projects/AirApp/utils/util.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {//全局工具函数
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+{
+  /*计算固定位置*/
+  fixedTop: function fixedTop(h) {
+    return new Promise(function (resolve, reject) {
+      uni.getSystemInfo({
+        success: function success(res) {
+          var height = res.windowHeight;
+          var navHeight = res.windowTop === undefined ? 0 : res.windowTop;
+          var top = height + navHeight - h;
+          resolve(top);
+        } });
+
+    });
+  },
+  //显示Toast消息
+  showToast: function showToast(msg) {
+    uni.showToast({
+      title: msg,
+      icon: "none" });
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
+
+/***/ }),
+
+/***/ "../../../Projects/AirApp/utils/wxcharts.js":
+/*!********************************************!*\
+  !*** E:/Projects/AirApp/utils/wxcharts.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18121,7 +18197,7 @@ var camelize = cached(function (str) {
   return str.replace(camelizeRE, function (_, c) {return c ? c.toUpperCase() : '';});
 });
 
-var SYNC_API_RE = /requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$/;
+var SYNC_API_RE = /subNVue|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -18226,6 +18302,8 @@ function upx2px(number, newDeviceWidth) {
 }
 
 var protocols = {};
+var todos = [];
+var canIUses = [];
 
 var CALLBACKS = ['success', 'fail', 'cancel', 'complete'];
 
@@ -18329,6 +18407,68 @@ TODOS.forEach(function (name) {
   todoApis[name] = createTodoApi(name);
 });
 
+function wrapper$1(webview) {
+  webview.$processed = true;
+  if (!webview.__uniapp_mask_id) {
+    return;
+  }
+  var maskColor = webview.__uniapp_mask;
+  var maskWebview = plus.webview.getWebviewById(webview.__uniapp_mask_id);
+  var oldShow = webview.show;
+  var oldHide = webview.hide;
+  var oldClose = webview.close;
+
+  var showMask = function showMask() {
+    maskWebview.setStyle({
+      mask: maskColor });
+
+  };
+  var closeMask = function closeMask() {
+    maskWebview.setStyle({
+      mask: 'none' });
+
+  };
+  webview.show = function () {
+    showMask();for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {args[_key2] = arguments[_key2];}
+    return oldShow.apply(webview, args);
+  };
+  webview.hide = function () {
+    closeMask();for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {args[_key3] = arguments[_key3];}
+    return oldHide.apply(webview, args);
+  };
+  webview.close = function () {
+    closeMask();
+    callbacks = [];for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {args[_key4] = arguments[_key4];}
+    return oldClose.apply(webview, args);
+  };
+  webview.postMessage = function (data) {
+    plus.webview.postMessageToUniNView({
+      type: 'UniAppSubNVue',
+      data: data,
+      options: {
+        id: webview.id } },
+
+    webview.id);
+  };
+  var callbacks = [];
+  webview.onMessage = function (callback) {
+    callbacks.push(callback);
+  };
+  webview.$consumeMessage = function (e) {
+    callbacks.forEach(function (callback) {return callback(e);});
+  };
+}
+
+var subNVue = {
+  getSubNVueById: function getSubNVueById(id) {
+    var webview = plus.webview.getWebviewById(id);
+    if (webview && !webview.$processed) {
+      wrapper$1(webview);
+    }
+    return webview;
+  } };
+
+
 function requireNativePlugin(pluginName) {
   /* eslint-disable no-undef */
   if (typeof weex !== 'undefined') {
@@ -18339,7 +18479,8 @@ function requireNativePlugin(pluginName) {
 }
 
 var api = /*#__PURE__*/Object.freeze({
-  requireNativePlugin: requireNativePlugin });
+  requireNativePlugin: requireNativePlugin,
+  subNVue: subNVue });
 
 
 var MPPage = Page;
@@ -18358,13 +18499,12 @@ function initTriggerEvent(mpInstance) {
     }
   }
   var oldTriggerEvent = mpInstance.triggerEvent;
-  mpInstance.triggerEvent = function (event) {for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {args[_key2 - 1] = arguments[_key2];}
+  mpInstance.triggerEvent = function (event) {for (var _len5 = arguments.length, args = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {args[_key5 - 1] = arguments[_key5];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
   };
 }
 
-Page = function Page() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var name = 'onLoad';
+function initHook(name, options) {
   var oldHook = options[name];
   if (!oldHook) {
     options[name] = function () {
@@ -18372,26 +18512,49 @@ Page = function Page() {var options = arguments.length > 0 && arguments[0] !== u
     };
   } else {
     options[name] = function () {
-      initTriggerEvent(this);for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {args[_key3] = arguments[_key3];}
+      initTriggerEvent(this);for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {args[_key6] = arguments[_key6];}
       return oldHook.apply(this, args);
     };
   }
+}
+
+Page = function Page() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  initHook('onLoad', options);
   return MPPage(options);
 };
 
-var behavior = Behavior({
-  created: function created() {
-    initTriggerEvent(this);
-  } });
-
-
 Component = function Component() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  (options.behaviors || (options.behaviors = [])).unshift(behavior);
+  initHook('created', options);
   return MPComponent(options);
 };
 
 var mocks = ['__route__', '__wxExparserNodeId__', '__wxWebviewId__'];
 
+function initBehavior(options) {
+  return Behavior(options);
+}
+function initRefs(vm) {
+  var mpInstance = vm.$scope;
+  Object.defineProperty(vm, '$refs', {
+    get: function get() {
+      var $refs = {};
+      var components = mpInstance.selectAllComponents('.vue-ref');
+      components.forEach(function (component) {
+        var ref = component.dataset.ref;
+        $refs[ref] = component.$vm || component;
+      });
+      var forComponents = mpInstance.selectAllComponents('.vue-ref-in-for');
+      forComponents.forEach(function (component) {
+        var ref = component.dataset.ref;
+        if (!$refs[ref]) {
+          $refs[ref] = [];
+        }
+        $refs[ref].push(component.$vm || component);
+      });
+      return $refs;
+    } });
+
+}
 function triggerLink(mpInstance, vueOptions) {
   mpInstance.triggerEvent('__l', mpInstance.$vm || vueOptions, {
     bubbles: true,
@@ -18415,18 +18578,19 @@ function handleLink(event) {
 }
 
 function initPage$1(pageOptions) {
-  initComponent$1(pageOptions);
+  return initComponent$1(pageOptions);
 }
 
 function initComponent$1(componentOptions) {
   componentOptions.methods.$getAppWebview = function () {
     return plus.webview.getWebviewById("".concat(this.__wxWebviewId__));
   };
+  return Component(componentOptions);
 }
 
-function initMocks(vm, mocks) {
+function initMocks(vm, mocks$$1) {
   var mpInstance = vm.$mp[vm.mpType];
-  mocks.forEach(function (mock) {
+  mocks$$1.forEach(function (mock) {
     if (hasOwn(mpInstance, mock)) {
       vm[mock] = mpInstance[mock];
     }
@@ -18449,7 +18613,7 @@ function getData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -18511,7 +18675,7 @@ function getBehaviors(vueOptions) {
   }
   if (isPlainObject(vueExtends) && vueExtends.props) {
     behaviors.push(
-    Behavior({
+    initBehavior({
       properties: getProperties(vueExtends.props, true) }));
 
 
@@ -18520,7 +18684,7 @@ function getBehaviors(vueOptions) {
     vueMixins.forEach(function (vueMixin) {
       if (isPlainObject(vueMixin) && vueMixin.props) {
         behaviors.push(
-        Behavior({
+        initBehavior({
           properties: getProperties(vueMixin.props, true) }));
 
 
@@ -18590,7 +18754,7 @@ function getProperties(props) {var isBehavior = arguments.length > 1 && argument
   return properties;
 }
 
-function wrapper$1(event) {
+function wrapper$2(event) {
   // TODO 又得兼容 mpvue 的 mp 对象
   try {
     event.mp = JSON.parse(JSON.stringify(event));
@@ -18741,7 +18905,7 @@ var ONCE = '~';
 var CUSTOM = '^';
 
 function handleEvent(event) {var _this = this;
-  event = wrapper$1(event);
+  event = wrapper$2(event);
 
   // [['tap',[['handle',[1,2,a]],['handle1',[1,2,a]]]]]
   var eventOpts = (event.currentTarget || event.target).dataset.eventOpts;
@@ -18788,29 +18952,6 @@ function handleEvent(event) {var _this = this;
   });
 }
 
-function initRefs(vm) {
-  var mpInstance = vm.$mp[vm.mpType];
-  Object.defineProperty(vm, '$refs', {
-    get: function get() {
-      var $refs = {};
-      var components = mpInstance.selectAllComponents('.vue-ref');
-      components.forEach(function (component) {
-        var ref = component.dataset.ref;
-        $refs[ref] = component.$vm || component;
-      });
-      var forComponents = mpInstance.selectAllComponents('.vue-ref-in-for');
-      forComponents.forEach(function (component) {
-        var ref = component.dataset.ref;
-        if (!$refs[ref]) {
-          $refs[ref] = [];
-        }
-        $refs[ref].push(component.$vm || component);
-      });
-      return $refs;
-    } });
-
-}
-
 var hooks = [
 'onHide',
 'onError',
@@ -18831,24 +18972,27 @@ function initVm(vm) {
 }
 
 function createApp(vm) {
-  // 外部初始化时 Vue 还未初始化，放到 createApp 内部初始化 mixin
+
   _vue.default.mixin({
     beforeCreate: function beforeCreate() {
       if (!this.$options.mpType) {
         return;
       }
+
       this.mpType = this.$options.mpType;
+
       this.$mp = _defineProperty({
         data: {} },
       this.mpType, this.$options.mpInstance);
+
+
+      this.$scope = this.$options.mpInstance;
 
       delete this.$options.mpType;
       delete this.$options.mpInstance;
 
       if (this.mpType !== 'app') {
-        {// 头条的 selectComponent 竟然是异步的
-          initRefs(this);
-        }
+        initRefs(this);
         initMocks(this, mocks);
       }
     },
@@ -18959,9 +19103,7 @@ function createPage(vueOptions) {
 
   initHooks(pageOptions.methods, hooks$1);
 
-  initPage$1(pageOptions);
-
-  return Component(pageOptions);
+  return initPage$1(pageOptions, vueOptions);
 }
 
 function initVm$2(VueComponent) {
@@ -18969,16 +19111,18 @@ function initVm$2(VueComponent) {
     return;
   }
 
+  var properties = this.properties;
+
   var options = {
     mpType: 'component',
     mpInstance: this,
-    propsData: this.properties };
+    propsData: properties };
 
   // 初始化 vue 实例
   this.$vm = new VueComponent(options);
 
   // 处理$slots,$scopedSlots（暂不支持动态变化$slots）
-  var vueSlots = this.properties.vueSlots;
+  var vueSlots = properties.vueSlots;
   if (Array.isArray(vueSlots) && vueSlots.length) {
     var $slots = Object.create(null);
     vueSlots.forEach(function (slotName) {
@@ -18994,11 +19138,17 @@ function initVm$2(VueComponent) {
 function createComponent(vueOptions) {
   vueOptions = vueOptions.default || vueOptions;
 
+  var VueComponent;
+  if (isFn(vueOptions)) {
+    VueComponent = vueOptions; // TODO form-field props.name,props.value
+    vueOptions = VueComponent.extendOptions;
+  } else {
+    VueComponent = _vue.default.extend(vueOptions);
+  }
+
   var behaviors = getBehaviors(vueOptions);
 
   var properties = getProperties(vueOptions.props, false, vueOptions.__file);
-
-  var VueComponent = _vue.default.extend(vueOptions);
 
   var componentOptions = {
     options: {
@@ -19044,10 +19194,19 @@ function createComponent(vueOptions) {
 
 
 
-  initComponent$1(componentOptions);
-
-  return Component(componentOptions);
+  return initComponent$1(componentOptions, vueOptions);
 }
+
+todos.forEach(function (todoApi) {
+  protocols[todoApi] = false;
+});
+
+canIUses.forEach(function (canIUseApi) {
+  var apiName = protocols[canIUseApi] && protocols[canIUseApi].name ? protocols[canIUseApi].name : canIUseApi;
+  if (!wx.canIUse(apiName)) {
+    protocols[canIUseApi] = false;
+  }
+});
 
 var uni = {};
 
@@ -19721,8 +19880,8 @@ if (true) {
 
   formatComponentName = function (vm, includeFile) {
     {
-      if(vm.$mp && vm.$mp[vm.mpType]){
-        return vm.$mp[vm.mpType].is
+      if(vm.$scope && vm.$scope.is){
+        return vm.$scope.is
       }
     }
     if (vm.$root === vm) {
@@ -24528,8 +24687,8 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
-            var mpInstance = vm.$mp[vm.mpType];
+        if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
         }
@@ -24549,15 +24708,15 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
-            var mpInstance = vm.$mp[vm.mpType];
+        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+            var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
-            var mpInstance$1 = vm.$mp[vm.mpType];
+        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+            var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
         }
@@ -24616,7 +24775,7 @@ var patch = function(oldVnode, vnode) {
         return
     }
     if (this.mpType === 'page' || this.mpType === 'component') {
-        var mpInstance = this.$mp[this.mpType];
+        var mpInstance = this.$scope;
         var data = cloneWithData(this);
         data.__webviewId__ = mpInstance.data.__webviewId__;
         var mpData = Object.create(null);
@@ -24625,7 +24784,7 @@ var patch = function(oldVnode, vnode) {
         });
         var diffData = diff(data, mpData);
         if (Object.keys(diffData).length) {
-            if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
                 console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
                     ']差量更新',
                     JSON.stringify(diffData));
@@ -24798,8 +24957,8 @@ function internalMixin(Vue) {
     var oldEmit = Vue.prototype.$emit;
 
     Vue.prototype.$emit = function(event) {
-        if (this.$mp && event) {
-            this.$mp[this.mpType]['triggerEvent'](event, {
+        if (this.$scope && event) {
+            this.$scope['triggerEvent'](event, {
                 __args__: toArray(arguments, 1)
             });
         }
@@ -24812,8 +24971,8 @@ function internalMixin(Vue) {
 
     MP_METHODS.forEach(function (method) {
         Vue.prototype[method] = function(args) {
-            if (this.$mp) {
-                return this.$mp[this.mpType][method](args)
+            if (this.$scope) {
+                return this.$scope[method](args)
             }
         };
     });
@@ -24903,6 +25062,7 @@ var LIFECYCLE_HOOKS$1 = [
     'onReachBottom',
     'onTabItemTap',
     'onShareAppMessage',
+    'onResize',
     'onPageScroll',
     'onNavigationBarButtonTap',
     'onBackPress',
@@ -24910,7 +25070,7 @@ var LIFECYCLE_HOOKS$1 = [
     'onNavigationBarSearchInputConfirmed',
     'onNavigationBarSearchInputClicked',
     //Component
-    'onReady', // 兼容旧版本，应该移除该事件
+    // 'onReady', // 兼容旧版本，应该移除该事件
     'onPageShow',
     'onPageHide',
     'onPageResize'

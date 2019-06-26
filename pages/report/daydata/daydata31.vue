@@ -1,150 +1,160 @@
 <template>
 
 	<view>
-        <view class="uni-list">
-            <view class="uni-list-cell">
-                <view class="uni-list-cell-left">
-                    年份选择
-                </view>
-                <view class="uni-list-cell-db">
-                    <picker @change="bindPickerChange" :value="index" :range="array">
-                        <view class="uni-input">{{array[index]}}</view>
-                    </picker>
-                </view>
+		<view class="uni-list">
+			<view class="uni-list-cell">
+				<view class="uni-list-cell-left">
+					年份选择
+				</view>
+				<view class="uni-list-cell-db">
+					<picker @change="bindPickerChange" :value="index" :range="array">
+						<view class="uni-input">{{array[index]}}</view>
+					</picker>
+				</view>
 			</view>
-        </view>
-			
+		</view>
+
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">地区</view>
 				<view class="text2">AQI</view>
 				<view class="text2">空气类别</view>
 				<view class="text2">首要污染物</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(200001,'闵行区')">
-				<view class="text1">闵行区</view>
-				<view class="text2">76</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-			</view>	
-			
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" @click="goDetail(200002,'浦东新区')">
-				<view class="text1">浦东新区</view>
-				<view class="text2">80</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(200003,'徐汇区')">
-				<view class="text1">徐汇区</view>
-				<view class="text2">83</view>
-				<view class="text2">良</view>
-				<view class="text2">CO</view>
-			</view>	
-			
+			</view>
+
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo"
+			 @click="goDetail(item.fsiteNo,item.fsiteName)">
+				<view class="text1">{{item.fsiteName}}</view>
+				<view class="text2">{{item.faqi|intFielter}}</view>
+				<view class="text2">{{item.faqiType|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
+			</view>
+
 		</view>
 
-     <view>
-		<canvas canvas-id="charts" id="charts" class="charts"></canvas>
-	</view>
-	
+		<view>
+			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
+		</view>
+
 	</view>
 </template>
 
 <script>
-	var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
 	var Charts;
-	
-	var Data = {
-		categories: ['2019/1', '2019/2', '2019/3','2019/4', '2019/5', '2019/6'],
-		series: [{
-				name: 'AQI',
-				data: [363, 370, 360,396, 423, 418]
-			}
-		]
-	};
 	var width;
 	export default {
 		onLoad: function() {
-			uni.setNavigationBarTitle({
-				title: this.getNowFormatYear()+'市空气质量'
-			});
-			
+			_self = this;
+			let date = this.getNowFormatYear();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
+			this.setPageTitle(date);
+
+			this.getListData(date);
+			this.getChartData(date);
 		},
 		data() {
 			return {
-				 sdate: this.getNowFormatYear(),
-	             array: ['2017','2018', '2019', '2020'],
-				 index: 2,
+				sdate: this.getNowFormatYear(),
+				array: ['2017', '2018', '2019', '2020'],
+				index: 2,
+				listData: [],
+
 			}
 		},
 		onReady: function() {
-			this.ShowCharts("charts", Data);
-			//this.hideLoading();
+
 		},
 		methods: {
 			bindPickerChange: function(e) {
-            console.log('picker发送选择改变，携带值为', e.target.value)
-            this.index = e.target.value
-			
-			uni.setNavigationBarTitle({
-				title: this.array[this.index]+'市空气质量'
-			});
-			
-            },
-			/*显示图表*/
-			ShowCharts: function(canvasId, data) {
-				Charts = new wxCharts({
-					canvasId: canvasId,
-					type: 'line',
-					legend: true,
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: true,
-					categories: data.categories,
-					series: data.series,
-					width: width,
-					height: 280,
-					pixelRatio:1,
+				let date = e.target.value;
+				this.sdate = date;
+				this.getListData(date);
+				this.getChartData(date);
+			},
+			getChartData: function(year) {
+				_self.http.get("getYearLineChart", {
+					year: year,
+					fsiteNo: this.$store.state.userInfo.userOrgNo
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						let categories = [];
+						categories = e.data.data.list.map(function(item) {
+							return item.ftime;
+						});
+						let series = [];
+						series[0] = {
+							name: "AQI",
+							data: [],
+						}
+						let datas = e.data.data.list.map(function(item) {
+							return item.faqi;
+						});
+						series[0].data = datas || [];
+						_self.util.showChartLine("charts", categories, series, width);
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
 			},
-			
-			goDetail:function(id,storeName){			
-				let detail = {
-						id: id,
-						storeName:storeName,
-						date:this.array[this.index]
+			/*
+			 * 获取列表数据
+			 * year 年
+			 * quarter 季度
+			 * */
+			getListData: function(year) {
+				_self.http.get("getYearAirData", {
+					year: year,
+					fsiteNo: this.$store.state.userInfo.userOrgNo
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.listData = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
 					}
-					uni.navigateTo({
-						url: "daydata32?detail=" + encodeURIComponent(JSON.stringify(detail))
-					})
+				});
 			},
-			
+
+			goDetail: function(id, storeName) {
+				let detail = {
+					id: id,
+					storeName: storeName,
+					date: this.array[this.index]
+				}
+				uni.navigateTo({
+					url: "daydata32?detail=" + encodeURIComponent(JSON.stringify(detail))
+				})
+			},
 			getNowFormatYear: function() {
 				var date = new Date();
 				var seperator1 = "-";
 				var year = date.getFullYear();
-				var currentdate = year ;
+				var currentdate = year;
 				return currentdate;
+			},
+
+			/**设置页面标题
+			 * @param {日期} sDate
+			 */
+			setPageTitle: function(sDate) {
+				uni.setNavigationBarTitle({
+					title: sDate + ' 市空气质量'
+				});
 			},
 		}
 	}
 </script>
 
 <style>
-		
 	page {
 		height: auto;
 	}
-	
-   .text1 {
+
+	.text1 {
 		width: 320upx;
 		color: #FFFFFF;
 		text-align: center;

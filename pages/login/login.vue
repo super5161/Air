@@ -92,6 +92,7 @@
 					var data = {};
 					data.userId = uId;
 					data.userName = "王梓涵";
+					data.userOrgNo = "200000";
 					this.login(data);
 					uni.redirectTo({
 						url: "/pages/index/index"

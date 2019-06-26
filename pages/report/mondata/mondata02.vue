@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="list">
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" >
+			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">日期</view>
 				<view class="text2">AQI</view>
 				<view class="text2">等级</view>
@@ -9,77 +9,41 @@
 				<view class="text2">同比AQI</view>
 				<view class="text2">同比等级</view>
 				<view class="text2">同比首要污染物</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(300001,'莘庄中学')">
-				<view class="text1">莘庄中学</view>
-				<view class="text2">76</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-				<view class="text2">81</view>
-				<view class="text2">良</view>
-				<view class="text2">CO</view>
-			</view>	
-			
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" @click="goDetail(300002,'颛桥中学')">
-				<view class="text1">颛桥中学</view>
-				<view class="text2">80</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-				<view class="text2">81</view>
-				<view class="text2">良</view>
-				<view class="text2">CO</view>
-				<view class="text2">76</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(300003,'北桥中学')">
-				<view class="text1">北桥中学</view>
-				<view class="text2">81</view>
-				<view class="text2">良</view>
-				<view class="text2">CO</view>
-				<view class="text2">76</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-			</view>	
-			
+			</view>
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo"
+			 @click="goDetail(item.fsiteNo,item.fsiteName)">
+				<view class="text1">{{item.fsiteName}}</view>
+				<view class="text2">{{item.faqi|intFielter}}</view>
+				<view class="text2">{{item.faqiType|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
+				<view class="text2">{{item.faqi2|intFielter}}</view>
+				<view class="text2">{{item.faqiType2|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants2|emptyFielter}}</view>
+			</view>
 		</view>
-	
-	<view>
-		<canvas canvas-id="charts" id="charts" class="charts"></canvas>
-	</view>
-	
+		<view>
+			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
+		</view>
+
 	</view>
 </template>
 
 <script>
-var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
 	var Charts;
-	
-	var Data = {
-		categories: ['5/1', '5/2', '5/3', '5/4', '5/5', '5/6', '5/7','5/8','5/9'],
-		series: [{
-				name: 'AQI',
-				data: [58, 51, 54, 57,63, 60, 65, 63, 67]
-			}
-		]
-	};
 	var width;
 	export default {
-		onLoad: function(event) {
-			var detail = new Object();
-			detail = JSON.parse(decodeURIComponent(event.detail))
-			
+		onLoad: function(opts) {
+			_self = this;
 			try {
-				this.onload = JSON.parse(decodeURIComponent(event.detail));
+				this.detail = JSON.parse(decodeURIComponent(opts.detail));
 			} catch (error) {
-				this.onload = JSON.parse(event.detail);
+				this.detail = JSON.parse(opts.detail);
 			}
-			console.log(this.onload);
 			uni.setNavigationBarTitle({
-				title: this.onload.date+this.onload.storeName+'空气监控'
+				title: this.detail.date + this.detail.storeName + ' 空气监控'
 			});
-				
+
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
@@ -88,52 +52,77 @@ var wxCharts = require("../../../utils/wxcharts.js");
 		},
 		data() {
 			return {
-				onload:{}
+				detail: {},
+				listData: [],
 			}
 		},
 		onReady: function() {
-			this.ShowCharts("charts", Data);
-			//this.hideLoading();
+			_self.getListData();
+			_self.getChartData();
 		},
 		methods: {
-			/*显示图表*/
-			ShowCharts: function(canvasId, data) {
-				Charts = new wxCharts({
-					canvasId: canvasId,
-					type: 'line',
-					legend: true,
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: true,
-					categories: data.categories,
-					series: data.series,
-					width: width,
-					height: 280,
-					pixelRatio:1,
+			getChartData: function() {
+				_self.http.get("getMonthLineChart", {
+					date: this.detail.date,
+					fsiteNo: this.detail.id
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						let categories = [];
+						categories = e.data.data.list.map(function(item) {
+							return parseInt(item.ftime);
+						});
+						let series = [];
+						series[0] = {
+							name: "AQI",
+							data: [],
+						}
+						let datas = e.data.data.list.map(function(item) {
+							return item.faqi;
+						});
+						series[0].data = datas || [];
+						_self.util.showChartLine("charts", categories, series, width);
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
 			},
-			goDetail:function(id,storeName){
-				console.log(storeName);
-				
-				let detail = {
-						id: id,
-						storeName:storeName,
-						date:this.onload.date
+			/*
+			 * 获取列表数据
+			 * sDate 查询日期
+			 * */
+			getListData: function() {
+				_self.http.get("getDayAirData", {
+					date: this.detail.date,
+					fsiteNo: this.detail.id
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.listData = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
 					}
-					uni.navigateTo({
-						url: "mondata03?detail=" + encodeURIComponent(JSON.stringify(detail))
-					})
+				});
+			},
+
+			goDetail: function(id, storeName) {
+				let detail = {
+					id: id,
+					storeName: storeName,
+					date: this.detail.date
+				}
+				uni.navigateTo({
+					url: "mondata03?detail=" + encodeURIComponent(JSON.stringify(detail))
+				})
 			}
 		}
 	}
 </script>
 
 <style>
-page {
+	page {
 		height: auto;
 	}
-	
-   .text1 {
+
+	.text1 {
 		width: 320upx;
 		color: #FFFFFF;
 		text-align: center;

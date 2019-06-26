@@ -1,126 +1,110 @@
 <template>
 	<view>
 		<view class="list">
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" >
+			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">地区</view>
 				<view class="text2">AQI</view>
 				<view class="text2">空气类别</view>
 				<view class="text2">首要污染物</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(300011,'第一教学楼')">
-				<view class="text1">第一教学楼</view>
-				<view class="text2">76</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-			</view>	
-			
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" @click="goDetail(300012,'第二教学楼')">
-				<view class="text1">第二教学楼</view>
-				<view class="text2">80</view>
-				<view class="text2">良</view>
-				<view class="text2">PM2.5</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(300013,'办公楼')">
-				<view class="text1">办公楼</view>
-				<view class="text2">81</view>
-				<view class="text2">良</view>
-				<view class="text2">CO</view>
-			</view>	
-			
+			</view>
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo">
+				<view class="text1">{{item.fpointName}}</view>
+				<view class="text2">{{item.faqi|intFielter}}</view>
+				<view class="text2">{{item.faqiType|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
+			</view>
 		</view>
-	
-	<view>
-		<canvas canvas-id="charts" id="charts" class="charts"></canvas>
-	</view>
-	
+		<view>
+			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
+		</view>
 	</view>
 </template>
 
 <script>
-var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
 	var Charts;
-	
-	var Data = {
-		categories: ['9', '10', '11', '12', '13', '14', '15','16','17'],
-		series: [{
-				name: 'AQI',
-				data: [63, 60, 65, 63, 67,58, 51, 54, 57]
-			}
-		]
-	};
 	var width;
 	export default {
 		onLoad: function(event) {
-			var detail = new Object();
-			detail = JSON.parse(decodeURIComponent(event.detail))
-			
+			_self = this;
+			var detail = JSON.parse(decodeURIComponent(event.detail))
 			try {
-				this.onload = JSON.parse(decodeURIComponent(event.detail));
+				this.detail = JSON.parse(decodeURIComponent(event.detail));
 			} catch (error) {
-				this.onload = JSON.parse(event.detail);
+				this.detail = JSON.parse(event.detail);
 			}
-			console.log(this.onload);
-
 			uni.setNavigationBarTitle({
-				title: this.onload.date+this.onload.storeName+'空气监控'
+				title: this.detail.date + this.detail.storeName + ' 空气监控'
 			});
-				
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
+			this.getListData();
 		},
 		data() {
 			return {
-				onload:{}
+				detail: {},
+				listData: [],
 			}
 		},
 		onReady: function() {
-			this.ShowCharts("charts", Data);
-			//this.hideLoading();
+			this.getChartData();
 		},
 		methods: {
-			/*显示图表*/
-			ShowCharts: function(canvasId, data) {
-				Charts = new wxCharts({
-					canvasId: canvasId,
-					type: 'line',
-					legend: true,
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: true,
-					categories: data.categories,
-					series: data.series,
-					width: width,
-					height: 280,
-					pixelRatio:1,
+			getChartData: function() {
+				_self.http.get("getDayLineChart", {
+					date: this.detail.date,
+					fsiteNo: this.detail.id
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						let categories = [];
+						categories = e.data.data.list.map(function(item) {
+							return parseInt(item.ftime);
+						});
+						let series = [];
+						series[0] = {
+							name: "AQI",
+							data: [],
+						}
+						let datas = e.data.data.list.map(function(item) {
+							return item.faqi;
+						});
+						series[0].data = datas || [];
+						_self.util.showChartLine("charts", categories, series, width);
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
 			},
-			goDetail:function(id,storeName){
-				console.log(storeName);
-				
-				let detail = {
-						id: id,
-						storeName:storeName
+			/*
+			 * 获取列表数据
+			 * sDate 查询日期
+			 * */
+			getListData: function() {
+				_self.http.get("getDayAirDataThree", {
+					date: this.detail.date,
+					fsiteNo: this.detail.id,
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.listData = e.data.data.list;
+						console.log(e.data.data.list)
+					} else {
+						_self.util.showToast(e.data.msg)
 					}
-					uni.navigateTo({
-						url: "daydata04?detail=" + encodeURIComponent(JSON.stringify(detail))
-					})
-			}
+				});
+			},
 		}
 	}
 </script>
 
 <style>
-page {
+	page {
 		height: auto;
 	}
-	
-   .text1 {
+
+	.text1 {
 		width: 320upx;
 		color: #FFFFFF;
 		text-align: center;
