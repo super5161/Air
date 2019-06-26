@@ -1,53 +1,31 @@
 <!--引导页-->
 <template>
 	<view class="content">
-		<swiper class="swiper" :autoplay="autoplay" :duration="duration">
+		<swiper class="swiper" :autoplay="autoplay" :duration="duration" circular=false>
 			<swiper-item>
-				<view class="swiper-item">
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/title_01.png" mode="aspectFit"></image>
-					</view>
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/icon_01.png" mode="aspectFit"></image>
-					</view>
+				<image class="sw-image" src="../../static/image/guide/1.jpg"></image>
+				<view class="sw-title">
+					可视化数据
 				</view>
 				<view class="jump-over" @tap="launchFlag()">{{jumpover}}</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item">
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/title_02.png" mode="aspectFit"></image>
-					</view>
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/icon_02.png" mode="aspectFit"></image>
-					</view>
+				<image class="sw-image" src="../../static/image/guide/2.jpg"></image>
+				<view class="sw-title">
+					大数据展示
 				</view>
 				<view class="jump-over" @tap="launchFlag()">{{jumpover}}</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item">
-					<view class="swiper-item-img">
-					</view>
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/icon_03.png" mode="aspectFit"></image>
-					</view>
-				</view>
-				<view class="jump-over" @tap="launchFlag()">{{jumpover}}</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/title_04.png" mode="aspectFit"></image>
-					</view>
-					<view class="swiper-item-img">
-						<image src="../../static/image/guide/icon_04.png" mode="aspectFit"></image>
-					</view>
+				<image class="sw-image" src="../../static/image/guide/3.jpg"></image>
+				<view class="sw-title">
+					多维度展示
 				</view>
 				<view class="experience" @tap="launchFlag()">{{experience}}</view>
 			</swiper-item>
 		</swiper>
 	</view>
-</template>
+</template>file:///C:/Users/Administrator/Desktop/2.jpg
 
 <script>
 	export default {
@@ -79,46 +57,26 @@
 		height: 100%;
 		background-size: 100% auto;
 		padding: 0;
+		background: #FFFFFF;
 	}
 
 	.swiper {
 		width: 100%;
-		height: 80%;
-		background: #FFFFFF;
+		height: 100%;
 	}
 
-	.swiper-item {
+	.sw-image {
 		width: 100%;
 		height: 100%;
-		text-align: center;
-		position: relative;
-		display: flex;
-		/* justify-content: center; */
-		align-items: flex-end;
-		flex-direction: column-reverse
 	}
 
-	.swiper-item-img {
-		width: 100%;
-		height: auto;
-		margin: 0 auto;
-	}
-
-	.swiper-item-img image {
-		width: 80%;
-	}
-
-	.uniapp-img {
-		height: 20%;
-		background: #FFFFFF;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		overflow: hidden;
-	}
-
-	.uniapp-img image {
-		width: 40%;
+	.sw-title {
+		color: #FFFFFF;
+		position: fixed;
+		bottom: 300upx;
+		left: 50%;
+		transform: translateX(-50%);
+		font-size: 50upx;
 	}
 
 	.jump-over,
@@ -130,18 +88,20 @@
 		border-radius: 30upx;
 		font-size: 32upx;
 		color: #454343;
-		border: 1px solid #454343;
+		border: 1px solid #FFFFFF;
 		z-index: 999;
 	}
 
 	.jump-over {
-		right: 40upx;
-		top: 40upx;
+		right: 50upx;
+		top: 100upx;
+		color: #FFFFFF;
 	}
 
 	.experience {
 		right: 50%;
 		margin-right: -105upx;
-		bottom: 0;
+		color: #FFFFFF;
+		bottom: 150upx;
 	}
 </style>
