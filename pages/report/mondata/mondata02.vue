@@ -63,13 +63,13 @@
 		methods: {
 			getChartData: function() {
 				_self.http.get("getMonthLineChart", {
-					date: this.detail.date,
+					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
 						categories = e.data.data.list.map(function(item) {
-							return parseInt(item.ftime);
+							return item.fday;
 						});
 						let series = [];
 						series[0] = {
@@ -91,8 +91,8 @@
 			 * sDate 查询日期
 			 * */
 			getListData: function() {
-				_self.http.get("getDayAirData", {
-					date: this.detail.date,
+				_self.http.get("getMonthAirData", {
+					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
 					if (e.data.code === 200) {

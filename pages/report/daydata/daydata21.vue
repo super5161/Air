@@ -34,6 +34,7 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {mapState} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -77,7 +78,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(["userInfo"]),
 		},
 		onReady: function() {
 
@@ -102,7 +104,7 @@
 				_self.http.get("getQuarterLineChart", {
 					year: year,
 					quarter: quarter,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];

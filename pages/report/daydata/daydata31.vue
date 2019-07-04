@@ -40,6 +40,9 @@
 </template>
 
 <script>
+	import {
+		mapState
+	} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -65,6 +68,9 @@
 				listData: [],
 
 			}
+		},
+		computed: {
+			...mapState(["userInfo"])
 		},
 		onReady: function() {
 
@@ -109,7 +115,7 @@
 			getListData: function(year) {
 				_self.http.get("getYearAirData", {
 					year: year,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;

@@ -58,7 +58,7 @@
 		methods: {
 			getChartData: function() {
 				_self.http.get("getMonthLineChart", {
-					date: this.detail.date,
+					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -106,7 +106,7 @@
 			 * */
 			getListData: function() {
 				_self.http.get("getMonthAirDataThree", {
-					date: this.detail.date,
+					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
 					if (e.data.code === 200) {

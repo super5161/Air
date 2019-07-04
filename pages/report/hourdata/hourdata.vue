@@ -33,6 +33,7 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {mapState} from 'vuex';
 	var _self;
 	var Charts;
 	var width;
@@ -79,7 +80,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(["userInfo"]),
 		},
 		methods: {
 			toggleTab(index) {
@@ -99,7 +101,7 @@
 			getListData: function(sDate) {
 				_self.http.get("getDayAirData", {
 					date: sDate,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;

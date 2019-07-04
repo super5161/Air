@@ -38,6 +38,7 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import { mapState } from 'vuex'
 	var _self;
 	var Charts;
 	var width;
@@ -76,7 +77,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(['userInfo']),
 		},
 		onReady: function() {
 
@@ -95,7 +97,7 @@
 			getDate: function(date) {
 				_self.http.get("getMonthStatistics", {
 					month: date,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;
@@ -108,7 +110,7 @@
 								});
 							});
 						}
-						_self.util.showChartPie('charts',chartsData,width);
+						_self.util.showChartPie('charts', chartsData, width);
 					} else {
 						_self.util.showToast(e.data.msg)
 					}

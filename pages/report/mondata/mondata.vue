@@ -1,5 +1,4 @@
 <template>
-
 	<view>
 		<view class="content">
 			<view class="tab" @tap="toggleTab(0)">月份选择 {{sdate}}</view>
@@ -38,6 +37,7 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {mapState} from 'vuex'
 	var _self;
 	var Charts;
 	var width;
@@ -76,7 +76,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(['userInfo']),
 		},
 		onReady: function() {
 
@@ -96,13 +97,13 @@
 			},
 			getChartData: function(sDate) {
 				_self.http.get("getMonthLineChart", {
-					date: sDate,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					month: sDate,
+					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
 						categories = e.data.data.list.map(function(item) {
-							return parseInt(item.ftime);
+							return item.fday;
 						});
 						let series = [];
 						series[0] = {
@@ -124,8 +125,8 @@
 			 * sDate 查询日期
 			 * */
 			getListData: function(sDate) {
-				_self.http.get("getDayAirData", {
-					date: sDate,
+				_self.http.get("getMonthAirData", {
+					month: sDate,
 					fsiteNo: this.$store.state.userInfo.userOrgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
