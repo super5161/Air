@@ -37,6 +37,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {
+		mapState
+	} from "vuex";
 	var width;
 	var _self;
 	export default {
@@ -65,11 +68,14 @@
 		onReady: function() {
 
 		},
+		computed: {
+			...mapState(["userInfo"]),
+		},
 		methods: {
 			getDate: function(year) {
-				_self.http.get("getYearExponent", {
+				_self.http.get("airReport/getYearExponent", {
 					year: year,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

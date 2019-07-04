@@ -99,9 +99,9 @@
 			 * sDate 查询日期
 			 * */
 			getListData: function(sDate) {
-				_self.http.get("getDayAirData", {
+				_self.http.get("airReport/getDayAirData", {
 					date: sDate,
-					fsiteNo: this.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
@@ -112,9 +112,9 @@
 			},
 
 			getChartData: function(sDate) {
-				_self.http.get("getDayLineChart", {
+				_self.http.get("airReport/getDayLineChart", {
 					date: sDate,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];

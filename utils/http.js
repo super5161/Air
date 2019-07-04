@@ -23,7 +23,7 @@ export default {
 
 	//基础请求方式
 	request(options) {
-		let baseUrl = "http://139.224.13.75:8080/airReport/"; //请求基本地址
+		let baseUrl = "http://139.224.13.75:8080/"; //请求基本地址
 		options = options || {};
 		options.url = baseUrl + options.url;
 		/*

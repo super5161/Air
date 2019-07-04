@@ -9,6 +9,7 @@
 			<view class="user-info">
 				<view class="title">{{userInfo.userName}}</view>
 				<view class="desc">ID:{{userInfo.userId}}</view>
+				<view class="desc">{{userInfo.orgName}}</view>
 			</view>
 		</view>
 		<button style="width: 50%;margin-top: 100upx;" type="warn" @click="LoginOut">退出登录</button>

@@ -33,6 +33,7 @@
 	var _self;
 	var Charts;
 	var width;
+	import {mapState} from "vuex";
 	export default {
 		onLoad: function() {
 			_self = this;
@@ -55,6 +56,8 @@
 		},
 		onReady: function() {
 
+		},computed:{
+			...mapState(["userInfo"]),
 		},
 		methods: {
 			bindPickerChange: function(e) {
@@ -64,9 +67,9 @@
 				this.getDate(date);
 			},
 			getDate: function(year, quarter) {
-				_self.http.get("getYearStatistics", {
+				_self.http.get("airReport/getYearStatistics", {
 					year: year,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

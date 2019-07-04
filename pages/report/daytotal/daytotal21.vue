@@ -37,6 +37,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {
+		mapState
+	} from "vuex"
 	var _self;
 	var Charts;
 	var width;
@@ -77,7 +80,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(["userInfo"]),
 		},
 		onReady: function() {
 
@@ -98,10 +102,10 @@
 				this.getDate(year, quarter);
 			},
 			getDate: function(year, quarter) {
-				_self.http.get("getQuarterStatistics", {
+				_self.http.get("airReport/getQuarterStatistics", {
 					year: year,
 					quarter: quarter,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

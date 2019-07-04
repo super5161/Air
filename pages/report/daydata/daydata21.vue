@@ -101,10 +101,10 @@
 				this.getChartData(year, quarter);
 			},
 			getChartData: function(year, quarter) {
-				_self.http.get("getQuarterLineChart", {
+				_self.http.get("airReport/getQuarterLineChart", {
 					year: year,
 					quarter: quarter,
-					fsiteNo: this.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -151,10 +151,10 @@
 			 * quarter 季度
 			 * */
 			getListData: function(year, quarter) {
-				_self.http.get("getQuarterAirData", {
+				_self.http.get("airReport/getQuarterAirData", {
 					year: year,
 					quarter: quarter,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;

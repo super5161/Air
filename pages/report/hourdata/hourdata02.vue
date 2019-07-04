@@ -63,7 +63,7 @@
 		},
 		methods: {
 			getChartData: function() {
-				_self.http.get("getDayLineChart", {
+				_self.http.get("airReport/getDayLineChart", {
 					date: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
@@ -102,7 +102,7 @@
 			 * sDate 查询日期
 			 * */
 			getListData: function() {
-				_self.http.get("getDayAirData", {
+				_self.http.get("airReport/getDayAirData", {
 					date: this.detail.date,
 					fsiteNo: this.detail.id,
 				}).then(function(e) {

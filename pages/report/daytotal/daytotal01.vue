@@ -95,9 +95,9 @@
 				this.getDate(date);
 			},
 			getDate: function(date) {
-				_self.http.get("getMonthStatistics", {
+				_self.http.get("airReport/getMonthStatistics", {
 					month: date,
-					fsiteNo: this.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

@@ -32,6 +32,9 @@
 	var width;
 	var _self;
 	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {
+		mapState
+	} from "vuex";
 	export default {
 		components: {
 			wPicker
@@ -66,7 +69,8 @@
 			},
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
-			}
+			},
+			...mapState(["userInfo"]),
 		},
 		onReady: function() {
 
@@ -83,9 +87,9 @@
 				this.getDate(date);
 			},
 			getDate: function(date) {
-				_self.http.get("getMonthExponent", {
+				_self.http.get("airReport/getMonthExponent", {
 					month: date,
-					fsiteNo: this.$store.state.userInfo.userOrgNo
+					fsiteNo: this.userInfo.orgNo,
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

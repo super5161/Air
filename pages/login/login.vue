@@ -87,23 +87,26 @@
 					})
 					return;
 				}
-
-				if (uId == "555" && pwd == "123") {
-					var data = {};
-					data.userId = uId;
-					data.userName = "王梓涵";
-					data.userOrgNo = "200000";
-					this.login(data);
-					uni.redirectTo({
-						url: "/pages/index/index"
-					})
-				} else {
-					uni.showToast({
-						title: "用户名或者密码错误",
-						icon: "none"
-					})
-					return;
-				}
+				that.http.post("data/person/login", {
+					fuserno: uId,
+					fpassword: pwd,
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						var data = {
+							userId: uId,
+							userName: e.data.data.fusername,
+							orgNo: e.data.data.fsiteNo,
+							orgName: e.data.data.fsiteName,
+							orgLevel: e.data.data.fsiteLevel
+						};
+						that.login(data);
+						uni.redirectTo({
+							url: "/pages/index/index"
+						})
+					} else {
+						that.util.showToast(e.data.msg)
+					}
+				});
 			},
 			//切换语言
 			ChangeLange: function() {

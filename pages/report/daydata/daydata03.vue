@@ -57,7 +57,7 @@
 		},
 		methods: {
 			getChartData: function() {
-				_self.http.get("getMonthLineChart", {
+				_self.http.get("airReport/getMonthLineChart", {
 					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
@@ -105,7 +105,7 @@
 			 * sDate 查询日期
 			 * */
 			getListData: function() {
-				_self.http.get("getMonthAirDataThree", {
+				_self.http.get("airReport/getMonthAirDataThree", {
 					month: this.detail.date,
 					fsiteNo: this.detail.id
 				}).then(function(e) {
