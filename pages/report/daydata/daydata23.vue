@@ -59,7 +59,7 @@
 				let ds = this.detail.date.split(' ');
 				let year = ds[0];
 				let quarter = this.getQuarter(ds[1]);
-				_self.http.get("getQuarterLineChart", {
+				_self.http.get("airReport/getQuarterLineChart", {
 					year: year,
 					quarter: quarter,
 					fsiteNo: this.detail.id
@@ -89,7 +89,7 @@
 				let year = ds[0];
 				let quarter = this.getQuarter(ds[1]);
 
-				_self.http.get("getQuarterAirDataThree", {
+				_self.http.get("airReport/getQuarterAirDataThree", {
 					year: year,
 					quarter: quarter,
 					fsiteNo: this.detail.id

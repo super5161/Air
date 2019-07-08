@@ -83,7 +83,7 @@
 				this.getChartData(date);
 			},
 			getChartData: function(year) {
-				_self.http.get("getYearLineChart", {
+				_self.http.get("airReport/getYearLineChart", {
 					year: year,
 					fsiteNo: this.$store.state.userInfo.userOrgNo
 				}).then(function(e) {
@@ -113,7 +113,7 @@
 			 * quarter 季度
 			 * */
 			getListData: function(year) {
-				_self.http.get("getYearAirData", {
+				_self.http.get("airReport/getYearAirData", {
 					year: year,
 					fsiteNo: this.userInfo.userOrgNo
 				}).then(function(e) {

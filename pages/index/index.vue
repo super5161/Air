@@ -56,8 +56,7 @@
 					<text>空气指数</text>
 				</navigator>
 			</view>		
-		</view>
-		
+		</view>		
 		<page-foot tab="0"></page-foot>
 	</view>
 </template>
