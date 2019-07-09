@@ -63,10 +63,10 @@
 			} catch (error) {
 
 			}
-			let userifo = this.userifo;
+			let userifo = this.userInfo;
 			this.orgId = ds ? ds.id : userifo.orgNo;
 			this.orgName = ds ? ds.orgName : userifo.orgName;
-			this.sdate = ds ? ds.date : this.getNowFormatDate();
+			this.sdate = ds ? ds.date : this.getNowFormatMonth();
 
 			this.setPageTitle();
 			this.loadwPicker();
