@@ -189,7 +189,7 @@
 			},
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: this.sdate + ' 市空气监控'
+					title: `${this.sdate} ${this.orgName} 空气监控`,
 				});
 			},
 		}
