@@ -33,7 +33,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
-	import {mapState} from 'vuex';
+	import {
+		mapState
+	} from 'vuex';
 	var _self;
 	var Charts;
 	var width;
@@ -44,7 +46,7 @@
 		},
 		onLoad: function() {
 			_self = this;
-			this.setPageTitle(this.getNowFormatDate());
+			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
@@ -69,10 +71,8 @@
 			}
 		},
 		onReady: function() {
-			var sDate = this.getNowFormatDate();
-			this.getListData(sDate);
-			this.getChartData(sDate);
-
+			this.getListData();
+			this.getChartData();
 		},
 		computed: {
 			mode() {
@@ -90,17 +90,16 @@
 			},
 			onConfirm(val) {
 				this.sdate = val.result;
-				this.setPageTitle(val.result);
-				this.getListData(val.result);
-				this.getChartData(val.result);
+				this.setPageTitle();
+				this.getListData();
+				this.getChartData();
 			},
 			/*
 			 * 获取列表数据
-			 * sDate 查询日期
 			 * */
-			getListData: function(sDate) {
+			getListData: function() {
 				_self.http.get("airReport/getDayAirData", {
-					date: sDate,
+					date: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -111,9 +110,9 @@
 				});
 			},
 
-			getChartData: function(sDate) {
+			getChartData: function() {
 				_self.http.get("airReport/getDayLineChart", {
-					date: sDate,
+					date: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -140,7 +139,7 @@
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
-					storeName: storeName,
+					orgName: storeName,
 					date: this.sdate
 				}
 				uni.navigateTo({
@@ -185,11 +184,10 @@
 				return currentdate;
 			},
 			/**设置页面标题
-			 * @param {日期} sDate
 			 */
-			setPageTitle: function(sDate) {
+			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气监控'
+					title: this.sdate + ' 市空气监控'
 				});
 			},
 		}

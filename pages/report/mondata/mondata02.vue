@@ -1,5 +1,11 @@
 <template>
 	<view>
+		<view class="content">
+			<view class="tab" @tap="toggleTab(0)">月份选择 {{sdate}}</view>
+			<w-picker :mode="mode" startYear="2018" endYear="2030" step="1" :defaultVal="defaultVal" @confirm="onConfirm" ref="picker"
+			 themeColor="#f00"></w-picker>
+		</view>
+
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">日期</view>
@@ -29,21 +35,41 @@
 </template>
 
 <script>
+	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {
+		mapState
+	} from 'vuex';
 	var _self;
 	var Charts;
 	var width;
 	export default {
+		components: {
+			wPicker
+		},
+		computed: {
+			mode() {
+				return this.tabList[this.tabIndex].mode
+			},
+			defaultVal() {
+				return this.tabList[this.tabIndex].value
+			},
+			...mapState(["userInfo"]),
+		},
 		onLoad: function(opts) {
 			_self = this;
+			let ds;
 			try {
-				this.detail = JSON.parse(decodeURIComponent(opts.detail));
+				ds = JSON.parse(decodeURIComponent(opts.detail));
 			} catch (error) {
-				this.detail = JSON.parse(opts.detail);
-			}
-			uni.setNavigationBarTitle({
-				title: this.detail.date + this.detail.storeName + ' 空气监控'
-			});
 
+			}
+			let userifo = this.userifo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
+			this.sdate = ds ? ds.date : this.getNowFormatDate();
+
+			this.setPageTitle();
+			this.loadwPicker();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
@@ -52,7 +78,15 @@
 		},
 		data() {
 			return {
-				detail: {},
+				orgId: '',
+				orgName: '',
+				sdate: '',
+				tabList: [{
+					mode: "yearMonth",
+					name: "年月",
+					value: [0, 0]
+				}],
+				tabIndex: 0,
 				listData: [],
 			}
 		},
@@ -61,10 +95,50 @@
 			_self.getChartData();
 		},
 		methods: {
+			toggleTab(index) {
+				this.tabIndex = index;
+				this.$refs.picker.show();
+			},
+			onConfirm(val) {
+				this.sdate = val.result.replace('-', '');
+				this.setPageTitle()
+				this.getListData();
+				this.getChartData();
+			},
+			loadwPicker: function() {
+				this.tabList[0].value[0] = this.getYear();
+				this.tabList[0].value[1] = this.getMonth();
+			},
+			getYear: function() {
+				let d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+				var date = new Date(d);
+				var year = date.getFullYear();
+				var currentdate = year - 2018;
+				return currentdate;
+			},
+
+			getMonth: function() {
+				let d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+				var date = new Date(d);
+				var month = date.getMonth() + 1;
+				var currentdate = month - 1;
+				return currentdate;
+			},
+			getNowFormatMonth: function() {
+				var date = new Date();
+				var seperator1 = "";
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				var currentdate = year + seperator1 + month;
+				return currentdate;
+			},
 			getChartData: function() {
 				_self.http.get("airReport/getMonthLineChart", {
-					month: this.detail.date,
-					fsiteNo: this.detail.id
+					month: this.sdate,
+					fsiteNo: this.orgId
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -92,8 +166,8 @@
 			 * */
 			getListData: function() {
 				_self.http.get("airReport/getMonthAirData", {
-					month: this.detail.date,
-					fsiteNo: this.detail.id
+					month: this.sdate,
+					fsiteNo: this.orgId
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
@@ -106,13 +180,18 @@
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
-					storeName: storeName,
-					date: this.detail.date
+					orgName: storeName,
+					date: this.sdate
 				}
 				uni.navigateTo({
 					url: "mondata03?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
-			}
+			},
+			setPageTitle: function() {
+				uni.setNavigationBarTitle({
+					title: this.sdate + ' 市空气监控'
+				});
+			},
 		}
 	}
 </script>

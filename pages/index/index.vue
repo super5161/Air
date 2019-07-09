@@ -25,18 +25,18 @@
 				</navigator>
 			</view>
 			<view class="item item2">
-				<navigator hover-class="none" url="/pages/report/hourdata/hourdata" open-type="navigate">
+				<navigator hover-class="none" :url="pageUrl.hourdata" open-type="navigate">
 					<view class="iconfont yuejie"></view>
 					<text>每日空气</text>
 				</navigator>
 			</view>
 			<view class="item item3">
-				<navigator hover-class="none" url="/pages/report/mondata/mondata" open-type="navigate">
+				<navigator hover-class="none" :url="pageUrl.mondata" open-type="navigate">
 					<view class="iconfont tmonth"></view>
 					<text>每月空气</text>
 				</navigator>
 			</view>
-		</view>	
+		</view>
 		<view class="area">
 			<view class="item item4">
 				<navigator hover-class="none" url="/pages/report/daydata/index" open-type="navigate">
@@ -55,34 +55,49 @@
 					<view class="iconfont kongqizhiliangjianceshujufenxi"></view>
 					<text>空气指数</text>
 				</navigator>
-			</view>		
-		</view>		
+			</view>
+		</view>
 		<page-foot tab="0"></page-foot>
 	</view>
 </template>
 
 <script>
+	import {
+		mapState
+	} from "vuex";
 	var that;
 	export default {
 		data() {
 			return {
-				indicatorDots: true, 
-				autoplay: true, 
-				interval: 2000, 
-				duration: 800 
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 800,
+				pageUrl: {
+					hourdata: "",
+					mondata: "",
+				},
 			}
 		},
 		onLoad: function() {
+			// var userInfo=mapState(['userInfo']);
 			that = this;
-			//console.log(this.$store.state.hasLogin)
+			//console.log(userInfo.userName);
+
 		},
 		onReady: function() {
-			//console.log(that.http)
-			// that.http.get('https://www.baidu.com/', null).then(function(taget,res) {
-			// 	console.log("成功")
-			// }).catch(function(taget,res) {
-			// 	console.log("失败")
-			// });
+			//1 市 2 区 3 学校
+			var level = this.$store.state.userInfo.orgLevel;
+			if (level === 1) {
+				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata";
+				this.pageUrl.mondata = "/pages/report/mondata/mondata";
+			} else if (level === 2) {
+				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata02";
+				this.pageUrl.mondata = "/pages/report/mondata/mondata02";
+			} else {
+				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata03";
+				this.pageUrl.mondata = "/pages/report/mondata/mondata03";
+			}
 		}
 	}
 </script>
@@ -108,23 +123,29 @@
 
 	.banner {
 		width: 100%;
-	}	
-	.item1{
+	}
+
+	.item1 {
 		background-color: #3b4446;
 	}
-	.item2{
+
+	.item2 {
 		background-color: #002147;
 	}
-	.item3{ 
+
+	.item3 {
 		background-color: #abb8af;
 	}
-	.item4{
+
+	.item4 {
 		background-color: #ff7900;
 	}
-	.item5{
+
+	.item5 {
 		background-color: #057855;
 	}
-	.item6{
+
+	.item6 {
 		background-color: #766a65;
 	}
 </style>
