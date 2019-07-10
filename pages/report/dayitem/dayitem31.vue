@@ -1,15 +1,9 @@
 <template>
-
 	<view>
-		<view class="uni-list-cell">
-			<view class="uni-list-cell-left">
-				年份选择
-			</view>
-			<view class="uni-list-cell-db">
-				<picker @change="bindPickerChange" :value="index" :range="array">
-					<view class="uni-input">{{array[index]}}</view>
-				</picker>
-			</view>
+		<view class="content">
+			<view class="tab" @tap="toggleTab(0)">年份选择 {{sdate}}</view>
+			<w-picker :mode="mode" startYear="2018" endYear="2030" step="1" :defaultVal="defaultVal" @confirm="onConfirm" ref="picker"
+			 themeColor="#f00"></w-picker>
 		</view>
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
@@ -48,33 +42,51 @@
 		},
 		onLoad: function() {
 			_self = this;
-			let year = this.getNowFormatYear();
+			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
-			})
-			this.setPageTitle(year);
-			this.getDate(year);
+			});
 		},
 		data() {
 			return {
 				sdate: this.getNowFormatYear(),
-				array: ['2017', '2018', '2019', '2020'],
-				index: 2,
+				tabList: [{
+					mode: "year",
+					name: "年",
+					value: [this.getYearIndex()]
+				}],
+				tabIndex: 0,
 				dataList: [],
 			}
 		},
 		onReady: function() {
-
+			this.getDate();
 		},
 		computed: {
+			mode() {
+				return this.tabList[this.tabIndex].mode
+			},
+			defaultVal() {
+				return this.tabList[this.tabIndex].value
+			},
 			...mapState(["userInfo"]),
 		},
 		methods: {
-			getDate: function(year) {
+			toggleTab(index) {
+				this.tabIndex = index;
+				this.$refs.picker.show();
+			},
+			onConfirm(val) {
+				let date = val.result;
+				this.sdate = date;
+				this.setPageTitle();
+				this.getDate();
+			},
+			getDate: function() {
 				_self.http.get("airReport/getYearExponent", {
-					year: year,
+					year: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -84,9 +96,9 @@
 					}
 				});
 			},
-			setPageTitle: function(sDate) {
+			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气指数'
+					title: `${this.sdate} ${this.userInfo.orgName} 空气指数`,
 				});
 			},
 			getNowFormatYear: function() {
@@ -96,11 +108,11 @@
 				var currentdate = year;
 				return currentdate;
 			},
-			bindPickerChange: function(e) {
-				let date = e.target.value;
-				this.sdate = date;
-				this.setPageTitle(date);
-				this.getDate(date);
+			getYearIndex() {
+				var date = new Date();
+				var year = date.getFullYear();
+				var currentdate = year - 2018;
+				return currentdate;
 			},
 		}
 	}

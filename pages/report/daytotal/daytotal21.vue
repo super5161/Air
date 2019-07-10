@@ -49,26 +49,21 @@
 		},
 		onLoad: function() {
 			_self = this;
-			let date = this.getNowQuarter();
+			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			this.setPageTitle(date);
-			let ds = date.split(' ');
-			let year = ds[0];
-			let quarter = this.getQuarter(ds[1]);
-			this.getDate(year, quarter);
 		},
 		data() {
 			return {
 				title: 'Hello',
-				sdate: this.getNowQuarter(),
+				sdate: this.getNowYearQuarter(),
 				tabList: [{
 					mode: "yearQuarter",
 					name: "年季",
-					value: [this.getNowYear(), 0] //年月在列表的序号
+					value: [this.getNowYear(), this.getQuarter(this.getNowQuarter()) - 1] //年月在列表的序号
 				}],
 				tabIndex: 0,
 				dataList: [],
@@ -81,10 +76,18 @@
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
 			},
+			year() {
+				let ds = this.sdate.split(' ');
+				return ds[0];
+			},
+			quarter() {
+				let ds = this.sdate.split(' ');
+				return this.getQuarter(ds[1]);
+			},
 			...mapState(["userInfo"]),
 		},
 		onReady: function() {
-
+			this.getDate();
 		},
 		methods: {
 			toggleTab(index) {
@@ -92,19 +95,15 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				let date = val.result;
-				//当前所选择的日期
+				let date = val.result.replace('-', ' ');
 				this.sdate = date;
-				this.setPageTitle(date);
-				let ds = date.split('-');
-				let year = ds[0];
-				let quarter = this.getQuarter(ds[1]);
-				this.getDate(year, quarter);
+				this.setPageTitle();
+				this.getDate();
 			},
-			getDate: function(year, quarter) {
+			getDate: function() {
 				_self.http.get("airReport/getQuarterStatistics", {
-					year: year,
-					quarter: quarter,
+					year: this.year,
+					quarter: this.quarter,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -124,9 +123,17 @@
 					}
 				});
 			},
-			getNowQuarter: function() {
+			getNowYearQuarter: function() {
 				var date = new Date();
 				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var quarter = this.getNowQuarter();
+				var currentdate = year + ' ' + quarter;
+				return currentdate;
+			},
+			/*获取当前季度描述*/
+			getNowQuarter: function() {
+				var date = new Date();
 				var month = date.getMonth() + 1;
 				var quarter = "";
 				if (month <= 3) {
@@ -138,22 +145,9 @@
 				} else if (month <= 12) {
 					quarter = "第四季度";
 				}
-
-				var currentdate = year + ' ' + quarter;
-				return currentdate;
+				return quarter;
 			},
-
-			getNowYear: function() {
-				var date = new Date();
-				var year = date.getFullYear();
-				var currentdate = year - 2018;
-				return currentdate;
-			},
-			setPageTitle: function(sDate) {
-				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气统计'
-				});
-			},
+			/*根据描述获取季度值*/
 			getQuarter: function(quarterstr) {
 				switch (quarterstr) {
 					case "第一季度":
@@ -165,6 +159,17 @@
 					default:
 						return 4;
 				}
+			},
+			getNowYear: function() {
+				var date = new Date();
+				var year = date.getFullYear();
+				var currentdate = year - 2018;
+				return currentdate;
+			},
+			setPageTitle: function(sDate) {
+				uni.setNavigationBarTitle({
+					title: `${this.sdate} ${this.userInfo.orgName} 空气统计`,
+				});
 			},
 		}
 	}

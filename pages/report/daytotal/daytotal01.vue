@@ -38,7 +38,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
-	import { mapState } from 'vuex'
+	import {
+		mapState
+	} from 'vuex'
 	var _self;
 	var Charts;
 	var width;
@@ -49,14 +51,12 @@
 
 		onLoad: function() {
 			_self = this;
-			let date = this.getNowFormatMonth();
-			this.setPageTitle(date)
+			this.setPageTitle()
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			});
-			this.getDate(date)
 		},
 		data() {
 			return {
@@ -81,7 +81,7 @@
 			...mapState(['userInfo']),
 		},
 		onReady: function() {
-
+			this.getDate();
 		},
 		methods: {
 			toggleTab(index) {
@@ -91,12 +91,12 @@
 			onConfirm(val) {
 				let date = val.result.replace('-', '');
 				this.sdate = date;
-				this.setPageTitle(date);
-				this.getDate(date);
+				this.setPageTitle();
+				this.getDate();
 			},
 			getDate: function(date) {
 				_self.http.get("airReport/getMonthStatistics", {
-					month: date,
+					month: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -148,7 +148,7 @@
 			 */
 			setPageTitle: function(sDate) {
 				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气统计'
+					title: `${this.sdate} ${this.userInfo.orgName} 空气统计`,
 				});
 			},
 		}

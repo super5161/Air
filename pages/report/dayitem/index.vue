@@ -2,19 +2,19 @@
 	<view>
 		<view class="area">
 			<view class="item">
-				<navigator hover-class="none" url="/pages/report/dayitem/dayitem01" open-type="navigate">
+				<navigator hover-class="none" :url="pageUrl.monthUrl" open-type="navigate">
 					<view class="iconfont tmonth"></view>
 					<text>每月空气指数</text>
 				</navigator>
 			</view>
 			<view class="item">
-				<navigator hover-class="none" url="/pages/report/dayitem/dayitem21" open-type="navigate">
+				<navigator hover-class="none" :url="pageUrl.quarterUrl" open-type="navigate">
 					<view class="iconfont line"></view>
 					<text>每季空气指数</text>
 				</navigator>
 			</view>
 			<view class="item">
-				<navigator hover-class="none" url="/pages/report/dayitem/dayitem31" open-type="navigate">
+				<navigator hover-class="none" :url="pageUrl.yearUrl" open-type="navigate">
 					<view class="iconfont tyear"></view>
 					<text>每年空气指数</text>
 				</navigator>
@@ -27,17 +27,23 @@
 	export default {
 		data() {
 			return {
-				
+				pageUrl: {
+					monthUrl: '',
+					quarterUrl: '',
+					yearUrl: '',
+				}
 			}
 		},
-		methods: {
-			
+		onReady() {
+			this.pageUrl.monthUrl = "/pages/report/dayitem/dayitem01";
+			this.pageUrl.quarterUrl = "/pages/report/dayitem/dayitem21";
+			this.pageUrl.yearUrl = "/pages/report/dayitem/dayitem31";
 		}
 	}
 </script>
 
 <style>
-.iconfont {
+	.iconfont {
 		margin: 10upx auto;
 		font-size: 50upx;
 	}
@@ -59,6 +65,4 @@
 	.banner {
 		width: 100%;
 	}
-
-	
 </style>
