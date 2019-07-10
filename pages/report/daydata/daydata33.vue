@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<view class="content">
+			<view class="tab" @tap="toggleTab(0)">年份选择 {{sdate}}</view>
+			<w-picker :mode="mode" startYear="2018" endYear="2030" step="1" :defaultVal="defaultVal" @confirm="onConfirm" ref="picker"
+			 themeColor="#f00"></w-picker>
+		</view>
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">地区</view>
@@ -15,11 +20,9 @@
 				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
 			</view>
 		</view>
-
 		<view>
 			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
 		</view>
-
 	</view>
 </template>
 
@@ -27,17 +30,38 @@
 	var _self;
 	var Charts;
 	var width;
+	import wPicker from "@/components/w-picker/w-picker.vue";
+	import {
+		mapState
+	} from "vuex";
 	export default {
+		components: {
+			wPicker
+		},
+		computed: {
+			mode() {
+				return this.tabList[this.tabIndex].mode
+			},
+			defaultVal() {
+				return this.tabList[this.tabIndex].value
+			},
+			...mapState(["userInfo"])
+		},
 		onLoad: function(opts) {
 			_self = this;
+			let ds;
 			try {
-				this.detail = JSON.parse(decodeURIComponent(opts.detail));
+				ds = JSON.parse(decodeURIComponent(opts.detail));
 			} catch (error) {
-				this.detail = JSON.parse(opts.detail);
+
 			}
-			uni.setNavigationBarTitle({
-				title: this.detail.date + this.detail.storeName + ' 空气质量'
-			});
+			let userifo = this.userInfo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
+			this.sdate = ds ? ds.date : this.getNowFormatYear();
+
+			this.setPageTitle();
+			this.loadwPicker();
 
 			uni.getSystemInfo({
 				success(res) {
@@ -47,7 +71,15 @@
 		},
 		data() {
 			return {
-				detail: {},
+				orgId: '',
+				orgName: '',
+				sdate: '',
+				tabList: [{
+					mode: "year",
+					name: "年",
+					value: [0]
+				}],
+				tabIndex: 0,
 				listData: [],
 			}
 		},
@@ -56,10 +88,21 @@
 			_self.getChartData();
 		},
 		methods: {
+			toggleTab(index) {
+				this.tabIndex = index;
+				this.$refs.picker.show();
+			},
+			onConfirm(val) {
+				let date = val.result;
+				this.sdate = date;
+				this.setPageTitle();
+				this.getListData();
+				this.getChartData();
+			},
 			getChartData: function() {
 				_self.http.get("airReport/getYearLineChart", {
-					year: this.detail.date,
-					fsiteNo: this.detail.id
+					year: this.sdate,
+					fsiteNo: this.orgId
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -81,21 +124,34 @@
 					}
 				});
 			},
-			/*
-			 * 获取列表数据
-			 * year 年
-			 * quarter 季度
-			 * */
+			/** 获取列表数据 */
 			getListData: function() {
 				_self.http.get("airReport/getYearAirDataThree", {
-					year: this.detail.date,
-					fsiteNo: this.detail.id
+					year: this.sdate,
+					fsiteNo: this.orgId
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
 					} else {
 						_self.util.showToast(e.data.msg)
 					}
+				});
+			},
+			getNowFormatYear: function() {
+				var date = new Date();
+				return date.getFullYear();
+			},
+			loadwPicker: function() {
+				this.tabList[0].value[0] = this.getYearIndex();
+			},
+			getYearIndex() {
+				var currentdate = this.sdate - 2018;
+				return currentdate;
+			},
+			/**设置页面标题*/
+			setPageTitle: function() {
+				uni.setNavigationBarTitle({
+					title: `${this.sdate} ${this.orgName} 空气质量`,
 				});
 			},
 		}

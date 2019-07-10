@@ -20,7 +20,7 @@
 				<view class="text1">{{item.fsiteName}}</view>
 				<view class="text2">{{item.faqi|intFielter}}</view>
 				<view class="text2">{{item.faqiType|emptyFielter}}</view>
-					<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
 			</view>
 
 		</view>
@@ -34,7 +34,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
-	import {mapState} from "vuex";
+	import {
+		mapState
+	} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -42,31 +44,23 @@
 		components: {
 			wPicker
 		},
-
 		onLoad: function() {
-			_self=this;
-			let date = this.getNowQuarter();
+			_self = this;
+			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			this.setPageTitle(date);
-			let ds = date.split(' ');
-			let year = ds[0];
-			let quarter = this.getQuarter(ds[1]);
-
-			this.getListData(year, quarter);
-			this.getChartData(year, quarter);
 		},
 		data() {
 			return {
 				title: 'Hello',
-				sdate: this.getNowQuarter(),
+				sdate: this.getNowYearQuarter(),
 				tabList: [{
 					mode: "yearQuarter",
 					name: "年季",
-					value: [this.getNowYear(), 0] //年月在列表的序号
+					value: [this.getNowYear(), this.getQuarter(this.getNowQuarter()) - 1]
 				}],
 				tabIndex: 0,
 				listData: [],
@@ -79,10 +73,19 @@
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
 			},
+			year() {
+				let ds = this.sdate.split(' ');
+				return ds[0];
+			},
+			quarter() {
+				let ds = this.sdate.split(' ');
+				return this.getQuarter(ds[1]);
+			},
 			...mapState(["userInfo"]),
 		},
 		onReady: function() {
-
+			this.getListData();
+			this.getChartData();
 		},
 		methods: {
 			toggleTab(index) {
@@ -90,20 +93,16 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				let date = val.result;
+				let date = val.result.replace('-', ' ');
 				this.sdate = date;
-				this.setPageTitle(date);
-				let ds = date.split(' ');
-				let year = ds[0];
-				let quarter = this.getQuarter(ds[1]);
-
-				this.getListData(year, quarter);
-				this.getChartData(year, quarter);
+				this.setPageTitle();
+				this.getListData();
+				this.getChartData();
 			},
-			getChartData: function(year, quarter) {
+			getChartData: function() {
 				_self.http.get("airReport/getQuarterLineChart", {
-					year: year,
-					quarter: quarter,
+					year: this.year,
+					quarter: this.quarter,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -126,34 +125,11 @@
 					}
 				});
 			},
-			/*显示图表*/
-			ShowCharts: function(categories, series) {
-				if (series[0].data.length <= 0) {
-					series[0].data.push(0);
-				}
-				Charts = new wxCharts({
-					canvasId: "charts",
-					type: 'line',
-					legend: true,
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: false,
-					categories: categories,
-					series: series,
-					width: width,
-					height: 280,
-					pixelRatio: 1,
-				});
-			},
-			/*
-			 * 获取列表数据
-			 * year 年
-			 * quarter 季度
-			 * */
-			getListData: function(year, quarter) {
+			/* 获取列表数据 */
+			getListData: function() {
 				_self.http.get("airReport/getQuarterAirData", {
-					year: year,
-					quarter: quarter,
+					year: this.year,
+					quarter: this.quarter,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -163,21 +139,28 @@
 					}
 				});
 			},
-
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
-					storeName: storeName,
+					orgName: storeName,
 					date: this.sdate
 				}
 				uni.navigateTo({
 					url: "daydata22?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
 			},
-
-			getNowQuarter: function() {
+			/*获取年+季度描述*/
+			getNowYearQuarter: function() {
 				var date = new Date();
 				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var quarter = this.getNowQuarter();
+				var currentdate = year + ' ' + quarter;
+				return currentdate;
+			},
+			/*获取当前季度描述*/
+			getNowQuarter: function() {
+				var date = new Date();
 				var month = date.getMonth() + 1;
 				var quarter = "";
 				if (month <= 3) {
@@ -189,10 +172,9 @@
 				} else if (month <= 12) {
 					quarter = "第四季度";
 				}
-
-				var currentdate = year + ' ' + quarter;
-				return currentdate;
+				return quarter;
 			},
+			/*根据描述获取季度值*/
 			getQuarter: function(quarterstr) {
 				switch (quarterstr) {
 					case "第一季度":
@@ -205,19 +187,16 @@
 						return 4;
 				}
 			},
-
 			getNowYear: function() {
 				var date = new Date();
 				var year = date.getFullYear();
 				var currentdate = year - 2018;
 				return currentdate;
 			},
-			/**设置页面标题
-			 * @param {日期} sDate
-			 */
-			setPageTitle: function(sDate) {
+			/**设置页面标题*/
+			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气质量'
+					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
 				});
 			},
 		}

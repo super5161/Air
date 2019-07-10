@@ -32,7 +32,9 @@
 
 <script>
 	import wPicker from "@/components/w-picker/w-picker.vue";
-	import {mapState} from "vuex";
+	import {
+		mapState
+	} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -43,15 +45,12 @@
 
 		onLoad: function() {
 			_self = this;
-			var sDate = this.getNowFormatMonth();
+			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			this.setPageTitle(sDate);
-			this.getListData(sDate);
-			this.getChartData(sDate);
 		},
 		data() {
 			return {
@@ -76,7 +75,8 @@
 			...mapState(["userInfo"]),
 		},
 		onReady: function() {
-
+			this.getListData();
+			this.getChartData();
 		},
 		methods: {
 			toggleTab(index) {
@@ -84,20 +84,19 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				let date = val.result.replace('-', '');
-				this.sdate = date;
-				this.setPageTitle(date);
-				this.getListData(date);
-				this.getChartData(date);
+				this.sdate = val.result.replace('-', '');
+				this.setPageTitle();
+				this.getListData();
+				this.getChartData();
 			},
-			getChartData: function(sDate) {
+			getChartData: function() {
 				_self.http.get("airReport/getMonthLineChart", {
-					month: sDate,
+					month: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = e.data.data.list.map(function(item) {
-							return parseInt(item.ftime);
+							return item.fday;
 						});
 						let series = [];
 						series[0] = {
@@ -116,11 +115,10 @@
 			},
 			/*
 			 * 获取列表数据
-			 * sDate 查询日期
 			 * */
-			getListData: function(sDate) {
+			getListData: function() {
 				_self.http.get("airReport/getMonthAirData", {
-					month: sDate,
+					month: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
 					if (e.data.code === 200) {
@@ -133,7 +131,7 @@
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
-					storeName: storeName,
+					orgName: storeName,
 					date: this.sdate
 				}
 				uni.navigateTo({
@@ -166,12 +164,10 @@
 				var currentdate = month - 1;
 				return currentdate;
 			},
-			/**设置页面标题
-			 * @param {日期} sDate
-			 */
-			setPageTitle: function(sDate) {
+			/**设置页面标题*/
+			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: sDate + ' 市空气质量'
+					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
 				});
 			},
 		}

@@ -62,9 +62,6 @@
 </template>
 
 <script>
-	import {
-		mapState
-	} from "vuex";
 	var that;
 	export default {
 		data() {
@@ -78,12 +75,6 @@
 					mondata: "",
 				},
 			}
-		},
-		onLoad: function() {
-			// var userInfo=mapState(['userInfo']);
-			that = this;
-			//console.log(userInfo.userName);
-
 		},
 		onReady: function() {
 			//1 市 2 区 3 学校

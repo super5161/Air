@@ -6,7 +6,7 @@
 				<view class="w-picker-btn" @tap="pickerCancel">取消</view>
 				<view class="w-picker-btn" :style="{'color':themeColor}" @tap="pickerConfirm">确定</view>
 			</view>
-			<view class="w-picker-view" v-if="mode=='date'||mode=='dateTime'||mode=='yearMonth'||mode=='yearQuarter'">
+			<view class="w-picker-view" v-if="mode=='date'||mode=='dateTime'||mode=='yearMonth'||mode=='yearQuarter'||mode=='year'">
 				<picker-view indicator-style="height: 40px;" :value="pickVal" @change="bindChange">
 					<picker-view-column>
 						<view class="item" v-for="(item,index) in data.years" :key="index">{{item}}年</view>
@@ -14,10 +14,10 @@
 					<picker-view-column v-if="mode=='yearQuarter'">
 						<view class="item" v-for="(item,index) in data.months" :key="index">{{item}}</view>
 					</picker-view-column>
-					<picker-view-column v-if="mode!='yearQuarter'">
+					<picker-view-column v-if="mode!='yearQuarter'&&mode!='year'">
 						<view class="item" v-for="(item,index) in data.months" :key="index">{{item}}月</view>
 					</picker-view-column>
-					<picker-view-column v-if="mode!='yearMonth'">
+					<picker-view-column v-if="mode!='yearMonth'&&mode!='year'">
 						<view class="item" v-for="(item,index) in data.days" :key="index">{{item}}日</view>
 					</picker-view-column>
 					<picker-view-column v-if="mode=='dateTime'">
@@ -180,6 +180,11 @@
 						_this.checkArr = [year, month, day];
 						_this.resultStr = `${year+'-'+month+'-'+day}`;
 						break;
+					case "year":
+						year = _this.data.years[arr[0]];
+						_this.checkArr = [year];
+						_this.resultStr = `${year}`;
+						break;
 					case "yearMonth":
 						year = _this.data.years[arr[0]];
 						month = _this.data.months[arr[1]];
@@ -266,6 +271,11 @@
 						day = data.days[_this.defaultVal[2]];
 						_this.checkArr = [year, month, day];
 						_this.resultStr = `${year+'-'+month+'-'+day}`;
+						break;
+					case "year":
+						year = data.years[_this.defaultVal[0]];
+						_this.checkArr = [year];
+						_this.resultStr = `${year}`;
 						break;
 					case "yearMonth":
 						year = data.years[_this.defaultVal[0]];
