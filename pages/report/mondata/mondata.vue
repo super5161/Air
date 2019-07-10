@@ -175,7 +175,7 @@
 			/**设置页面标题*/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: this.sdate + ' 市空气监控'
+					title: `${this.sdate} ${this.userInfo.orgName} 每月空气`,
 				});
 			},
 		}

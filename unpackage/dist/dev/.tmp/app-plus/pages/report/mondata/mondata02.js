@@ -98,52 +98,78 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+
 
 var _self;
 var Charts;
 var width;var _default =
 {
+  components: {
+    wPicker: wPicker },
+
+  computed: _objectSpread({
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+  (0, _vuex.mapState)(["userInfo"])),
+
   onLoad: function onLoad(opts) {
     _self = this;
+    var ds;
     try {
-      this.detail = JSON.parse(decodeURIComponent(opts.detail));
+      ds = JSON.parse(decodeURIComponent(opts.detail));
     } catch (error) {
-      this.detail = JSON.parse(opts.detail);
+
     }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
+    var userifo = this.userInfo;
+    this.orgId = ds ? ds.id : userifo.orgNo;
+    this.orgName = ds ? ds.orgName : userifo.orgName;
+    this.sdate = ds ? ds.date : this.getNowFormatMonth();
 
-
+    this.setPageTitle();
+    this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
@@ -152,7 +178,15 @@ var width;var _default =
   },
   data: function data() {
     return {
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "yearMonth",
+        name: "年月",
+        value: [0, 0] }],
+
+      tabIndex: 0,
       listData: [] };
 
   },
@@ -161,15 +195,55 @@ var width;var _default =
     _self.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result.replace('-', '');
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+    },
+    getYear: function getYear() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+    getNowFormatMonth: function getNowFormatMonth() {
+      var date = new Date();
+      var seperator1 = "";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      var currentdate = year + seperator1 + month;
+      return currentdate;
+    },
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
           categories = e.data.data.list.map(function (item) {
-            return parseInt(item.ftime);
+            return item.fday;
           });
           var series = [];
           series[0] = {
@@ -191,9 +265,9 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirData", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthAirData", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -206,11 +280,16 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
-        date: this.detail.date };
+        orgName: storeName,
+        date: this.sdate };
 
       uni.navigateTo({
         url: "mondata03?detail=" + encodeURIComponent(JSON.stringify(detail)) });
+
+    },
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u6708\u7A7A\u6C14") });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))

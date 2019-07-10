@@ -98,74 +98,159 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var _self;
-var Charts;
-
-var width;var _default =
-{
-  onLoad: function onLoad(opt) {
-    _self = this;
-    var detail = JSON.parse(decodeURIComponent(opt.detail));
-    try {
-      this.detail = JSON.parse(decodeURIComponent(opt.detail));
-    } catch (error) {
-      this.detail = JSON.parse(opt.detail);
-    }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _self;var Charts;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var width;var _default = { components: { wPicker: wPicker }, computed: _objectSpread({ mode: function mode() {return this.tabList[this.tabIndex].mode;}, defaultVal: function defaultVal() {return this.tabList[this.tabIndex].value;} }, (0, _vuex.mapState)(["userInfo"])), onLoad: function onLoad(opt) {_self = this;var ds;try {ds = JSON.parse(decodeURIComponent(opt.detail));} catch (error) {}var userifo = this.userifo;this.orgId = ds ? ds.id : userifo.orgNo;this.orgName = ds ? ds.orgName : userifo.orgName;this.sdate = ds ? ds.date : this.getNowFormatDate();this.setPageTitle();this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
-
-    this.getListData();
   },
   data: function data() {
     return {
-      /*
-              * 传入参数数据
-              * */
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "date",
+        name: "日期选择",
+        value: [0, 0, 0] //年月日在列表的序号
+      }],
+      tabIndex: 0,
       //列表数据
       listData: [] };
 
   },
   onReady: function onReady() {
+    this.getListData();
     this.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result;
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+      this.tabList[0].value[2] = this.getDay();
+    },
+    getNowFormatDate: function getNowFormatDate() {
+      var date = new Date();
+      var seperator1 = "-";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var strDate = date.getDate();
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+      }
+      var currentdate = year + seperator1 + month + seperator1 + strDate;
+      return currentdate;
+    },
+
+    getYear: function getYear() {
+      var date = new Date(this.sdate);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var date = new Date(this.sdate);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+
+    getDay: function getDay() {
+      var date = new Date(this.sdate);
+      var strDate = date.getDate();
+      var currentdate = strDate - 1;
+      return currentdate;
+    },
+    /**设置页面标题**/
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u65E5\u7A7A\u6C14") });
+
+    },
+
     getChartData: function getChartData() {
-      _self.http.get("getDayLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayLineChart", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
@@ -190,21 +275,21 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
-        date: this.detail.date };
+        orgName: storeName,
+        date: this.sdate };
 
       uni.navigateTo({
         url: "hourdata03?detail=" + encodeURIComponent(JSON.stringify(detail)) });
 
     },
+
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirData", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayAirData", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;

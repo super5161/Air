@@ -1,6 +1,4 @@
 {
   "titleNView": false,
-  "usingComponents": {
-    "page-foot": "/components/page-foot"
-  }
+  "usingComponents": {}
 }

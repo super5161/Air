@@ -138,7 +138,7 @@
 			/**设置页面标题**/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.orgName} 空气监控`,
+					title: `${this.sdate} ${this.orgName} 每日空气`,
 				});
 			},
 			getChartData: function() {

@@ -5,12 +5,12 @@
     "iPad"
   ],
   "id": "__UNI__A5D3F10",
-  "name": "Air",
+  "name": "AirApp",
   "version": {
     "name": "2.0.0",
-    "code": "100"
+    "code": 200
   },
-  "description": "大气环境监测中心",
+  "description": "大气环境监测中心APP",
   "launch_path": "__uniappview.html",
   "developer": {
     "name": "",
@@ -28,9 +28,8 @@
       "concatenate": true
     },
     "splashscreen": {
-      "target": "id:1",
-      "autoclose": true,
-      "waiting": true,
+      "autoclose": false,
+      "waiting": false,
       "delay": 0
     },
     "popGesture": "close",

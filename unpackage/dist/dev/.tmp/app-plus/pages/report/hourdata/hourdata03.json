@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "2019/05/05莘庄中学空气质量",
-  "usingComponents": {}
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
 }

@@ -15366,8 +15366,10 @@ var store = new _vuex.default.Store({
       state.userInfo = {
         userId: provider.userId,
         userName: provider.userName,
-        userOrgNo: provider.userOrgNo };
-
+        orgNo: provider.orgNo,
+        orgName: provider.orgName,
+        orgLevel: provider.orgLevel //组织层级
+      };
       //保存到本地
       uni.setStorage({
         key: 'userInfo',
@@ -15377,42 +15379,12 @@ var store = new _vuex.default.Store({
     logout: function logout(state) {
       state.hasLogin = false;
       state.userInfo = {};
-
       uni.removeStorage({
         key: 'userInfo' });
 
     } },
 
-  actions: {
-
-    // lazy loading openid
-    // getUserOpenId: async function ({
-    // 	commit,
-    // 	state
-    // }) {
-    // 	return await new Promise((resolve, reject) => {
-    // 		if (state.openid) {
-    // 			resolve(state.openid)
-    // 		} else {
-    // 			uni.login({
-    // 				success: (data) => {
-    // 					commit('login')
-    // 					setTimeout(function () { 
-    // 						const openid = '123456789'
-    // 						console.log('uni.request mock openid[' + openid + ']');
-    // 						commit('setOpenid', openid)
-    // 						resolve(openid)
-    // 					}, 1000)
-    // 				},
-    // 				fail: (err) => {
-    // 					console.log('uni.login 接口调用失败，将无法正常使用开放接口等服务', err)
-    // 					reject(err)
-    // 				}
-    // 			})
-    // 		}
-    // 	})
-    // }
-  } });var _default =
+  actions: {} });var _default =
 
 
 store;exports.default = _default;
@@ -15453,7 +15425,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   //基础请求方式
   request: function request(options) {var _this = this;
-    var baseUrl = "http://139.224.13.75:8080/airReport/"; //请求基本地址
+    var baseUrl = "http://139.224.13.75:8080/"; //请求基本地址
     options = options || {};
     options.url = baseUrl + options.url;
     /*

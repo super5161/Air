@@ -98,75 +98,79 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var width;
-var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default =
 
-{
-  components: {
-    wPicker: wPicker },
 
-  onLoad: function onLoad() {
-    _self = this;
-    var date = this.getNowFormatMonth();
-    this.setPageTitle(date);
-    uni.getSystemInfo({
-      success: function success(res) {
-        width = res.screenWidth - 10;
-      } });
 
-    this.getDate(date);
-  },
-  data: function data() {
-    return {
-      title: 'Hello',
-      sdate: this.getNowFormatMonth(),
-      tabList: [{
-        mode: "yearMonth",
-        name: "年月",
-        value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
-      }],
-      tabIndex: 0,
-      dataList: [] };
 
-  },
-  computed: {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var width;var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default = { components: { wPicker: wPicker }, onLoad: function onLoad() {_self = this;var date = this.getNowFormatMonth();this.setPageTitle(date);uni.getSystemInfo({ success: function success(res) {width = res.screenWidth - 10;} });this.getDate(date);}, data: function data() {return { title: 'Hello', sdate: this.getNowFormatMonth(), tabList: [{ mode: "yearMonth", name: "年月", value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+      }], tabIndex: 0, dataList: [] };}, computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -183,9 +187,9 @@ var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | co
       this.getDate(date);
     },
     getDate: function getDate(date) {
-      _self.http.get("getMonthExponent", {
+      _self.http.get("airReport/getMonthExponent", {
         month: date,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;

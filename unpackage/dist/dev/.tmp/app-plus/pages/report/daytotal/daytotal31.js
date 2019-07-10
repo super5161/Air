@@ -98,75 +98,78 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _self;
-var Charts;
-var width;var _default =
-{
-  onLoad: function onLoad() {
-    _self = this;
-    var year = this.getNowFormatYear();
-    uni.getSystemInfo({
-      success: function success(res) {
-        width = res.screenWidth - 10;
-      } });
 
-    this.setPageTitle(year);
-    this.getDate(year);
-  },
-  data: function data() {
-    return {
-      sdate: this.getNowFormatYear(),
-      array: ['2017', '2018', '2019', '2020'],
-      index: 2,
-      dataList: [] };
 
-  },
-  onReady: function onReady() {
 
-  },
-  methods: {
-    bindPickerChange: function bindPickerChange(e) {
-      var date = e.target.value;
-      this.sdate = date;
-      this.setPageTitle(date);
-      this.getDate(date);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _self;var Charts;var width;var _default = { onLoad: function onLoad() {_self = this;var year = this.getNowFormatYear();uni.getSystemInfo({ success: function success(res) {width = res.screenWidth - 10;} });this.setPageTitle(year);this.getDate(year);}, data: function data() {return { sdate: this.getNowFormatYear(), array: ['2017', '2018', '2019', '2020'], index: 2, dataList: [] };}, onReady: function onReady() {}, computed: _objectSpread({}, (0, _vuex.mapState)(["userInfo"])), methods: { bindPickerChange: function bindPickerChange(e) {var date = e.target.value;this.sdate = date;this.setPageTitle(date);this.getDate(date);
     },
     getDate: function getDate(year, quarter) {
-      _self.http.get("getYearStatistics", {
+      _self.http.get("airReport/getYearStatistics", {
         year: year,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;

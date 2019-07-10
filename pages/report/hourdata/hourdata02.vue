@@ -55,8 +55,7 @@
 			try {
 				ds = JSON.parse(decodeURIComponent(opt.detail));
 			} catch (error) {}
-
-			let userifo = this.userifo;
+			let userifo = this.userInfo;
 			this.orgId = ds ? ds.id : userifo.orgNo;
 			this.orgName = ds ? ds.orgName : userifo.orgName;
 			this.sdate = ds ? ds.date : this.getNowFormatDate();
@@ -143,7 +142,7 @@
 			/**设置页面标题**/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.orgName} 空气监控`,
+					title: `${this.sdate} ${this.orgName} 每日空气`,
 				});
 			},
 

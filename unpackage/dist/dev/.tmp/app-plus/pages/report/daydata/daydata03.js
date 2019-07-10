@@ -157,8 +157,8 @@ var width;var _default =
   },
   methods: {
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
@@ -205,8 +205,8 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getMonthAirDataThree", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthAirDataThree", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {

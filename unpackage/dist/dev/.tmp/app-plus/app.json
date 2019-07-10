@@ -60,10 +60,10 @@
     "backgroundColor": "#F8F8F8"
   },
   "splashscreen": {
-    "alwaysShowBeforeRender": true,
-    "autoclose": false
+    "alwaysShowBeforeRender": false,
+    "autoclose": true
   },
-  "appname": "Air",
+  "appname": "AirApp",
   "compilerVersion": "1.9.9",
   "usingComponents": {
     "page-foot": "/components/page-foot"

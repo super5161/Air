@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -136,6 +136,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var _self;
@@ -146,16 +148,13 @@ var width;var _default =
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    var sDate = this.getNowFormatMonth();
-    this.setPageTitle(sDate);
+    this.setPageTitle();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
     _self = this;
-    this.getListData(sDate);
-    this.getChartData(sDate);
   },
   data: function data() {
     return {
@@ -170,16 +169,18 @@ var width;var _default =
       listData: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(['userInfo'])),
 
   onReady: function onReady() {
-
+    this.getListData();
+    this.getChartData();
   },
 
   methods: {
@@ -190,19 +191,19 @@ var width;var _default =
     onConfirm: function onConfirm(val) {
       var date = val.result.replace('-', '');
       this.sdate = date;
-      this.setPageTitle(date);
-      this.getListData(date);
-      thus.getChartData(date);
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
     },
-    getChartData: function getChartData(sDate) {
-      _self.http.get("getMonthLineChart", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getChartData: function getChartData() {
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
           categories = e.data.data.list.map(function (item) {
-            return parseInt(item.ftime);
+            return item.fday;
           });
           var series = [];
           series[0] = {
@@ -221,12 +222,11 @@ var width;var _default =
     },
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
-    getListData: function getListData(sDate) {
-      _self.http.get("getDayAirData", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getListData: function getListData() {
+      _self.http.get("airReport/getMonthAirData", {
+        month: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -239,7 +239,7 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
+        orgName: storeName,
         date: this.sdate };
 
       uni.navigateTo({
@@ -272,12 +272,10 @@ var width;var _default =
       var currentdate = month - 1;
       return currentdate;
     },
-    /**设置页面标题
-        * @param {日期} sDate
-        */
-    setPageTitle: function setPageTitle(sDate) {
+    /**设置页面标题*/
+    setPageTitle: function setPageTitle() {
       uni.setNavigationBarTitle({
-        title: sDate + ' 市空气监控' });
+        title: "".concat(this.sdate, " ").concat(this.userInfo.orgName, " \u6BCF\u6708\u7A7A\u6C14") });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))

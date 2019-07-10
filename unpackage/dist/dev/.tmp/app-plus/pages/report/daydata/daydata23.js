@@ -159,7 +159,7 @@ var width;var _default =
       var ds = this.detail.date.split(' ');
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
-      _self.http.get("getQuarterLineChart", {
+      _self.http.get("airReport/getQuarterLineChart", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).
@@ -189,7 +189,7 @@ var width;var _default =
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
 
-      _self.http.get("getQuarterAirDataThree", {
+      _self.http.get("airReport/getQuarterAirDataThree", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).

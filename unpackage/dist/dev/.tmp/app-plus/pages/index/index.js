@@ -98,93 +98,137 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var that;var _default =
-{
-  data: function data() {
-    return {
-      indicatorDots: true,
-      autoplay: true,
-      interval: 2000,
-      duration: 800 };
 
-  },
-  onLoad: function onLoad() {
-    that = this;
-    //console.log(this.$store.state.hasLogin)
-  },
-  onReady: function onReady() {
-    //console.log(that.http)
-    // that.http.get('https://www.baidu.com/', null).then(function(taget,res) {
-    // 	console.log("成功")
-    // }).catch(function(taget,res) {
-    // 	console.log("失败")
-    // });
-  } };exports.default = _default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var that;var _default = { data: function data() {return { indicatorDots: true, autoplay: true, interval: 2000, duration: 800, pageUrl: { hourdata: "", mondata: "" } };}, onLoad: function onLoad() {// var userInfo=mapState(['userInfo']);
+    that = this; //console.log(userInfo.userName);
+  }, onReady: function onReady() {//1 市 2 区 3 学校
+    var level = this.$store.state.userInfo.orgLevel;if (level === 1) {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata";this.pageUrl.mondata = "/pages/report/mondata/mondata";} else if (level === 2) {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata02";this.pageUrl.mondata = "/pages/report/mondata/mondata02";} else {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata03";this.pageUrl.mondata = "/pages/report/mondata/mondata03";}} };exports.default = _default;
 
 /***/ }),
 

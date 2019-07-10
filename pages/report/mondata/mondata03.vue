@@ -178,7 +178,7 @@
 			},
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.orgName} 空气监控`,
+					title: `${this.sdate} ${this.orgName} 每月空气`,
 				});
 			},
 		}

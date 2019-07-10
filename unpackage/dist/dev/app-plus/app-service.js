@@ -1389,12 +1389,34 @@ function gz$gwx_39(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_39)return __WXML_GLOBAL__.ops_cached.$gwx_39
 __WXML_GLOBAL__.ops_cached.$gwx_39=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'__l'])
+Z([3,'__e'])
+Z([3,'vue-ref'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
+Z([3,'picker'])
+Z([[7],[3,'defaultVal']])
+Z([3,'2030'])
+Z([[7],[3,'mode']])
+Z([3,'2018'])
+Z([3,'1'])
+Z([3,'#f00'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_39);return __WXML_GLOBAL__.ops_cached.$gwx_39
 }
 function gz$gwx_40(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_40)return __WXML_GLOBAL__.ops_cached.$gwx_40
 __WXML_GLOBAL__.ops_cached.$gwx_40=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'__l'])
+Z([3,'__e'])
+Z([3,'vue-ref'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
+Z([3,'picker'])
+Z([[7],[3,'defaultVal']])
+Z([3,'2030'])
+Z([[7],[3,'mode']])
+Z([3,'2018'])
+Z([3,'1'])
+Z([3,'#f00'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_40);return __WXML_GLOBAL__.ops_cached.$gwx_40
 }
 function gz$gwx_41(){
@@ -1418,12 +1440,34 @@ function gz$gwx_42(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_42)return __WXML_GLOBAL__.ops_cached.$gwx_42
 __WXML_GLOBAL__.ops_cached.$gwx_42=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'__l'])
+Z([3,'__e'])
+Z([3,'vue-ref'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
+Z([3,'picker'])
+Z([[7],[3,'defaultVal']])
+Z([3,'2030'])
+Z([[7],[3,'mode']])
+Z([3,'2018'])
+Z([3,'1'])
+Z([3,'#f00'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_42);return __WXML_GLOBAL__.ops_cached.$gwx_42
 }
 function gz$gwx_43(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_43)return __WXML_GLOBAL__.ops_cached.$gwx_43
 __WXML_GLOBAL__.ops_cached.$gwx_43=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
+Z([3,'__l'])
+Z([3,'__e'])
+Z([3,'vue-ref'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^confirm']],[[4],[[5],[[4],[[5],[1,'onConfirm']]]]]]]]])
+Z([3,'picker'])
+Z([[7],[3,'defaultVal']])
+Z([3,'2030'])
+Z([[7],[3,'mode']])
+Z([3,'2018'])
+Z([3,'1'])
+Z([3,'#f00'])
 })(__WXML_GLOBAL__.ops_cached.$gwx_43);return __WXML_GLOBAL__.ops_cached.$gwx_43
 }
 function gz$gwx_44(){
@@ -1591,7 +1635,7 @@ var m3=function(e,s,r,gg){
 var z=gz$gwx_4()
 cs.push("./pages/index/index.wxml:view:1:1")
 var xQ=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
-cs.push("./pages/index/index.wxml:page-foot:1:1914")
+cs.push("./pages/index/index.wxml:page-foot:1:1893")
 var oR=_n('page-foot')
 _rz(z,oR,'tab',2,e,s,gg)
 cs.pop()
@@ -1881,12 +1925,30 @@ e_[x[37]]={f:m37,j:[],i:[],ti:[],ic:[]}
 d_[x[38]]={}
 var m38=function(e,s,r,gg){
 var z=gz$gwx_39()
+cs.push("./pages/report/hourdata/hourdata02.wxml:view:1:1")
+var e8B=_n('view')
+_rz(z,e8B,'bind:__l',0,e,s,gg)
+cs.push("./pages/report/hourdata/hourdata02.wxml:w-picker:1:160")
+var b9B=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+cs.pop()
+_(e8B,b9B)
+cs.pop()
+_(r,e8B)
 return r
 }
 e_[x[38]]={f:m38,j:[],i:[],ti:[],ic:[]}
 d_[x[39]]={}
 var m39=function(e,s,r,gg){
 var z=gz$gwx_40()
+cs.push("./pages/report/hourdata/hourdata03.wxml:view:1:1")
+var xAC=_n('view')
+_rz(z,xAC,'bind:__l',0,e,s,gg)
+cs.push("./pages/report/hourdata/hourdata03.wxml:w-picker:1:160")
+var oBC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+cs.pop()
+_(xAC,oBC)
+cs.pop()
+_(r,xAC)
 return r
 }
 e_[x[39]]={f:m39,j:[],i:[],ti:[],ic:[]}
@@ -1894,26 +1956,44 @@ d_[x[40]]={}
 var m40=function(e,s,r,gg){
 var z=gz$gwx_41()
 cs.push("./pages/report/mondata/mondata.wxml:view:1:1")
-var o0B=_n('view')
-_rz(z,o0B,'bind:__l',0,e,s,gg)
+var cDC=_n('view')
+_rz(z,cDC,'bind:__l',0,e,s,gg)
 cs.push("./pages/report/mondata/mondata.wxml:w-picker:1:160")
-var xAC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+var hEC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
 cs.pop()
-_(o0B,xAC)
+_(cDC,hEC)
 cs.pop()
-_(r,o0B)
+_(r,cDC)
 return r
 }
 e_[x[40]]={f:m40,j:[],i:[],ti:[],ic:[]}
 d_[x[41]]={}
 var m41=function(e,s,r,gg){
 var z=gz$gwx_42()
+cs.push("./pages/report/mondata/mondata02.wxml:view:1:1")
+var cGC=_n('view')
+_rz(z,cGC,'bind:__l',0,e,s,gg)
+cs.push("./pages/report/mondata/mondata02.wxml:w-picker:1:160")
+var oHC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+cs.pop()
+_(cGC,oHC)
+cs.pop()
+_(r,cGC)
 return r
 }
 e_[x[41]]={f:m41,j:[],i:[],ti:[],ic:[]}
 d_[x[42]]={}
 var m42=function(e,s,r,gg){
 var z=gz$gwx_43()
+cs.push("./pages/report/mondata/mondata03.wxml:view:1:1")
+var aJC=_n('view')
+_rz(z,aJC,'bind:__l',0,e,s,gg)
+cs.push("./pages/report/mondata/mondata03.wxml:w-picker:1:160")
+var tKC=_mz(z,'w-picker',['bind:confirm',1,'class',1,'data-event-opts',2,'data-ref',3,'defaultVal',4,'endYear',5,'mode',6,'startYear',7,'step',8,'themeColor',9],[],e,s,gg)
+cs.pop()
+_(aJC,tKC)
+cs.pop()
+_(r,aJC)
 return r
 }
 e_[x[42]]={f:m42,j:[],i:[],ti:[],ic:[]}
@@ -1975,15 +2055,15 @@ d_[x[52]]={}
 var m52=function(e,s,r,gg){
 var z=gz$gwx_53()
 cs.push("./pages/user/index.wxml:view:1:1")
-var oNC=_n('view')
-_rz(z,oNC,'bind:__l',0,e,s,gg)
-cs.push("./pages/user/index.wxml:page-foot:1:433")
-var xOC=_n('page-foot')
-_rz(z,xOC,'tab',1,e,s,gg)
+var oVC=_n('view')
+_rz(z,oVC,'bind:__l',0,e,s,gg)
+cs.push("./pages/user/index.wxml:page-foot:1:479")
+var lWC=_n('page-foot')
+_rz(z,lWC,'tab',1,e,s,gg)
 cs.pop()
-_(oNC,xOC)
+_(oVC,lWC)
 cs.pop()
-_(r,oNC)
+_(r,oVC)
 return r
 }
 e_[x[52]]={f:m52,j:[],i:[],ti:[],ic:[]}
@@ -2007,7 +2087,7 @@ return root;
 
 
 
-__wxAppCode__['app.json']={"pages":["pages/index/guide","pages/login/login","pages/index/index","pages/user/index","pages/note/index","pages/report/daydata/index","pages/report/daydata/daydata01","pages/report/daydata/daydata02","pages/report/daydata/daydata03","pages/note/notedata","pages/report/daydata/daydata21","pages/report/daydata/daydata22","pages/report/daydata/daydata23","pages/report/daydata/daydata31","pages/report/daydata/daydata32","pages/report/daydata/daydata33","pages/report/daytotal/index","pages/report/daytotal/daytotal01","pages/report/daytotal/daytotal02","pages/report/daytotal/daytotal03","pages/report/daytotal/daytotal21","pages/report/daytotal/daytotal22","pages/report/daytotal/daytotal23","pages/report/daytotal/daytotal31","pages/report/daytotal/daytotal32","pages/report/daytotal/daytotal33","pages/report/dayitem/index","pages/report/dayitem/dayitem01","pages/report/dayitem/dayitem02","pages/report/dayitem/dayitem03","pages/report/dayitem/dayitem21","pages/report/dayitem/dayitem22","pages/report/dayitem/dayitem23","pages/report/dayitem/dayitem31","pages/report/dayitem/dayitem32","pages/report/dayitem/dayitem33","pages/report/timedata/index","pages/report/timedata/timedata21","pages/report/timedata/timedata01","pages/report/hourdata/hourdata","pages/report/hourdata/hourdata02","pages/report/hourdata/hourdata03","pages/report/mondata/mondata","pages/report/mondata/mondata02","pages/report/mondata/mondata03","pages/report/timedata/timedata22","pages/report/timedata/timedata23","pages/report/timedata/timedata31","pages/smart/index","pages/report/timedata/timedata02","pages/report/timedata/timedata03"],"subPackages":[],"window":{"navigationBarTextStyle":"black","navigationBarTitleText":"大气环境监测中心","navigationBarBackgroundColor":"#F8F8F8","backgroundColor":"#F8F8F8"},"splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"appname":"Air","compilerVersion":"1.9.9","usingComponents":{"page-foot":"/components/page-foot"}};
+__wxAppCode__['app.json']={"pages":["pages/index/guide","pages/login/login","pages/index/index","pages/user/index","pages/note/index","pages/report/daydata/index","pages/report/daydata/daydata01","pages/report/daydata/daydata02","pages/report/daydata/daydata03","pages/note/notedata","pages/report/daydata/daydata21","pages/report/daydata/daydata22","pages/report/daydata/daydata23","pages/report/daydata/daydata31","pages/report/daydata/daydata32","pages/report/daydata/daydata33","pages/report/daytotal/index","pages/report/daytotal/daytotal01","pages/report/daytotal/daytotal02","pages/report/daytotal/daytotal03","pages/report/daytotal/daytotal21","pages/report/daytotal/daytotal22","pages/report/daytotal/daytotal23","pages/report/daytotal/daytotal31","pages/report/daytotal/daytotal32","pages/report/daytotal/daytotal33","pages/report/dayitem/index","pages/report/dayitem/dayitem01","pages/report/dayitem/dayitem02","pages/report/dayitem/dayitem03","pages/report/dayitem/dayitem21","pages/report/dayitem/dayitem22","pages/report/dayitem/dayitem23","pages/report/dayitem/dayitem31","pages/report/dayitem/dayitem32","pages/report/dayitem/dayitem33","pages/report/timedata/index","pages/report/timedata/timedata21","pages/report/timedata/timedata01","pages/report/hourdata/hourdata","pages/report/hourdata/hourdata02","pages/report/hourdata/hourdata03","pages/report/mondata/mondata","pages/report/mondata/mondata02","pages/report/mondata/mondata03","pages/report/timedata/timedata22","pages/report/timedata/timedata23","pages/report/timedata/timedata31","pages/smart/index","pages/report/timedata/timedata02","pages/report/timedata/timedata03"],"subPackages":[],"window":{"navigationBarTextStyle":"black","navigationBarTitleText":"大气环境监测中心","navigationBarBackgroundColor":"#F8F8F8","backgroundColor":"#F8F8F8"},"splashscreen":{"alwaysShowBeforeRender":false,"autoclose":true},"appname":"AirApp","compilerVersion":"1.9.9","usingComponents":{"page-foot":"/components/page-foot"}};
 __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
 __wxAppCode__['components/page-foot.json']={"usingComponents":{},"component":true};
@@ -2058,7 +2138,7 @@ __wxAppCode__['pages/report/daydata/daydata32.wxml']=$gwx('./pages/report/daydat
 __wxAppCode__['pages/report/daydata/daydata33.json']={"navigationBarTitleText":"站点2018年空气质量","usingComponents":{}};
 __wxAppCode__['pages/report/daydata/daydata33.wxml']=$gwx('./pages/report/daydata/daydata33.wxml');
 
-__wxAppCode__['pages/report/daydata/index.json']={"usingComponents":{}};
+__wxAppCode__['pages/report/daydata/index.json']={"navigationBarTitleText":"空气质量","usingComponents":{}};
 __wxAppCode__['pages/report/daydata/index.wxml']=$gwx('./pages/report/daydata/index.wxml');
 
 __wxAppCode__['pages/report/dayitem/dayitem01.json']={"navigationBarTitleText":"市2019/05空气指数","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
@@ -2124,19 +2204,19 @@ __wxAppCode__['pages/report/daytotal/index.wxml']=$gwx('./pages/report/daytotal/
 __wxAppCode__['pages/report/hourdata/hourdata.json']={"navigationBarTitleText":"2019/05/05市空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/hourdata/hourdata.wxml']=$gwx('./pages/report/hourdata/hourdata.wxml');
 
-__wxAppCode__['pages/report/hourdata/hourdata02.json']={"navigationBarTitleText":"2019/05/05闵行区空气质量","usingComponents":{}};
+__wxAppCode__['pages/report/hourdata/hourdata02.json']={"navigationBarTitleText":"2019/05/05闵行区空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/hourdata/hourdata02.wxml']=$gwx('./pages/report/hourdata/hourdata02.wxml');
 
-__wxAppCode__['pages/report/hourdata/hourdata03.json']={"navigationBarTitleText":"2019/05/05莘庄中学空气质量","usingComponents":{}};
+__wxAppCode__['pages/report/hourdata/hourdata03.json']={"navigationBarTitleText":"2019/05/05莘庄中学空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/hourdata/hourdata03.wxml']=$gwx('./pages/report/hourdata/hourdata03.wxml');
 
 __wxAppCode__['pages/report/mondata/mondata.json']={"navigationBarTitleText":"市2019/05空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/mondata/mondata.wxml']=$gwx('./pages/report/mondata/mondata.wxml');
 
-__wxAppCode__['pages/report/mondata/mondata02.json']={"navigationBarTitleText":"闵行区2019/05空气质量","usingComponents":{}};
+__wxAppCode__['pages/report/mondata/mondata02.json']={"navigationBarTitleText":"闵行区2019/05空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/mondata/mondata02.wxml']=$gwx('./pages/report/mondata/mondata02.wxml');
 
-__wxAppCode__['pages/report/mondata/mondata03.json']={"navigationBarTitleText":"莘庄中学2019/05空气质量","usingComponents":{}};
+__wxAppCode__['pages/report/mondata/mondata03.json']={"navigationBarTitleText":"莘庄中学2019/05空气质量","usingComponents":{"w-picker":"/components/w-picker/w-picker"}};
 __wxAppCode__['pages/report/mondata/mondata03.wxml']=$gwx('./pages/report/mondata/mondata03.wxml');
 
 __wxAppCode__['pages/report/timedata/index.json']={"navigationBarTitleText":"市实时监控","usingComponents":{}};
@@ -17918,8 +17998,10 @@ var store = new _vuex.default.Store({
       state.userInfo = {
         userId: provider.userId,
         userName: provider.userName,
-        userOrgNo: provider.userOrgNo };
-
+        orgNo: provider.orgNo,
+        orgName: provider.orgName,
+        orgLevel: provider.orgLevel //组织层级
+      };
       //保存到本地
       uni.setStorage({
         key: 'userInfo',
@@ -17929,42 +18011,12 @@ var store = new _vuex.default.Store({
     logout: function logout(state) {
       state.hasLogin = false;
       state.userInfo = {};
-
       uni.removeStorage({
         key: 'userInfo' });
 
     } },
 
-  actions: {
-
-    // lazy loading openid
-    // getUserOpenId: async function ({
-    // 	commit,
-    // 	state
-    // }) {
-    // 	return await new Promise((resolve, reject) => {
-    // 		if (state.openid) {
-    // 			resolve(state.openid)
-    // 		} else {
-    // 			uni.login({
-    // 				success: (data) => {
-    // 					commit('login')
-    // 					setTimeout(function () { 
-    // 						const openid = '123456789'
-    // 						console.log('uni.request mock openid[' + openid + ']');
-    // 						commit('setOpenid', openid)
-    // 						resolve(openid)
-    // 					}, 1000)
-    // 				},
-    // 				fail: (err) => {
-    // 					console.log('uni.login 接口调用失败，将无法正常使用开放接口等服务', err)
-    // 					reject(err)
-    // 				}
-    // 			})
-    // 		}
-    // 	})
-    // }
-  } });var _default =
+  actions: {} });var _default =
 
 
 store;exports.default = _default;
@@ -18005,7 +18057,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
   //基础请求方式
   request: function request(options) {var _this = this;
-    var baseUrl = "http://139.224.13.75:8080/airReport/"; //请求基本地址
+    var baseUrl = "http://139.224.13.75:8080/"; //请求基本地址
     options = options || {};
     options.url = baseUrl + options.url;
     /*
@@ -29959,23 +30011,26 @@ var that;var langs = [{ key: "zh-CN", text: "中文简体" }, { key: "zh-Tw", te
 
         return;
       }
+      that.http.post("data/person/login", {
+        fuserno: uId,
+        fpassword: pwd }).
+      then(function (e) {
+        if (e.data.code === 200) {
+          var data = {
+            userId: uId,
+            userName: e.data.data.fusername,
+            orgNo: e.data.data.fsiteNo,
+            orgName: e.data.data.fsiteName,
+            orgLevel: e.data.data.fsiteLevel };
 
-      if (uId == "555" && pwd == "123") {
-        var data = {};
-        data.userId = uId;
-        data.userName = "王梓涵";
-        data.userOrgNo = "200000";
-        this.login(data);
-        uni.redirectTo({
-          url: "/pages/index/index" });
+          that.login(data);
+          uni.redirectTo({
+            url: "/pages/index/index" });
 
-      } else {
-        uni.showToast({
-          title: "用户名或者密码错误",
-          icon: "none" });
-
-        return;
-      }
+        } else {
+          that.util.showToast(e.data.msg);
+        }
+      });
     },
     //切换语言
     ChangeLange: function ChangeLange() {
@@ -30133,93 +30188,137 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var that;var _default =
-{
-  data: function data() {
-    return {
-      indicatorDots: true,
-      autoplay: true,
-      interval: 2000,
-      duration: 800 };
 
-  },
-  onLoad: function onLoad() {
-    that = this;
-    //console.log(this.$store.state.hasLogin)
-  },
-  onReady: function onReady() {
-    //console.log(that.http)
-    // that.http.get('https://www.baidu.com/', null).then(function(taget,res) {
-    // 	console.log("成功")
-    // }).catch(function(taget,res) {
-    // 	console.log("失败")
-    // });
-  } };exports.default = _default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var that;var _default = { data: function data() {return { indicatorDots: true, autoplay: true, interval: 2000, duration: 800, pageUrl: { hourdata: "", mondata: "" } };}, onLoad: function onLoad() {// var userInfo=mapState(['userInfo']);
+    that = this; //console.log(userInfo.userName);
+  }, onReady: function onReady() {//1 市 2 区 3 学校
+    var level = this.$store.state.userInfo.orgLevel;if (level === 1) {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata";this.pageUrl.mondata = "/pages/report/mondata/mondata";} else if (level === 2) {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata02";this.pageUrl.mondata = "/pages/report/mondata/mondata02";} else {this.pageUrl.hourdata = "/pages/report/hourdata/hourdata03";this.pageUrl.mondata = "/pages/report/mondata/mondata03";}} };exports.default = _default;
 
 /***/ }),
 
@@ -30382,6 +30481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"); //
 //
 //
@@ -30400,8 +30500,8 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
-var that;var _default = { data: function data() {return {};}, onReady: function onReady() {that = this;}, computed: (0, _vuex.mapState)(['hasLogin', 'userInfo']), methods: { LoginOut: function LoginOut() {uni.showModal({
-        title: '提示',
+//
+var that;var _default = { data: function data() {return {};}, onReady: function onReady() {that = this;}, computed: (0, _vuex.mapState)(['hasLogin', 'userInfo']), methods: { LoginOut: function LoginOut() {uni.showModal({ title: '提示',
         content: '您确定要退当前用户吗？',
         success: function success(res) {
           if (res.confirm) {
@@ -30974,7 +31074,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -31008,6 +31108,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 var _self;
 var Charts;
 var width;var _default =
@@ -31041,13 +31142,14 @@ var width;var _default =
       listData: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -31065,9 +31167,9 @@ var width;var _default =
       this.getChartData(date);
     },
     getChartData: function getChartData(sDate) {
-      _self.http.get("getMonthLineChart", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      _self.http.get("airReport/getMonthLineChart", {
+        month: sDate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = e.data.data.list.map(function (item) {
@@ -31093,9 +31195,9 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData(sDate) {
-      _self.http.get("getDayAirData", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+      _self.http.get("airReport/getMonthAirData", {
+        month: sDate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -31372,8 +31474,8 @@ var width;var _default =
   },
   methods: {
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
@@ -31400,8 +31502,8 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirData", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthAirData", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
@@ -31649,8 +31751,8 @@ var width;var _default =
   },
   methods: {
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
@@ -31697,8 +31799,8 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getMonthAirDataThree", {
-        date: this.detail.date,
+      _self.http.get("airReport/getMonthAirDataThree", {
+        month: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
         if (e.data.code === 200) {
@@ -32058,7 +32160,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -32094,6 +32196,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 var _self;
 var Charts;
 var width;var _default =
@@ -32131,13 +32234,14 @@ var width;var _default =
       listData: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -32159,10 +32263,10 @@ var width;var _default =
       this.getChartData(year, quarter);
     },
     getChartData: function getChartData(year, quarter) {
-      _self.http.get("getQuarterLineChart", {
+      _self.http.get("airReport/getQuarterLineChart", {
         year: year,
         quarter: quarter,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
@@ -32209,10 +32313,10 @@ var width;var _default =
         * quarter 季度
         * */
     getListData: function getListData(year, quarter) {
-      _self.http.get("getQuarterAirData", {
+      _self.http.get("airReport/getQuarterAirData", {
         year: year,
         quarter: quarter,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -32506,7 +32610,7 @@ var width;var _default =
       var ds = this.detail.date.split(' ');
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
-      _self.http.get("getQuarterLineChart", {
+      _self.http.get("airReport/getQuarterLineChart", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).
@@ -32557,7 +32661,7 @@ var width;var _default =
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
 
-      _self.http.get("getQuarterAirData", {
+      _self.http.get("airReport/getQuarterAirData", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).
@@ -32818,7 +32922,7 @@ var width;var _default =
       var ds = this.detail.date.split(' ');
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
-      _self.http.get("getQuarterLineChart", {
+      _self.http.get("airReport/getQuarterLineChart", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).
@@ -32848,7 +32952,7 @@ var width;var _default =
       var year = ds[0];
       var quarter = this.getQuarter(ds[1]);
 
-      _self.http.get("getQuarterAirDataThree", {
+      _self.http.get("airReport/getQuarterAirDataThree", {
         year: year,
         quarter: quarter,
         fsiteNo: this.detail.id }).
@@ -33038,47 +33142,50 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
 
 var _self;
 var Charts;
@@ -33106,6 +33213,9 @@ var width;var _default =
 
 
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(["userInfo"])),
+
   onReady: function onReady() {
 
   },
@@ -33117,7 +33227,7 @@ var width;var _default =
       this.getChartData(date);
     },
     getChartData: function getChartData(year) {
-      _self.http.get("getYearLineChart", {
+      _self.http.get("airReport/getYearLineChart", {
         year: year,
         fsiteNo: this.$store.state.userInfo.userOrgNo }).
       then(function (e) {
@@ -33147,9 +33257,9 @@ var width;var _default =
         * quarter 季度
         * */
     getListData: function getListData(year) {
-      _self.http.get("getYearAirData", {
+      _self.http.get("airReport/getYearAirData", {
         year: year,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.userOrgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -33411,7 +33521,7 @@ var width;var _default =
   },
   methods: {
     getChartData: function getChartData() {
-      _self.http.get("getYearLineChart", {
+      _self.http.get("airReport/getYearLineChart", {
         year: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
@@ -33441,7 +33551,7 @@ var width;var _default =
         * quarter 季度
         * */
     getListData: function getListData() {
-      _self.http.get("getYearAirData", {
+      _self.http.get("airReport/getYearAirData", {
         year: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
@@ -33688,7 +33798,7 @@ var width;var _default =
   },
   methods: {
     getChartData: function getChartData() {
-      _self.http.get("getYearLineChart", {
+      _self.http.get("airReport/getYearLineChart", {
         year: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
@@ -33718,7 +33828,7 @@ var width;var _default =
         * quarter 季度
         * */
     getListData: function getListData() {
-      _self.http.get("getYearAirDataThree", {
+      _self.http.get("airReport/getYearAirDataThree", {
         year: this.detail.date,
         fsiteNo: this.detail.id }).
       then(function (e) {
@@ -34071,7 +34181,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -34111,6 +34221,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 var _self;
 var Charts;
 var width;var _default =
@@ -34143,13 +34254,14 @@ var width;var _default =
       dataList: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(['userInfo'])),
 
   onReady: function onReady() {
 
@@ -34166,9 +34278,9 @@ var width;var _default =
       this.getDate(date);
     },
     getDate: function getDate(date) {
-      _self.http.get("getMonthStatistics", {
+      _self.http.get("airReport/getMonthStatistics", {
         month: date,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -35000,7 +35112,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -35037,6 +35149,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var _self;
@@ -35073,13 +35188,14 @@ var width;var _default =
       dataList: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -35100,10 +35216,10 @@ var width;var _default =
       this.getDate(year, quarter);
     },
     getDate: function getDate(year, quarter) {
-      _self.http.get("getQuarterStatistics", {
+      _self.http.get("airReport/getQuarterStatistics", {
         year: year,
         quarter: quarter,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -35942,75 +36058,78 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var _self;
-var Charts;
-var width;var _default =
-{
-  onLoad: function onLoad() {
-    _self = this;
-    var year = this.getNowFormatYear();
-    uni.getSystemInfo({
-      success: function success(res) {
-        width = res.screenWidth - 10;
-      } });
 
-    this.setPageTitle(year);
-    this.getDate(year);
-  },
-  data: function data() {
-    return {
-      sdate: this.getNowFormatYear(),
-      array: ['2017', '2018', '2019', '2020'],
-      index: 2,
-      dataList: [] };
 
-  },
-  onReady: function onReady() {
 
-  },
-  methods: {
-    bindPickerChange: function bindPickerChange(e) {
-      var date = e.target.value;
-      this.sdate = date;
-      this.setPageTitle(date);
-      this.getDate(date);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _self;var Charts;var width;var _default = { onLoad: function onLoad() {_self = this;var year = this.getNowFormatYear();uni.getSystemInfo({ success: function success(res) {width = res.screenWidth - 10;} });this.setPageTitle(year);this.getDate(year);}, data: function data() {return { sdate: this.getNowFormatYear(), array: ['2017', '2018', '2019', '2020'], index: 2, dataList: [] };}, onReady: function onReady() {}, computed: _objectSpread({}, (0, _vuex.mapState)(["userInfo"])), methods: { bindPickerChange: function bindPickerChange(e) {var date = e.target.value;this.sdate = date;this.setPageTitle(date);this.getDate(date);
     },
     getDate: function getDate(year, quarter) {
-      _self.http.get("getYearStatistics", {
+      _self.http.get("airReport/getYearStatistics", {
         year: year,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -36995,75 +37114,79 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
-var width;
-var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default =
 
-{
-  components: {
-    wPicker: wPicker },
 
-  onLoad: function onLoad() {
-    _self = this;
-    var date = this.getNowFormatMonth();
-    this.setPageTitle(date);
-    uni.getSystemInfo({
-      success: function success(res) {
-        width = res.screenWidth - 10;
-      } });
 
-    this.getDate(date);
-  },
-  data: function data() {
-    return {
-      title: 'Hello',
-      sdate: this.getNowFormatMonth(),
-      tabList: [{
-        mode: "yearMonth",
-        name: "年月",
-        value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
-      }],
-      tabIndex: 0,
-      dataList: [] };
 
-  },
-  computed: {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var width;var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var _default = { components: { wPicker: wPicker }, onLoad: function onLoad() {_self = this;var date = this.getNowFormatMonth();this.setPageTitle(date);uni.getSystemInfo({ success: function success(res) {width = res.screenWidth - 10;} });this.getDate(date);}, data: function data() {return { title: 'Hello', sdate: this.getNowFormatMonth(), tabList: [{ mode: "yearMonth", name: "年月", value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+      }], tabIndex: 0, dataList: [] };}, computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -37080,9 +37203,9 @@ var _self;var wPicker = function wPicker() {return Promise.all(/*! import() | co
       this.getDate(date);
     },
     getDate: function getDate(date) {
-      _self.http.get("getMonthExponent", {
+      _self.http.get("airReport/getMonthExponent", {
         month: date,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -37790,7 +37913,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -37823,6 +37946,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var width;
@@ -37860,13 +37985,14 @@ var _self;var _default =
       dataList: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   onReady: function onReady() {
 
@@ -37887,10 +38013,10 @@ var _self;var _default =
       this.getDate(year, quarter);
     },
     getDate: function getDate(year, quarter) {
-      _self.http.get("getQuarterExponent", {
+      _self.http.get("airReport/getQuarterExponent", {
         year: year,
         quarter: quarter,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -38605,7 +38731,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -38642,6 +38768,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var width;
@@ -38672,11 +38801,14 @@ var _self;var _default =
   onReady: function onReady() {
 
   },
+  computed: _objectSpread({},
+  (0, _vuex.mapState)(["userInfo"])),
+
   methods: {
     getDate: function getDate(year) {
-      _self.http.get("getYearExponent", {
+      _self.http.get("airReport/getYearExponent", {
         year: year,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.dataList = e.data.data.list;
@@ -40638,7 +40770,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -40671,6 +40803,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var _self;
@@ -40683,7 +40818,7 @@ var width;var _default =
 
   onLoad: function onLoad() {
     _self = this;
-    this.setPageTitle(this.getNowFormatDate());
+    this.setPageTitle();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
@@ -40708,18 +40843,17 @@ var width;var _default =
 
   },
   onReady: function onReady() {
-    var sDate = this.getNowFormatDate();
-    this.getListData(sDate);
-    this.getChartData(sDate);
-
+    this.getListData();
+    this.getChartData();
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(["userInfo"])),
 
   methods: {
     toggleTab: function toggleTab(index) {
@@ -40728,18 +40862,17 @@ var width;var _default =
     },
     onConfirm: function onConfirm(val) {
       this.sdate = val.result;
-      this.setPageTitle(val.result);
-      this.getListData(val.result);
-      this.getChartData(val.result);
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
     },
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
-    getListData: function getListData(sDate) {
-      _self.http.get("getDayAirData", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getListData: function getListData() {
+      _self.http.get("airReport/getDayAirData", {
+        date: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -40749,10 +40882,10 @@ var width;var _default =
       });
     },
 
-    getChartData: function getChartData(sDate) {
-      _self.http.get("getDayLineChart", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getChartData: function getChartData() {
+      _self.http.get("airReport/getDayLineChart", {
+        date: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
@@ -40778,7 +40911,7 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
+        orgName: storeName,
         date: this.sdate };
 
       uni.navigateTo({
@@ -40823,11 +40956,10 @@ var width;var _default =
       return currentdate;
     },
     /**设置页面标题
-        * @param {日期} sDate
         */
-    setPageTitle: function setPageTitle(sDate) {
+    setPageTitle: function setPageTitle() {
       uni.setNavigationBarTitle({
-        title: sDate + ' 市空气监控' });
+        title: "".concat(this.sdate, " ").concat(this.userInfo.orgName, " \u6BCF\u65E5\u7A7A\u6C14") });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
@@ -40996,74 +41128,159 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var _self;
-var Charts;
-
-var width;var _default =
-{
-  onLoad: function onLoad(opt) {
-    _self = this;
-    var detail = JSON.parse(decodeURIComponent(opt.detail));
-    try {
-      this.detail = JSON.parse(decodeURIComponent(opt.detail));
-    } catch (error) {
-      this.detail = JSON.parse(opt.detail);
-    }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _self;var Charts;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};var width;var _default = { components: { wPicker: wPicker }, computed: _objectSpread({ mode: function mode() {return this.tabList[this.tabIndex].mode;}, defaultVal: function defaultVal() {return this.tabList[this.tabIndex].value;} }, (0, _vuex.mapState)(["userInfo"])), onLoad: function onLoad(opt) {_self = this;var ds;try {ds = JSON.parse(decodeURIComponent(opt.detail));} catch (error) {}var userifo = this.userifo;this.orgId = ds ? ds.id : userifo.orgNo;this.orgName = ds ? ds.orgName : userifo.orgName;this.sdate = ds ? ds.date : this.getNowFormatDate();this.setPageTitle();this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
-
-    this.getListData();
   },
   data: function data() {
     return {
-      /*
-              * 传入参数数据
-              * */
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "date",
+        name: "日期选择",
+        value: [0, 0, 0] //年月日在列表的序号
+      }],
+      tabIndex: 0,
       //列表数据
       listData: [] };
 
   },
   onReady: function onReady() {
+    this.getListData();
     this.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result;
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+      this.tabList[0].value[2] = this.getDay();
+    },
+    getNowFormatDate: function getNowFormatDate() {
+      var date = new Date();
+      var seperator1 = "-";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var strDate = date.getDate();
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+      }
+      var currentdate = year + seperator1 + month + seperator1 + strDate;
+      return currentdate;
+    },
+
+    getYear: function getYear() {
+      var date = new Date(this.sdate);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var date = new Date(this.sdate);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+
+    getDay: function getDay() {
+      var date = new Date(this.sdate);
+      var strDate = date.getDate();
+      var currentdate = strDate - 1;
+      return currentdate;
+    },
+    /**设置页面标题**/
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u65E5\u7A7A\u6C14") });
+
+    },
+
     getChartData: function getChartData() {
-      _self.http.get("getDayLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayLineChart", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
@@ -41088,21 +41305,21 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
-        date: this.detail.date };
+        orgName: storeName,
+        date: this.sdate };
 
       uni.navigateTo({
         url: "hourdata03?detail=" + encodeURIComponent(JSON.stringify(detail)) });
 
     },
+
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirData", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayAirData", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -41277,65 +41494,153 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+
 
 var _self;
 var Charts;
 var width;var _default =
 {
+  components: {
+    wPicker: wPicker },
+
+  computed: _objectSpread({
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+  (0, _vuex.mapState)(["userInfo"])),
+
   onLoad: function onLoad(event) {
     _self = this;
-    var detail = JSON.parse(decodeURIComponent(event.detail));
+    var ds;
     try {
-      this.detail = JSON.parse(decodeURIComponent(event.detail));
-    } catch (error) {
-      this.detail = JSON.parse(event.detail);
-    }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
+      ds = JSON.parse(decodeURIComponent(event.detail));
+    } catch (error) {}
+    var userifo = this.userInfo;
+    this.orgId = ds ? ds.id : userifo.orgNo;
+    this.orgName = ds ? ds.orgName : userifo.orgName;
+    this.sdate = ds ? ds.date : this.getNowFormatDate();
 
+    this.setPageTitle();
+    this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
-    this.getListData();
   },
   data: function data() {
     return {
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "date",
+        name: "日期选择",
+        value: [0, 0, 0] //年月日在列表的序号
+      }],
+      tabIndex: 0,
       listData: [] };
 
   },
   onReady: function onReady() {
+    this.getListData();
     this.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result;
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+      this.tabList[0].value[2] = this.getDay();
+    },
+    getNowFormatDate: function getNowFormatDate() {
+      var date = new Date();
+      var seperator1 = "-";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var strDate = date.getDate();
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+      }
+      var currentdate = year + seperator1 + month + seperator1 + strDate;
+      return currentdate;
+    },
+
+    getYear: function getYear() {
+      var date = new Date(this.sdate);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var date = new Date(this.sdate);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+
+    getDay: function getDay() {
+      var date = new Date(this.sdate);
+      var strDate = date.getDate();
+      var currentdate = strDate - 1;
+      return currentdate;
+    },
+    /**设置页面标题**/
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u65E5\u7A7A\u6C14") });
+
+    },
     getChartData: function getChartData() {
-      _self.http.get("getDayLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayLineChart", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
@@ -41359,16 +41664,14 @@ var width;var _default =
     },
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirDataThree", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getDayAirDataThree", {
+        date: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
-          console.log(e.data.data.list, " at pages\\report\\hourdata\\hourdata03.vue:92");
         } else {
           _self.util.showToast(e.data.msg);
         }
@@ -41540,7 +41843,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -41578,6 +41881,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
 
 
 var _self;
@@ -41588,16 +41893,13 @@ var width;var _default =
     wPicker: wPicker },
 
   onLoad: function onLoad() {
-    var sDate = this.getNowFormatMonth();
-    this.setPageTitle(sDate);
+    this.setPageTitle();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
       } });
 
     _self = this;
-    this.getListData(sDate);
-    this.getChartData(sDate);
   },
   data: function data() {
     return {
@@ -41612,16 +41914,18 @@ var width;var _default =
       listData: [] };
 
   },
-  computed: {
+  computed: _objectSpread({
     mode: function mode() {
       return this.tabList[this.tabIndex].mode;
     },
     defaultVal: function defaultVal() {
       return this.tabList[this.tabIndex].value;
     } },
+  (0, _vuex.mapState)(['userInfo'])),
 
   onReady: function onReady() {
-
+    this.getListData();
+    this.getChartData();
   },
 
   methods: {
@@ -41632,19 +41936,19 @@ var width;var _default =
     onConfirm: function onConfirm(val) {
       var date = val.result.replace('-', '');
       this.sdate = date;
-      this.setPageTitle(date);
-      this.getListData(date);
-      thus.getChartData(date);
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
     },
-    getChartData: function getChartData(sDate) {
-      _self.http.get("getMonthLineChart", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getChartData: function getChartData() {
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
           categories = e.data.data.list.map(function (item) {
-            return parseInt(item.ftime);
+            return item.fday;
           });
           var series = [];
           series[0] = {
@@ -41663,12 +41967,11 @@ var width;var _default =
     },
     /*
         * 获取列表数据
-        * sDate 查询日期
         * */
-    getListData: function getListData(sDate) {
-      _self.http.get("getDayAirData", {
-        date: sDate,
-        fsiteNo: this.$store.state.userInfo.userOrgNo }).
+    getListData: function getListData() {
+      _self.http.get("airReport/getMonthAirData", {
+        month: this.sdate,
+        fsiteNo: this.userInfo.orgNo }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -41681,7 +41984,7 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
+        orgName: storeName,
         date: this.sdate };
 
       uni.navigateTo({
@@ -41714,12 +42017,10 @@ var width;var _default =
       var currentdate = month - 1;
       return currentdate;
     },
-    /**设置页面标题
-        * @param {日期} sDate
-        */
-    setPageTitle: function setPageTitle(sDate) {
+    /**设置页面标题*/
+    setPageTitle: function setPageTitle() {
       uni.setNavigationBarTitle({
-        title: sDate + ' 市空气监控' });
+        title: "".concat(this.sdate, " ").concat(this.userInfo.orgName, " \u6BCF\u6708\u7A7A\u6C14") });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
@@ -41897,52 +42198,78 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+
 
 var _self;
 var Charts;
 var width;var _default =
 {
+  components: {
+    wPicker: wPicker },
+
+  computed: _objectSpread({
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+  (0, _vuex.mapState)(["userInfo"])),
+
   onLoad: function onLoad(opts) {
     _self = this;
+    var ds;
     try {
-      this.detail = JSON.parse(decodeURIComponent(opts.detail));
+      ds = JSON.parse(decodeURIComponent(opts.detail));
     } catch (error) {
-      this.detail = JSON.parse(opts.detail);
+
     }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
+    var userifo = this.userInfo;
+    this.orgId = ds ? ds.id : userifo.orgNo;
+    this.orgName = ds ? ds.orgName : userifo.orgName;
+    this.sdate = ds ? ds.date : this.getNowFormatMonth();
 
-
+    this.setPageTitle();
+    this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
@@ -41951,7 +42278,15 @@ var width;var _default =
   },
   data: function data() {
     return {
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "yearMonth",
+        name: "年月",
+        value: [0, 0] }],
+
+      tabIndex: 0,
       listData: [] };
 
   },
@@ -41960,15 +42295,55 @@ var width;var _default =
     _self.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result.replace('-', '');
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+    },
+    getYear: function getYear() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+    getNowFormatMonth: function getNowFormatMonth() {
+      var date = new Date();
+      var seperator1 = "";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      var currentdate = year + seperator1 + month;
+      return currentdate;
+    },
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
           categories = e.data.data.list.map(function (item) {
-            return parseInt(item.ftime);
+            return item.fday;
           });
           var series = [];
           series[0] = {
@@ -41990,9 +42365,9 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getDayAirData", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthAirData", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -42005,11 +42380,16 @@ var width;var _default =
     goDetail: function goDetail(id, storeName) {
       var detail = {
         id: id,
-        storeName: storeName,
-        date: this.detail.date };
+        orgName: storeName,
+        date: this.sdate };
 
       uni.navigateTo({
         url: "mondata03?detail=" + encodeURIComponent(JSON.stringify(detail)) });
+
+    },
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u6708\u7A7A\u6C14") });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
@@ -42187,52 +42567,78 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var wPicker = function wPicker() {return Promise.all(/*! import() | components/w-picker/w-picker */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/w-picker/w-picker")]).then(__webpack_require__.bind(null, /*! @/components/w-picker/w-picker.vue */ "../../../Projects/AirApp/components/w-picker/w-picker.vue"));};
+
 
 var _self;
 var Charts;
 var width;var _default =
 {
+  components: {
+    wPicker: wPicker },
+
+  computed: _objectSpread({
+    mode: function mode() {
+      return this.tabList[this.tabIndex].mode;
+    },
+    defaultVal: function defaultVal() {
+      return this.tabList[this.tabIndex].value;
+    } },
+  (0, _vuex.mapState)(["userInfo"])),
+
   onLoad: function onLoad(opts) {
     _self = this;
+    var ds;
     try {
-      this.detail = JSON.parse(decodeURIComponent(opts.detail));
+      ds = JSON.parse(decodeURIComponent(opts.detail));
     } catch (error) {
-      this.detail = JSON.parse(opts.detail);
-    }
-    uni.setNavigationBarTitle({
-      title: this.detail.date + this.detail.storeName + ' 空气监控' });
 
+    }
+    var userifo = this.userInfo;
+    this.orgId = ds ? ds.id : userifo.orgNo;
+    this.orgName = ds ? ds.orgName : userifo.orgName;
+    this.sdate = ds ? ds.date : this.getNowFormatMonth();
+
+    this.setPageTitle();
+    this.loadwPicker();
     uni.getSystemInfo({
       success: function success(res) {
         width = res.screenWidth - 10;
@@ -42241,7 +42647,15 @@ var width;var _default =
   },
   data: function data() {
     return {
-      detail: {},
+      orgId: '',
+      orgName: '',
+      sdate: '',
+      tabList: [{
+        mode: "yearMonth",
+        name: "年月",
+        value: [0, 0] }],
+
+      tabIndex: 0,
       listData: [] };
 
   },
@@ -42250,15 +42664,55 @@ var width;var _default =
     _self.getChartData();
   },
   methods: {
+    toggleTab: function toggleTab(index) {
+      this.tabIndex = index;
+      this.$refs.picker.show();
+    },
+    onConfirm: function onConfirm(val) {
+      this.sdate = val.result.replace('-', '');
+      this.setPageTitle();
+      this.getListData();
+      this.getChartData();
+    },
+    loadwPicker: function loadwPicker() {
+      this.tabList[0].value[0] = this.getYear();
+      this.tabList[0].value[1] = this.getMonth();
+    },
+    getYear: function getYear() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var year = date.getFullYear();
+      var currentdate = year - 2018;
+      return currentdate;
+    },
+
+    getMonth: function getMonth() {
+      var d = this.sdate.substr(0, 4) + '-' + this.sdate.substr(4) + '-01';
+      var date = new Date(d);
+      var month = date.getMonth() + 1;
+      var currentdate = month - 1;
+      return currentdate;
+    },
+    getNowFormatMonth: function getNowFormatMonth() {
+      var date = new Date();
+      var seperator1 = "";
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      var currentdate = year + seperator1 + month;
+      return currentdate;
+    },
     getChartData: function getChartData() {
-      _self.http.get("getMonthLineChart", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthLineChart", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           var categories = [];
           categories = e.data.data.list.map(function (item) {
-            return parseInt(item.ftime);
+            return item.fday;
           });
           var series = [];
           series[0] = {
@@ -42280,9 +42734,9 @@ var width;var _default =
         * sDate 查询日期
         * */
     getListData: function getListData() {
-      _self.http.get("getMonthAirDataThree", {
-        date: this.detail.date,
-        fsiteNo: this.detail.id }).
+      _self.http.get("airReport/getMonthAirDataThree", {
+        month: this.sdate,
+        fsiteNo: this.orgId }).
       then(function (e) {
         if (e.data.code === 200) {
           _self.listData = e.data.data.list;
@@ -42290,6 +42744,11 @@ var width;var _default =
           _self.util.showToast(e.data.msg);
         }
       });
+    },
+    setPageTitle: function setPageTitle() {
+      uni.setNavigationBarTitle({
+        title: "".concat(this.sdate, " ").concat(this.orgName, " \u6BCF\u6708\u7A7A\u6C14") });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 

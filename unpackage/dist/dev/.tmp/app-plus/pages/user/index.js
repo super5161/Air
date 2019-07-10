@@ -117,6 +117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js"); //
 //
 //
@@ -135,8 +136,8 @@ var _vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.j
 //
 //
 //
-var that;var _default = { data: function data() {return {};}, onReady: function onReady() {that = this;}, computed: (0, _vuex.mapState)(['hasLogin', 'userInfo']), methods: { LoginOut: function LoginOut() {uni.showModal({
-        title: '提示',
+//
+var that;var _default = { data: function data() {return {};}, onReady: function onReady() {that = this;}, computed: (0, _vuex.mapState)(['hasLogin', 'userInfo']), methods: { LoginOut: function LoginOut() {uni.showModal({ title: '提示',
         content: '您确定要退当前用户吗？',
         success: function success(res) {
           if (res.confirm) {
