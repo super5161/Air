@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "站点2018年空气质量",
-  "usingComponents": {}
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
 }

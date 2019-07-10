@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "区2019/05月空气质量",
-  "usingComponents": {}
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
 }

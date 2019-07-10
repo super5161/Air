@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "市2019空气统计",
-  "usingComponents": {}
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker"
+  }
 }
