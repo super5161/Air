@@ -81,6 +81,72 @@ export default {
 			height: 280,
 			pixelRatio: 1,
 		});
-	}
+	},
 
+	/**
+	 * 显示仪表盘
+	 * chartid 图表ID
+	 * name 显示名称
+	 * data 数据
+	 * width 宽度
+	 * pixelRatio 
+	 * gaugeWidth 宽度
+	 * */
+	showChartGauge(chartid, name, data, width, pixelRatio, gaugeWidth) {
+		let categories =[{
+				value: 0.2,
+				color: '#2fc25b'
+			},
+			{
+				value: 0.8,
+				color: '#f04864'
+			}, {
+				value: 1,
+				color: '#1890ff'
+			}
+		];
+
+		let Charts = new wxCharts({
+			canvasId: chartid,
+			type: 'gauge',
+			fontSize: 4,
+			legend: false,
+			subtitle: {
+				name: name,
+				color: '#666666',
+				fontSize: 5 * pixelRatio,
+				offsetY: 9 * pixelRatio,
+			},
+			extra: {
+				gauge: {
+					type: 'default',
+					width: gaugeWidth * 1 * pixelRatio, 
+					startAngle: 0.75,
+					endAngle: 0.25,
+					startNumber: 0,
+					endNumber: 100,
+					splitLine: {
+						fixRadius: 0,
+						splitNumber: 10,
+						width: gaugeWidth * pixelRatio, 
+						color: '#FFFFFF',
+						childNumber: 5,
+						childWidth: gaugeWidth * 0.4 * pixelRatio, 
+					},
+					pointer: {
+						width: gaugeWidth * 0.4 * pixelRatio, //指针宽度
+						color: 'auto'
+					}
+				}
+			},
+			background: '#FFFFFF',
+			pixelRatio: pixelRatio,
+			categories: this.categories,
+			series: data,
+			animation: true,
+			width: width,
+			height: 280,
+			dataLabel: true,
+		});
+	}
 };

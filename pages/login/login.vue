@@ -106,6 +106,8 @@
 					} else {
 						that.util.showToast(e.data.msg)
 					}
+				}).catch(function(e){
+					that.util.showToast("服务器响应超时")
 				});
 			},
 			//切换语言
