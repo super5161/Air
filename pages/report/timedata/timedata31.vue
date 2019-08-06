@@ -219,6 +219,7 @@
 			//显示数据
 			showData: function() {
 				this.item = [];
+				this.fastItem=[];
 				if (this.schoolId === '' || this.areaId === '' || this.deviceMac === '')
 					return;
 				this.http.get("smartPhone/get24AqiByFmacno", {
@@ -227,7 +228,7 @@
 					if (e.data.code === 200) {
 						_self.item = e.data.data.list;
 						if (_self.item.length > 0)
-							_self.fastItem[0] = _self.item[0];
+							_self.fastItem.push(_self.item[0]);
 						_self.showCharts();
 					} else {
 						_self.util.showToast(e.data.msg)
