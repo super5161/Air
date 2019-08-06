@@ -69,7 +69,7 @@ export default {
 		}
 
 		let Charts = new wxCharts({
-			canvasId: "charts",
+			canvasId: chartid,
 			type: 'line',
 			legend: true,
 			fontSize: 11,

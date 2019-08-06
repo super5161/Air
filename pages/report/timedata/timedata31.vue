@@ -1,217 +1,318 @@
 <template>
 	<view>
 		<view class="uni-list">
-		    <view class="uni-list-cell">
-		        <view class="uni-list-cell-left">
-		            选择地区
-		        </view>
-		        <view class="uni-list-cell-db">
-		            <picker @change="bindPickerChange" :value="index" :range="array1">
-		                <view class="uni-input">{{array1[index]}}</view>
-		            </picker>
-		        </view>
-		    </view>
+			<view class="uni-list-cell">
+				<view class="uni-list-cell-left">
+					选择地区
+				</view>
+				<view class="uni-list-cell-db">
+					<picker @change="areaChange" :value="areaIndex" :range="areaList" range-key="fsiteName">
+						<view class="uni-input">{{areaName}}</view>
+					</picker>
+				</view>
+			</view>
 		</view>
-			
 		<view class="uni-list">
 			<view class="uni-list-cell">
 				<view class="uni-list-cell-left">
 					选择站点
 				</view>
 				<view class="uni-list-cell-db">
-					<picker @change="bindPickerChange" :value="index" :range="array2">
-						<view class="uni-input">{{array2[index]}}</view>
+					<picker @change="schoolChange" :value="schoolIndex" range-key="fsiteName" :range="schoolList">
+						<view class="uni-input">{{schoolName}}</view>
 					</picker>
 				</view>
 			</view>
 		</view>
-		
 		<view class="uni-list">
-		    <view class="uni-list-cell">
-		        <view class="uni-list-cell-left">
-		            空气狗
-		        </view>
-		        <view class="uni-list-cell-db">
-		            <view class="uni-input">101教室</view>
-		        </view>
-		    </view>
+			<view class="uni-list-cell">
+				<view class="uni-list-cell-left">
+					选择设备
+				</view>
+				<view class="uni-list-cell-db">
+					<picker @change="deviceChange" :value="deviceIndex" range-key="deviceName" :range="deviceList">
+						<view class="uni-input">{{deviceName}}</view>
+					</picker>
+				</view>
+			</view>
 		</view>
+		<view class="list" style="margin-top: 20upx;">
+			<view class="uni-flex uni-row off" style="min-height: 2rem;">
+				<view class="text">温度°C</view>
+				<view class="text">湿度°C</view>
+				<view class="text">PM2.5</view>
+				<view class="text">PM10</view>
+				<view class="text">二氧化碳</view>
+				<view class="text">甲醛</view>
+				<view class="text">挥发性有机物</view>
+			</view>
+			<view class="uni-flex uni-row on" v-for="(item,index) in fastItem" :key="index">
+				<view class="text">{{item.t}}</view>
+				<view class="text">{{item.h}}</view>
+				<view class="text">{{item.pm25}}</view>
+				<view class="text">{{item.pm10}}</view>
+				<view class="text">{{item.co2}}</view>
+				<view class="text">{{item.hcho}}</view>
+				<view class="text">{{item.tvoc}}</view>
+			</view>
+		</view>
+		<!-- PM2.5 -->
+		<canvas canvas-id="chartspm25" id="chartspm25" class="charts"></canvas>
+		<!-- PM10 -->
+		<canvas canvas-id="chartspm10" id="chartspm10" class="charts"></canvas>
+		<!-- 二氧化碳 -->
+		<canvas canvas-id="chartsco2" id="chartsco2" class="charts"></canvas>
+		<!-- 甲醛  -->
+		<canvas canvas-id="chartshcho" id="chartshcho" class="charts"></canvas>
+		<!-- 挥发性有机物 -->
+		<canvas canvas-id="chartstvoc" id="chartstvoc" class="charts"></canvas>
+	</view>
 
-        <view class="uni-list">
-		    <view class="uni-list-cell">
-		        <view class="uni-list-cell-left">
-		            温度:26°C
-		        </view>
-		        <view class="uni-list-cell-right">
-		            湿度:67
-		        </view>
-		    </view>
-		</view>
-		
-		<view class="uni-list">
-		    <view class="uni-list-cell">
-		        <view class="uni-list-cell-left">
-		            PM2.5:68
-		        </view>
-				<view class="uni-list-cell-center">
-				    PM10:167
-				</view>
-				<view class="uni-list-cell-right">
-				    二氧化碳:67
-				</view>
-		    </view>
-		</view>
-		
-		<view class="uni-list">
-		    <view class="uni-list-cell">
-		        <view class="uni-list-cell-left">
-		            甲醛:0.01
-		        </view>
-		        <view class="uni-list-cell-right">
-		            挥发性有机物:467
-		        </view>
-		    </view>
-		</view>
-		
-		<view>
-			<!-- PM2.5 -->
-			<canvas canvas-id="charts1" id="charts1" class="charts"></canvas>
-		</view>
-		
-		<view>
-			<!-- PM10 -->
-			<canvas canvas-id="charts2" id="charts2" class="charts"></canvas>
-		</view>
-		
-		<view>
-			<!-- 二氧化碳 -->
-			<canvas canvas-id="charts3" id="charts3" class="charts"></canvas>
-		</view>
-		
-		<view>
-			<!-- 甲醛  -->
-			<canvas canvas-id="charts4" id="charts4" class="charts"></canvas>
-		</view>
-		
-		<view>
-			<!-- 挥发性有机物 -->
-			<canvas canvas-id="charts5" id="charts5" class="charts"></canvas>
-		</view>
-		
 	</view>
 </template>
 
 <script>
-	var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
-	var Charts;
-	
-	var Data1 = {
-		categories: ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-		series: [{
-				name: 'PM2.5',
-				data: [36, 43, 48, 63, 70, 60, 50, 43, 48, 63, 70, 60, 50, 48, 63, 70]
-			}
-		]
-	};
-	
-	var Data2 = {
-		categories: ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-		series: [{
-				name: 'PM10',
-				data: [136, 143, 148, 163, 170, 160, 150, 143, 148, 163, 170, 160, 150, 148, 163, 170]
-			}
-		]
-	};
-	
-	var Data3 = {
-		categories: ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-		series: [{
-				name: '二氧化碳',
-				data: [336, 343, 448, 363, 470, 460, 450, 443, 448, 463, 470, 460, 350, 348, 363, 270]
-			}
-		]
-	};
-	
-	var Data4 = {
-		categories: ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-		series: [{
-				name: '甲醛',
-				data: [0.01, 0.01, 0.01, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01, 0.01, 0.01]
-			}
-		]
-	};
-	
-	var Data5 = {
-		categories: ['6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
-		series: [{
-				name: '挥发性有机物',
-				data: [336, 343, 448, 363, 470, 460, 450, 443, 448, 463, 470, 460, 350, 348, 363, 270]
-			}
-		]
-	};
-	
 	var width;
+	import {
+		mapState
+	} from 'vuex'
 	export default {
 		onLoad: function() {
 			_self = this;
 			uni.setNavigationBarTitle({
 				title: '空气狗'
-			});	
-			
+			});
+
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
-			})
+			});
+			this.getQuInfo();
+		},
+		computed: {
+			...mapState(['userInfo']),
 		},
 		data() {
 			return {
-			  title: 'picker',
-			  array1: ['黄埔区', '浦东新区', '徐汇区', '闵行区'],
-			  array2: ['莘庄中学', '颛桥中学', '马桥中学', '北桥中学'],
-			  index: 3,
-				
+				title: 'picker',
+				areaList: [],
+				areaName: '',
+				areaIndex: 0,
+				areaId: '',
+				schoolList: [],
+				schoolName: '',
+				schoolIndex: 0,
+				schoolId: '',
+				deviceList: [],
+				deviceName: '',
+				deviceIndex: 0,
+				deviceMac: '',
+				item: [], //空气数据
+				fastItem: [],
 			}
 		},
 		onReady: function() {
-			this.ShowCharts1("charts1", Data1);
-			this.ShowCharts1("charts2", Data2);
-			this.ShowCharts1("charts3", Data3);
-			this.ShowCharts1("charts4", Data4);
-			this.ShowCharts1("charts5", Data5);
+
 		},
 		methods: {
-			bindPickerChange: function(e) {
-			this.index = e.target.value
-			},
-			bindDateChange: function(e) {
-				this.date = e.target.value
-			},
-			bindTimeChange: function(e) {
-				this.time = e.target.value
-			},
-			
-			/*显示图表*/
-			ShowCharts1: function(canvasId, data) {
-				Charts = new wxCharts({
-					canvasId: canvasId,
-					type: 'line',
-					legend: true,
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: true,
-					categories: data.categories,
-					series: data.series,
-					width: width,
-					height: 250,
-					pixelRatio:1,
+			//获取区信息
+			getQuInfo: function() {
+				_self.http.get("smartPhone/getQuInfoByUserId", {
+					userId: this.userInfo.userId,
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.areaList = e.data.data.list;
+						if (_self.areaList.length > 0) {
+							let area = _self.areaList[0];
+							_self.areaName = area.fsiteName;
+							_self.areaId = area.fsiteNo;
+						}
+						_self.getSchools();
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
+			},
+
+			//获取学校
+			getSchools: function() {
+				if (this.areaId !== '') {
+					this.http.get("smartPhone/getSchoolInfo", {
+						fsiteNo: _self.areaId,
+						userId: this.userInfo.userId,
+					}).then(function(e) {
+						if (e.data.code === 200) {
+							_self.schoolList = e.data.data.list;
+							//默认显示第一项
+							if (_self.schoolList.length > 0) {
+								let school = _self.schoolList[0];
+								_self.schoolName = school.fsiteName;
+								_self.schoolId = school.fsiteNo;
+							}
+							_self.getDevices();
+						} else {
+							_self.util.showToast(e.data.msg)
+						}
+					});
+				}
+			},
+
+			//获取设备
+			getDevices: function() {
+				if (this.schoolId !== '') {
+					this.http.get("smartPhone/getAirDogBySiteNo", {
+						fsiteNo: _self.schoolId,
+					}).then(function(e) {
+						if (e.data.code === 200) {
+							_self.deviceList = e.data.data.list.map(function(item) {
+								return {
+									deviceName: `${item.fpointName}   ${item.fequipmentname}`,
+									deviceMac: item.fmacno
+								};
+							});
+							//默认显示第一项
+							if (_self.deviceList.length > 0) {
+								let device = _self.deviceList[0];
+								_self.deviceName = device.deviceName;
+								_self.deviceMac = device.deviceMac;
+							}
+							_self.showData();
+						} else {
+							_self.util.showToast(e.data.msg)
+						}
+					});
+				}
+			},
+
+			//区域选择
+			areaChange: function(e) {
+				if (this.areaId === e.target.value) return;
+				let area = this.areaList[e.target.value];
+				this.areaName = area.fsiteName;
+				this.areaId = area.fsiteNo;
+				this.areaIndex = e.target.value;
+				this.getSchools();
+			},
+
+			//学校选择
+			schoolChange: function(e) {
+				if (this.schoolId === e.target.value) return;
+				let school = this.schoolList[e.target.value];
+				this.schoolName = school.fsiteName;
+				this.schoolId = school.fsiteNo;
+				this.schoolIndex = e.target.value;
+				this.getDevices();
+			},
+
+			//设备选择
+			deviceChange: function(e) {
+				if (this.deviceMac === e.target.value) return;
+				let device = this.deviceList[e.target.value];
+				this.deviceName = device.deviceName;
+				this.deviceMac = device.deviceMac;
+				this.deviceIndex = e.target.value;
+				this.showData();
+			},
+
+			//显示数据
+			showData: function() {
+				this.item = [];
+				if (this.schoolId === '' || this.areaId === '' || this.deviceMac === '')
+					return;
+				this.http.get("smartPhone/get24AqiByFmacno", {
+					fmacno: _self.deviceMac,
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.item = e.data.data.list;
+						if (_self.item.length > 0)
+							_self.fastItem[0] = _self.item[0];
+						_self.showCharts();
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
+				});
+
+			},
+
+			//显示图表
+			showCharts: function() {
+				let categories = this.item.map(function(item) {
+					return item.fhour;
+				});
+
+				let pm25 = [{
+					name: 'PM2.5',
+					data: this.item.map(function(item) {
+						return item.pm25;
+					})
+				}];
+
+				let pm10 = [{
+					name: 'PM10',
+					data: this.item.map(function(item) {
+						return item.pm10;
+					})
+				}];
+
+				let co2 = [{
+					name: '二氧化碳',
+					data: this.item.map(function(item) {
+						return item.co2;
+					})
+				}];
+
+				let hcho = [{
+					name: '甲醛',
+					data: this.item.map(function(item) {
+						return item.hcho;
+					})
+				}];
+
+				let tvoc = [{
+					name: '挥发性有机物',
+					data: this.item.map(function(item) {
+						return item.tvoc;
+					})
+				}];
+
+				this.util.showChartLine("chartspm25", categories, pm25, width);
+				this.util.showChartLine("chartspm10", categories, pm10, width);
+				this.util.showChartLine("chartsco2", categories, co2, width);
+				this.util.showChartLine("chartshcho", categories, hcho, width);
+				this.util.showChartLine("chartstvoc", categories, tvoc, width);
 			},
 		}
 	}
 </script>
 
 <style>
+	.text {
+		width: 320upx;
+		color: #FFFFFF;
+		text-align: center;
+		height: 70upx;
+		line-height: 70upx;
+	}
 
+	.on {
+		background: #54d6e3;
+	}
+
+	.off {
+		background: #55cdd9;
+	}
+
+	.list {
+		padding-bottom: 30upx;
+		box-sizing: border-box;
+		flex: 1;
+		flex-direction: column;
+		display: flex;
+		padding-top: 10upx;
+		height: 40%;
+		flex: 2;
+		text-align: left;
+	}
 </style>
