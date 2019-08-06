@@ -90,10 +90,10 @@ export default {
 	 * data 数据
 	 * width 宽度
 	 * pixelRatio 
-	 * gaugeWidth 宽度
+	 * gaugeWidth 仪表盘背景的宽度
 	 * */
-	showChartGauge(chartid, name, data, width, pixelRatio, gaugeWidth) {
-		let categories =[{
+	showChartGauge(chartid, series, pixelRatio, gaugeWidth, width, height) {
+		let categories = [{
 				value: 0.2,
 				color: '#2fc25b'
 			},
@@ -105,14 +105,13 @@ export default {
 				color: '#1890ff'
 			}
 		];
-
 		let Charts = new wxCharts({
 			canvasId: chartid,
 			type: 'gauge',
 			fontSize: 4,
 			legend: false,
 			subtitle: {
-				name: name,
+				name: series[0].name,
 				color: '#666666',
 				fontSize: 5 * pixelRatio,
 				offsetY: 9 * pixelRatio,
@@ -120,7 +119,7 @@ export default {
 			extra: {
 				gauge: {
 					type: 'default',
-					width: gaugeWidth * 1 * pixelRatio, 
+					width: gaugeWidth * 1 * pixelRatio,
 					startAngle: 0.75,
 					endAngle: 0.25,
 					startNumber: 0,
@@ -128,10 +127,10 @@ export default {
 					splitLine: {
 						fixRadius: 0,
 						splitNumber: 10,
-						width: gaugeWidth * pixelRatio, 
+						width: gaugeWidth * pixelRatio,
 						color: '#FFFFFF',
 						childNumber: 5,
-						childWidth: gaugeWidth * 0.4 * pixelRatio, 
+						childWidth: gaugeWidth * 0.4 * pixelRatio,
 					},
 					pointer: {
 						width: gaugeWidth * 0.4 * pixelRatio, //指针宽度
@@ -141,11 +140,11 @@ export default {
 			},
 			background: '#FFFFFF',
 			pixelRatio: pixelRatio,
-			categories: this.categories,
-			series: data,
+			categories: categories,
+			series: series,
 			animation: true,
-			width: width,
-			height: 280,
+			width: width * pixelRatio,
+			height: height * pixelRatio,
 			dataLabel: true,
 		});
 	}

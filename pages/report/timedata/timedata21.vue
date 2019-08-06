@@ -26,23 +26,18 @@
 			</view>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="canvasArcbar3" id="canvasArcbar3" class="charts3" style="margin-left: 0upx;"></canvas>
-			<canvas canvas-id="canvasArcbar1" id="canvasArcbar1" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="chartpm25" id="chartpm25" class="charts3" style="margin-left: 0upx;"></canvas>
+			<canvas canvas-id="chartpm10" id="chartpm10" class="charts3" style="margin-left: 375upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="canvasArcbar4" id="canvasArcbar4" class="charts3" style="margin-left: 0upx;"></canvas>
-			<canvas canvas-id="canvasArcbar5" id="canvasArcbar5" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="charthcho" id="charthcho" class="charts3" style="margin-left: 0upx;"></canvas>
+			<canvas canvas-id="charttvoc" id="charttvoc" class="charts3" style="margin-left: 375upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="canvasArcbar6" id="canvasArcbar6" class="charts3" style="margin-left: 0upx;"></canvas>
-			<canvas canvas-id="canvasArcbar7" id="canvasArcbar7" class="charts3" style="margin-left: 375upx;"></canvas>
-		</view>
-		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="canvasArcbar8" id="canvasArcbar8" class="charts3" style="margin-left: 0upx;"></canvas>
-			<canvas canvas-id="canvasArcbar9" id="canvasArcbar9" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="charth" id="charth" class="charts3" style="margin-left: 0upx;"></canvas>
+			<canvas canvas-id="chartw" id="chartw" class="charts3" style="margin-left: 375upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 50upx;"></view>
-
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">监测点</view>
@@ -118,128 +113,14 @@
 </template>
 
 <script>
-	var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
-	var Charts1;
-	var Charts2;
 
 	var Data3 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
 		series: [{
 			name: 'PM2.5',
 			data: 86
 		}]
-	};
-	var Data1 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: 'PM10',
-			data: [97]
-		}]
-	};
-
-	var Data4 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: '甲醛',
-			data: 0.05
-		}]
-	};
-
-	var Data5 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: 'TVOC',
-			data: 350
-		}]
-	};
-
-	var Data6 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: '温度',
-			data: 31
-		}]
-	};
-
-	var Data7 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: '湿度',
-			data: 35
-		}]
-	};
-
-	var Data8 = {
-		categories: [{
-			value: 0.2,
-			color: '#2fc25b'
-		}, {
-			value: 0.8,
-			color: '#f04864'
-		}, {
-			value: 1,
-			color: '#1890ff'
-		}],
-		series: [{
-			name: '二氧化碳',
-			data: 535
-		}]
-	};
+	}
 	import {
 		mapState
 	} from 'vuex'
@@ -254,11 +135,6 @@
 				}
 			})
 
-			this.cWidth = uni.upx2px(200);
-			this.cHeight = uni.upx2px(150);
-			this.cWidth3 = uni.upx2px(250);
-			this.cHeight3 = uni.upx2px(250);
-			this.gaugeWidth = uni.upx2px(10);
 			this.getQuInfo();
 		},
 		computed: {
@@ -275,9 +151,6 @@
 				schoolName: '',
 				schoolIndex: 0,
 				schoolId: '',
-
-				cWidth3: '', //圆弧进度图
-				cHeight3: '', //圆弧进度图
 				pixelRatio: 2
 			}
 		},
@@ -363,20 +236,57 @@
 					fsiteNo: this.schoolId,
 				}).then(function(e) {
 					if (e.data.code === 200) {
-						_self.util.showChartGauge("canvasArcbar3","PM2.5",Data3.series,_self.cWidth,_self.pixelRatio,_self.gaugeWidth)
-						//_self.showArcbar3("canvasArcbar3", Data3);
-						_self.showArcbar3("canvasArcbar1", Data1);
-						_self.showArcbar3("canvasArcbar4", Data4);
-						_self.showArcbar3("canvasArcbar5", Data5);
-						_self.showArcbar3("canvasArcbar6", Data6);
-						_self.showArcbar3("canvasArcbar7", Data7);
-						_self.showArcbar3("canvasArcbar8", Data8);
+						let pixelRatio = _self.pixelRatio;
+						let gaugeWidth = uni.upx2px(10);
+						let width = uni.upx2px(200);
+						let height = uni.upx2px(150);
+						let data = e.data.data.list;
+						if (data && data.length === 1) {
+							let item = data[0];
+							let pm25 = [{
+								name: 'PM2.5',
+								data: item.fpm25
+							}];
+							let pm10 = [{
+								name: 'PM10',
+								data: item.fpm10
+							}];
+							let hcho = [{
+								name: '甲醛',
+								data: item.fjq
+							}];
+							let tvoc = [{
+								name: '挥发性有机物',
+								data: item.fyjw
+							}];
+							let h = [{
+								name: '温度',
+								data: item.fsd2
+							}];
+							let w = [{
+								name: '湿度',
+								data: item.fwd2
+							}];
+							_self._showCharts("chartpm25", pm25)
+							_self._showCharts("chartpm10", pm10)
+							_self._showCharts("charthcho", hcho)
+							_self._showCharts("charttvoc", tvoc)
+							_self._showCharts("charth", h)
+							_self._showCharts("chartw", w)
+						}
 					} else {
 						_self.util.showToast(e.data.msg)
 					}
 				});
 			},
 
+			_showCharts: function(chartid, series) {
+				let pixelRatio = _self.pixelRatio;
+				let gaugeWidth = uni.upx2px(10);
+				let width = uni.upx2px(200);
+				let height = uni.upx2px(150);
+				_self.util.showChartGauge(chartid, series, pixelRatio, gaugeWidth, width, height);
+			},
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
@@ -385,66 +295,6 @@
 				uni.navigateTo({
 					url: "timedata22?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
-			},
-
-	
-			showArcbar3(canvasId, chartData) {
-				let categories =[{
-						value: 0.2,
-						color: '#2fc25b'
-					},
-					{
-						value: 0.8,
-						color: '#f04864'
-					}, {
-						value: 1,
-						color: '#1890ff'
-					}
-				];
-				
-				debugger;
-				new wxCharts({
-					canvasId: canvasId,
-					type: 'gauge',
-					fontSize: 4,
-					legend: false,				
-					subtitle: {
-						name: chartData.series[0].name,
-						color: '#666666',
-						fontSize: 5 * _self.pixelRatio,
-						offsetY: 9 * _self.pixelRatio, 
-					},
-					extra: {
-						gauge: {
-							type: 'default',
-							width: _self.gaugeWidth * 1 * _self.pixelRatio, //仪表盘背景的宽度
-							startAngle: 0.75,
-							endAngle: 0.25,
-							startNumber: 0,
-							endNumber: 100,
-							splitLine: {
-								fixRadius: 0,
-								splitNumber: 10,
-								width: _self.gaugeWidth * _self.pixelRatio, //仪表盘背景的宽度
-								color: '#FFFFFF',
-								childNumber: 5,
-								childWidth: _self.gaugeWidth * 0.4 * _self.pixelRatio, //仪表盘背景的宽度
-							},
-							pointer: {
-								width: _self.gaugeWidth * 0.4 * _self.pixelRatio, //指针宽度
-								color: 'auto'
-							}
-						}
-					},
-					background: '#FFFFFF',
-					pixelRatio: _self.pixelRatio,
-					categories: categories,
-					series: chartData.series,
-					animation: true,
-					width: _self.cWidth * _self.pixelRatio,
-					height: _self.cHeight * _self.pixelRatio,
-					dataLabel: true,
-				});
 			},
 		}
 	}
