@@ -47,7 +47,6 @@
 								_self.listData.push(item);
 							});
 							_self.seq += 1;
-							console.log(_self.listData);
 						}
 					} else {
 						_self.util.showToast(e.data.msg)
