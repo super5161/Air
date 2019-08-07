@@ -1,9 +1,9 @@
 
 .text1 {
-		width: 350rpx;
-		text-align: center;
-		height: 70rpx;
-		line-height: 70rpx;
+	width: 350rpx;
+	text-align: center;
+	height: 70rpx;
+	line-height: 70rpx;
 }
 .text2 {
 	width: 175rpx;
@@ -43,8 +43,9 @@
 	background: #55cdd9;
 }
 .image {
-	margin:40rpx 0;
+	margin: 40rpx 0;
 	width: 200rpx;
+	height: 100%;
 }
 .canvasViewBar {
 	-webkit-box-flex: 1;
@@ -58,7 +59,14 @@
 	height: 550rpx;
 	width: 750rpx;
 }
-.charts3{position: absolute;width: 250rpx; height:250rpx;background-color: #FFFFFF;}
-
-
+.charts3 {
+	position: absolute;
+	width: 375rpx;
+	height: 250rpx;
+	background-color: #FFFFFF;
+}
+.aqi {
+	font-size: 60rpx;
+	margin-left: 20rpx;
+}
 
