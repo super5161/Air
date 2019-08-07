@@ -84,7 +84,7 @@ export default {
 	},
 
 	/**
-	 * 显示仪表盘
+	 * 显示仪表盘 显示为百分比
 	 * chartid 图表ID
 	 * name 显示名称
 	 * data 数据
@@ -147,5 +147,99 @@ export default {
 			height: height * pixelRatio,
 			dataLabel: true,
 		});
-	}
+	},
+
+	/**
+	 * 显示圆弧图
+	 *  chartid 图表ID
+	 * chartData 数据
+	 * */
+	showChartArcbar(chartid, chartData, pixelRatio, width, height) {
+		let Charts = new wxCharts({
+			canvasId: chartid,
+			type: 'arcbar',
+			fontSize: 11,
+			legend: false,
+			title: {
+				name: chartData.series[0].data * 100 + '%',
+				color: '#667766',
+				fontSize: 10
+			},
+			subtitle: {
+				name: chartData.series[0].name,
+				color: '#666666',
+				fontSize: 10
+			},
+			extra: {
+				arcbar: {
+					type: 'default', //整圆类型进度条图
+					width: 10,
+					startAngle: 0, //整圆类型只需配置起始角度即可
+					backgroundColor: '#ffe3e8',
+				},
+				ringChart: 1000
+			},
+			background: '#FFFFFF',
+			pixelRatio: pixelRatio,
+			series: chartData.series,
+			animation: true,
+			width: width * pixelRatio,
+			height: height * pixelRatio,
+			dataLabel: true,
+		});
+	},
+
+	/**
+	 * 显示柱状图
+	 * chartid 图表ID
+	 * chartData 数据
+	 * */
+	showChartColumn(chartid, chartData) {
+		if (chartData.categories.length <= 0) {
+			chartData.categories.push('');
+		}
+		chartData.series[0].data = chartData.series[0].data || [];
+		if (chartData.series[0].data.length <= 0) {
+			chartData.series[0].name = "没有数据";
+			chartData.series[0].data.push(0);
+		}
+		let Charts = new wxCharts({
+			canvasId: chartid,
+			type: 'column',
+			legend: true,
+			fontSize: 10,
+			background: '#FFFFFF',
+			animation: true,
+			categories: chartData.categories,
+			series: chartData.series,
+			width: 350,
+			height: 350,
+			pixelRatio: 1,
+			rotate: true, //横屏模式
+			xAxis: {
+				disableGrid: false,
+			},
+			yAxis: {
+				disabled: false
+			},
+			dataLabel: true,
+			extra: {
+				column: {
+					width: 300
+				}
+			}
+		});
+		return Charts;
+	},
+
+	/**
+	 * 百分比计算
+	 * value需要计算的值
+	 */
+	percentage(value) {
+		if (value) {
+			return value / 100;
+		}
+		return 0;
+	},
 };

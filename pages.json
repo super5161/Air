@@ -54,13 +54,6 @@
 			"style": {
 				"navigationBarTitleText": "站2019/05月空气质量"
 			}
-		}
-
-		, {
-			"path": "pages/note/notedata",
-			"style": {
-				"navigationBarTitleText": "消息详情"
-			}
 		}, {
 			"path": "pages/report/daydata/daydata21",
 			"style": {

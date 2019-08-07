@@ -26,16 +26,16 @@
 			</view>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="chartpm25" id="chartpm25" class="charts3" style="margin-left: 0upx;"></canvas>
 			<canvas canvas-id="chartpm10" id="chartpm10" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="chartpm25" id="chartpm25" class="charts3" style="margin-left: 0upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="charthcho" id="charthcho" class="charts3" style="margin-left: 0upx;"></canvas>
 			<canvas canvas-id="charttvoc" id="charttvoc" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="charthcho" id="charthcho" class="charts3" style="margin-left: 0upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="charth" id="charth" class="charts3" style="margin-left: 0upx;"></canvas>
 			<canvas canvas-id="chartw" id="chartw" class="charts3" style="margin-left: 375upx;"></canvas>
+			<canvas canvas-id="charth" id="charth" class="charts3" style="margin-left: 0upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="height: 50upx;"></view>
 		<view class="list">
@@ -48,79 +48,24 @@
 				<view class="text2">甲醛</view>
 				<view class="text2">CO2</view>
 				<view class="text2">TVOC</view>
+			</view>		
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fpointNo"
+			 @click="goDetail(item.fpointNo,item.fpointName)">
+				<view class="text1">{{item.fpointName}}</view>
+				<view class="text2">{{item.fwd2}}</view>
+				<view class="text2">{{item.fsd2}}</view>
+				<view class="text2">{{item.fpm25}}</view>
+				<view class="text2">{{item.fpm10}}</view>
+				<view class="text2">{{item.fjq}}</view>
+				<view class="text2">{{item.fco2}}</view>
+				<view class="text2">{{item.fyjw}}</view>
 			</view>
-
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100001,'1号教学楼')">
-				<view class="text1">1号教学楼</view>
-				<view class="text2">25</view>
-				<view class="text2">45</view>
-				<view class="text2">76</view>
-				<view class="text2">120</view>
-				<view class="text2">0.03</view>
-				<view class="text2">343</view>
-				<view class="text2">420</view>
-			</view>
-
-			<view class="uni-flex uni-row off" style="min-height: 2rem;" @click="goDetail(100002,'2号教学楼')">
-				<view class="text1">2号教学楼</view>
-				<view class="text2">26</view>
-				<view class="text2">51</view>
-				<view class="text2">76</view>
-				<view class="text2">110</view>
-				<view class="text2">0.02</view>
-				<view class="text2">443</view>
-				<view class="text2">320</view>
-			</view>
-
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100003,'行政大楼')">
-				<view class="text1">行政大楼</view>
-				<view class="text2">28</view>
-				<view class="text2">45</view>
-				<view class="text2">76</view>
-				<view class="text2">110</view>
-				<view class="text2">0.02</view>
-				<view class="text2">343</view>
-				<view class="text2">420</view>
-			</view>
-
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100004,'图书馆')">
-				<view class="text1">图书馆</view>
-				<view class="text2">26</view>
-				<view class="text2">45</view>
-				<view class="text2">76</view>
-				<view class="text2">110</view>
-				<view class="text2">0.02</view>
-				<view class="text2">543</view>
-				<view class="text2">320</view>
-			</view>
-
-			<view class="uni-flex uni-row on" style="min-height: 2rem;" @click="goDetail(100005,'食堂')">
-				<view class="text1">食堂</view>
-				<view class="text2">28</view>
-				<view class="text2">45</view>
-				<view class="text2">76</view>
-				<view class="text2">120</view>
-				<view class="text2">0.04</view>
-				<view class="text2">563</view>
-				<view class="text2">220</view>
-			</view>
-
 		</view>
-
 	</view>
-
-
 </template>
 
 <script>
 	var _self;
-
-	var Data3 = {
-		series: [{
-			name: 'PM2.5',
-			data: 86
-		}]
-	}
 	import {
 		mapState
 	} from 'vuex'
@@ -151,6 +96,7 @@
 				schoolName: '',
 				schoolIndex: 0,
 				schoolId: '',
+				listData: [],
 				pixelRatio: 2
 			}
 		},
@@ -222,13 +168,22 @@
 			/*设置标题*/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.areaName}${this.schoolName}实时监控`,
+					title: `${this.areaName} ${this.schoolName} 实时监控`,
 				});
 			},
 
 			showDate: function() {
 				this.setPageTitle();
 				this.showCharts();
+				_self.http.get("smartPhone/getZongzhanAirAqi", {
+					fsiteNo: this.schoolId
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.listData = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
+				});
 			},
 			//显示图表
 			showCharts: function() {
@@ -245,27 +200,27 @@
 							let item = data[0];
 							let pm25 = [{
 								name: 'PM2.5',
-								data: item.fpm25
+								data: _self.util.percentage(item.fpm25)
 							}];
 							let pm10 = [{
 								name: 'PM10',
-								data: item.fpm10
+								data: _self.util.percentage(item.fpm10)
 							}];
 							let hcho = [{
 								name: '甲醛',
-								data: item.fjq
+								data: _self.util.percentage(item.fjq)
 							}];
 							let tvoc = [{
 								name: '挥发性有机物',
-								data: item.fyjw
+								data: _self.util.percentage(item.fyjw)
 							}];
 							let h = [{
 								name: '温度',
-								data: item.fsd2
+								data: _self.util.percentage(item.fsd2)
 							}];
 							let w = [{
 								name: '湿度',
-								data: item.fwd2
+								data: _self.util.percentage(item.fwd2)
 							}];
 							_self._showCharts("chartpm25", pm25)
 							_self._showCharts("chartpm10", pm10)
@@ -287,10 +242,11 @@
 				let height = uni.upx2px(150);
 				_self.util.showChartGauge(chartid, series, pixelRatio, gaugeWidth, width, height);
 			},
+
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
-					storeName: storeName
+					orgName: storeName
 				}
 				uni.navigateTo({
 					url: "timedata22?detail=" + encodeURIComponent(JSON.stringify(detail))
@@ -309,8 +265,7 @@
 	}
 
 	.text1 {
-		width: 120upx;
-
+		width: 160upx;
 		text-align: center;
 		height: 70upx;
 		line-height: 70upx;
@@ -318,7 +273,6 @@
 
 	.text2 {
 		width: 90upx;
-
 		text-align: center;
 		height: 70upx;
 		line-height: 70upx;

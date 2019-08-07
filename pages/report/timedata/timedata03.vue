@@ -1,275 +1,204 @@
 <template>
 	<view>
-		<view class="uni-flex uni-row">
-			<view style="width: 550upx;">
+		<view style="margin-left: 10upx;">
+			<view class="uni-flex uni-row">
+				<view style="width: 400upx;">
 					<view>
-						温度:28.9°C
+						温度:{{aqi.fwd}}°C 湿度{{aqi.fsd}}%
+					</view>
+					<view class="aqi">
+						{{aqi.faqi}}
 					</view>
 					<view>
-						湿度32.5%
+						空气质量:{{quality}}
 					</view>
 					<view>
-						AQI:52
+						污染级别：{{level}}级
 					</view>
 					<view>
-						空气质量:优
+						首要污染物:{{aqi.fcontaminants}}
 					</view>
-					<view>
-						首要污染物:PM10
-					</view>
-					<view>
-						最近24小时AQI:60
-					</view>
+				</view>
+				<view class="uni-center">
+					<image class="image" mode="aspectFit" :src="imagSrc" style="width: 200upx; height: 200upx; " />
+				</view>
 			</view>
-			<view class="uni-center" style="">
-				<image class="image" mode="aspectFit"  src="../../../static/image/ico_01.png" style="width: 200upx; height: 200upx; "/>
+			<view class="uni-flex uni-row">
+				对健康的影响:{{aqi.fYX}}
 			</view>
-		</view>
-		<view class="uni-flex uni-row">
-		对健康的影响:空气质量令人满意，基本无空气污染
-		</view>
-		<view class="uni-flex uni-row">
-		建议措施:各类人群可正常活动
+			<view class="uni-flex uni-row">
+				建议措施:{{aqi.fCS}}
+			</view>
 		</view>
 		<view class="uni-flex uni-row" style="height: 200upx;">
-			<canvas canvas-id="canvasArcbar3" id="canvasArcbar3" class="charts3" style="margin-left: 0upx;"></canvas>
-			<canvas canvas-id="canvasArcbar1" id="canvasArcbar1" class="charts3" style="margin-left: 250upx;"></canvas>
-			<canvas canvas-id="canvasArcbar2" id="canvasArcbar2" class="charts3" style="margin-left: 500upx;"></canvas>
+			<canvas canvas-id="chartTb" id="chartTb" class="charts3" style="margin-left: 0upx;"></canvas>
+			<canvas canvas-id="chartHb" id="chartHb" class="charts3" style="margin-left: 375upx;"></canvas>
 		</view>
-		<view class="uni-flex uni-row"> 
-			<canvas canvas-id="charts" id="charts" @touchstart="touch()" class="charts"></canvas>
+		<view class="uni-flex uni-row" style="margin-top: 20upx;">
+			<canvas canvas-id="charts" id="charts"  class="charts"></canvas>
 		</view>
-		
-		<view class="uni-flex uni-row">
-		异常警告一览
-		</view>
-		<view class="list"> 
-			<view class="uni-flex uni-row off" style="min-height: 2rem;">
-				<view class="text1">告警时间</view>
-				<view class="text2">检测站点</view>
-				<view class="text2">AQI</view>
-			</view>	
-			
-			<view class="uni-flex uni-row on" style="min-height: 2rem;">
-				<view class="text1">2019-05-05 09:05:10</view>
-				<view class="text2">1号教学楼</view>
-				<view class="text2">112</view>
-			</view>	
-			
-			<view class="uni-flex uni-row off" style="min-height: 2rem;">
-				<view class="text1">2019-05-05 09:05:10</view>
-				<view class="text2">2号教学楼</view>
-				<view class="text2">118</view>
-			</view>	
-		</view>
-		
 	</view>
 </template>
 
 <script>
-	var wxCharts = require("../../../utils/wxcharts.js");
 	var _self;
-	var Charts1;
-	var Charts2;
-	
-	var Data = {
-		categories: ['1号教学楼', '2号教学楼', '行政楼'],
-		series: [{
-				name: 'AQI',
-				data: [50, 46, 41]
-			}
-		]
-	};
-	var Data3 = {
-		categories: ['同比'],
-		series: [{
-				name: '同比',
-				data: [90]
-			}
-		]
-	};
-	var Data1 = {
-		categories: ['环比'],
-		series: [{
-				name: '环比',
-				data: [93]
-			}
-		]
-	};
-	var Data2 = {
-		series: [{
-				data: 85,
-				name: '联网'
-			},
-			{
-				data: 15,
-				name: '断网'
-			}
-		]
-	};
+	import {
+		mapState
+	} from "vuex";
 	var width;
 	export default {
 		onLoad: function(event) {
 			_self = this;
-			// 			uni.setNavigationBarTitle({
-			// 				title: '新的标题'
-			// 			});
-			// uni.showLoading({
-			// 	title: '加载中...',
-			// 	mask:true,
-			// });
-			var detail = new Object();
-			detail = JSON.parse(decodeURIComponent(event.detail))
-			
-			try {
-				this.onload = JSON.parse(decodeURIComponent(event.detail));
-			} catch (error) {
-				this.onload = JSON.parse(event.detail);
-			}
-			console.log(this.onload);
-			uni.setNavigationBarTitle({
-				title: this.onload.storeName+'室外空气'
-			});	
-			
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
-					_self.pixelRatio =2;
+					_self.pixelRatio = 2;
 				}
 			})
-			this.cWidth3=uni.upx2px(135);
-			this.cHeight3=uni.upx2px(135);
+			let ds;
+			try {
+				ds = JSON.parse(decodeURIComponent(event.detail));
+			} catch (error) {
+
+			}
+			let userifo = this.userInfo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
+			this.setPageTitle();
+			this.getAqiDate();
+			this.getAqiTop();
 		},
 		data() {
 			return {
-				    cWidth3:'',//圆弧进度图
-				    cHeight3:'',//圆弧进度图
-                    pixelRatio:1
+				orgId:'',
+				orgName:'',
+				aqi: {},
+				pixelRatio: 1,
+				listDate: []
+			}
+		},
+		computed: {
+			...mapState(["userInfo"]),
+			quality() {
+				var ds = ['优', '良', '轻度', '中度', '重度', '严重'];
+				let i = this._getAqiIndex(this.aqi.faqi);
+				return ds[i];
+			},
+			level() {
+				return this._getAqiIndex(this.aqi.faqi) + 1;
+			},
+			imagSrc() {
+				return `../../../static/image/ico_0${this._getAqiIndex(this.aqi.faqi) + 1}.png`;
 			}
 		},
 		onReady: function() {
-			this.ShowCharts("charts", Data);
-			this.showArcbar3("canvasArcbar3", Data3);
-			this.showArcbar3("canvasArcbar1", Data1);
-			this.ShowCharts2("canvasArcbar2", Data2);
-			//this.hideLoading();
+
 		},
 		methods: {
-			ShowCharts2: function(canvasId, data) {
-				Charts2 = new wxCharts({
-					canvasId: canvasId,
-					type: 'pie',
-					fontSize: 11,
-					background: '#FFFFFF',
-					animation: true,
-					series: data.series,
-					width: 165,
-					height: 165,
-					dataLabel: true,
-					pixelRatio:1,
+			//设置标题
+			setPageTitle: function() {
+				uni.setNavigationBarTitle({
+					title: `${_self.orgName} 实时监控`,
 				});
 			},
-			touch:function(e){
-				console.log(e)
-				// Charts1.getCurrentDataIndex('renderComplete', (e) => {
-				// 	// your code here
-				// 	console.log(e)
-				// });
-				// Charts1.getCurrentDataIndex(e, {
-				// 	// format: function (item, category) {
-				// 	// 	return category + ' ' + item.name + ':' + item.data 
-				// 	// }
-				// });
-			},
-			/*显示图表*/
-			ShowCharts: function(canvasId, data) {
-				//console.log(data)
-				Charts1 = new wxCharts({
-					canvasId: canvasId,
-					type: 'column',
-					legend: true,
-					fontSize: 10,
-					background: '#FFFFFF',
-					animation: true,
-					categories: data.categories,
-					series: data.series,
-					width: 350,
-					height: 350,
-					pixelRatio:1,
-					rotate:true,  //横屏模式
-					xAxis: {
-						disableGrid:false	,
-					},
-					yAxis: {
-						disabled:false
-					},
-					dataLabel: true,
-					extra: {
-						column: {
-						  width: 300//_self.cWidth*_self.pixelRatio*0.45/chartData.categories.length
+
+			//或者AQI
+			getAqiDate: function() {
+				_self.http.get("air/getAirPointByFsiteNo", {
+					fsiteNo: this.orgId,
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.aqi = e.data.data;
+						let width = uni.upx2px(135);
+						let heigth = uni.upx2px(135);
+						let tData = {
+							categories: ['同比'],
+							series: [{
+								name: '同比',
+								data: [_self.util.percentage(_self.aqi.faqiTb)]
+							}]
+						};
+						let hDate = {
+							categories: ['环比'],
+							series: [{
+								name: '环比',
+								data: [_self.util.percentage(_self.aqi.faqiHb)]
+							}]
 						}
-					  }
+						_self.util.showChartArcbar("chartTb", tData, _self.pixelRatio, width, heigth);
+						_self.util.showChartArcbar("chartHb", hDate, _self.pixelRatio, width, heigth);
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
 			},
-			
-			/*显示图表*/
-			showArcbar3(canvasId,chartData){
-				console.log(chartData);
-				
-				new wxCharts({
-					canvasId: canvasId,
-					type: 'arcbar',
-					fontSize:11,
-					legend:false,
-					title: {
-						name: chartData.series[0].data+'%',
-						color: '#667766',
-						fontSize: 10
-					},
-					subtitle: {
-						name: chartData.series[0].name,
-						color: '#666666',
-						fontSize: 10
-					},
-					extra: {
-						arcbar:{
-							type:'default',//整圆类型进度条图
-							width: 10,//_self.arcbarWidth*_self.pixelRatio,//圆弧的宽度
-							startAngle:0,//整圆类型只需配置起始角度即可
-							backgroundColor:'#ffe3e8',
-						},
-						ringChart:1000
-					},
-					background:'#FFFFFF',
-					pixelRatio:_self.pixelRatio,
-					series: chartData.series,
-					animation: true,
-					width: _self.cWidth3*_self.pixelRatio,
-					height: _self.cHeight3*_self.pixelRatio,
-					dataLabel: true,
-				
+
+			//获取aqi 排行
+			getAqiTop: function() {
+				_self.http.get("air/getStationBYFsiteNo", {
+					fsiteNo: this.orgId, 
+					fpointFlag: 1
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						let list = e.data.data.list;
+						_self.listDate = list;
+						let categories = list.map(function(item) {
+							return item.fpointName
+						});
+						let dates = list.map(function(item) {
+							return item.faqi
+						});
+						let chartDate = {
+							categories: categories,
+							series: [{
+								name: 'AQI',
+								data: dates
+							}]
+						};
+						_self.util.showChartColumn("charts", chartDate);
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
 				});
-				
-			}
+			},
+
+			//获取AQI等级
+			_getAqiIndex: function(aqi) {
+				let index = 0;
+				if (aqi <= 50) {
+					index = 0;
+				} else if (aqi <= 100) {
+					index = 1;
+				} else if (aqi <= 150) {
+					index = 2;
+				} else if (aqi <= 200) {
+					index = 3;
+				} else if (aqi <= 300) {
+					index = 4;
+				} else {
+					index = 5;
+				}
+				return index;
+			},
 		}
 	}
 </script>
 
 <style>
 	.text1 {
-			width: 350upx;
-			text-align: center;
-			height: 70upx;
-			line-height: 70upx;
-		}
-	
+		width: 350upx;
+		text-align: center;
+		height: 70upx;
+		line-height: 70upx;
+	}
+
 	.text2 {
 		width: 175upx;
 		text-align: center;
 		height: 70upx;
 		line-height: 70upx;
 	}
-	
+
 	.list {
 		padding-bottom: 30upx;
 		box-sizing: border-box;
@@ -281,26 +210,37 @@
 		flex: 2;
 		text-align: left;
 	}
-	
+
 	.on {
 		background: #54d6e3;
 	}
-	
+
 	.off {
 		background: #55cdd9;
 	}
-	
+
 	.image {
-		margin:40upx 0;
+		margin: 40upx 0;
 		width: 200upx;
+		height: 100%;
 	}
+
 	.canvasViewBar {
 		flex: 1;
 		display: flex;
 		height: 550upx;
 		width: 750upx;
 	}
-	.charts3{position: absolute;width: 250upx; height:250upx;background-color: #FFFFFF;}
-	
 
+	.charts3 {
+		position: absolute;
+		width: 375upx;
+		height: 250upx;
+		background-color: #FFFFFF;
+	}
+
+	.aqi {
+		font-size: 60upx;
+		margin-left: 20upx;
+	}
 </style>

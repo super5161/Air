@@ -1,22 +1,10 @@
 <template>
 	<view>
-		<view class="uni-padding-wrap uni-common-mt" @click="goDetail(1001,'AQI报警')">
-			<view class="uni-card">
-				<view class="uni-card-header">AQI报警</view>
+		<view class="uni-padding-wrap uni-common-mt">
+			<view class="uni-card" v-for="(item,index) in listData" :key="index">
+				<view class="uni-card-header">{{item.ftitle}}</view>
 				<view class="uni-card-content">
-					<view class="uni-card-content-inner">
-						2019/5/5 17:00:00 AQI异常
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="uni-padding-wrap uni-common-mt" @click="goDetail(1002,'AQI报警')">
-			<view class="uni-card">
-				<view class="uni-card-header">AQI报警</view>
-				<view class="uni-card-content">
-					<view class="uni-card-content-inner">
-						2019/5/5 17:05:00 AQI异常
-					</view>
+					<view class="uni-card-content-inner">{{item.fmeg}}</view>
 				</view>
 			</view>
 		</view>
@@ -24,67 +12,48 @@
 	</view>
 </template>
 <script>
+	var _self;
+	import {
+		mapState
+	} from "vuex";
 	export default {
 		data() {
 			return {
-				data: [],
-				fNoticeID: [],
-				fNoticeTitle: [],
-				content: [],
-				fStartDate: [],
-				fEndDate: [],
-				date: '2018-12-29 00:00~2018-12-29 23:59',
-				loadMoreText: "加载中...",
-				showLoadMore: false,
-				max: 0,
-				state: 1
+				seq: 0,
+				listData: [],
 			}
 		},
 		onLoad() {
-			this.initData();
+			_self = this;
+			this.getWarning();
 		},
-		onUnload() {
-			this.max = 0,
-				this.data = [],
-				this.loadMoreText = "加载更多",
-				this.showLoadMore = false;
+		computed: {
+			...mapState(["userInfo"]),
 		},
 		onReachBottom() {
-			if (this.state == 0) {
-				this.loadMoreText = "没有更多数据了!"
-				console.log('没有更多数据了')
-				return;
-			} else {
-				this.showLoadMore = true;
-				//this.setDate();
-			}
-
-		},
-		onPullDownRefresh() {
-			//this.initData();
+			this.getWarning();
 		},
 		methods: {
-			initData() {
-				setTimeout(() => {
-					this.max = 0;
-					this.fNoticeID.length = 0
-					this.fNoticeTitle.length = 0
-					this.content.length = 0
-					this.fStartDate.length = 0
-					this.fEndDate.length = 0
-					this.loadMoreText = ''
-					uni.stopPullDownRefresh();
-				}, 300);
-			},
-			goDetail: function(id, title) {
-				let detail = {
-					id: id,
-					title: title
-				}
-				uni.navigateTo({
-					url: "notedata?detail=" + encodeURIComponent(JSON.stringify(detail))
-				})
-			},
+			getWarning: function() {
+				_self.http.get("smartPhone/getWarningInfo", {
+					eqtType: 1,
+					fsiteNo: this.userInfo.orgNo,
+					seq: this.seq,
+					userId: this.userInfo.userId
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						if (e.data.data.list.length > 0) {
+							e.data.data.list.map(function(item) {
+								_self.listData.push(item);
+							});
+							_self.seq += 1;
+							console.log(_self.listData);
+						}
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
+				});
+			}
 		}
 	}
 </script>
