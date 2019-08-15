@@ -89,7 +89,7 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				this.sdate = val.result;
+				this.sdate = val.result.replace(/-/g,'');
 				this.setPageTitle();
 				this.getListData();
 				this.getChartData();
@@ -102,6 +102,7 @@
 					date: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}).then(function(e) {
+					console.log(e.data.data.list)
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
 					} else {
@@ -149,7 +150,7 @@
 
 			getNowFormatDate: function() {
 				var date = new Date();
-				var seperator1 = "-";
+				var seperator1 = "";
 				var year = date.getFullYear();
 				var month = date.getMonth() + 1;
 				var strDate = date.getDate();

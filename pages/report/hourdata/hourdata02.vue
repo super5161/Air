@@ -93,7 +93,7 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				this.sdate = val.result;
+				this.sdate = val.result.replace(/-/g,'');
 				this.setPageTitle()
 				this.getListData();
 				this.getChartData();
@@ -105,7 +105,7 @@
 			},
 			getNowFormatDate: function() {
 				var date = new Date();
-				var seperator1 = "-";
+				var seperator1 = "";
 				var year = date.getFullYear();
 				var month = date.getMonth() + 1;
 				var strDate = date.getDate();
