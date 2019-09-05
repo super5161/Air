@@ -10,6 +10,8 @@ export default {
 		apiUrl: 'http://139.224.13.75:8080/', //api 地址
 		sysVersion: '2.0.1', //当前系统版本
 		appId: '03', //01：空气，02：SMART，03：维护
+		tenantId: '', //客户编号
+		tenantName: '', //客户名称
 	},
 	/*获取默认*/
 	getDefault: function() {
@@ -31,11 +33,16 @@ export default {
 		sys.serverUrl = serverUrl;
 		this.setSysInfo(sys);
 	},
-	/*设置api 地址*/
-	setApiUrl:function(apiUrl){
+	/*
+	 *设置客户信息
+	 * {tenantId,tenantName,apiUrl}
+	 */
+	setTenant: function(tenant) {
 		let sys = this.getSysInfo();
 		sys = sys || {};
-		sys.apiUrl = apiUrl;
+		sys.tenantId = tenant.tenantId;
+		sys.tenantName = tenant.tenantName;
+		sys.apiUrl = tenant.apiUrl;
 		this.setSysInfo(sys);
 	},
 	/*设置系统信息*/

@@ -98,14 +98,19 @@
 				}, {
 					baseUrl: sys.updateServer
 				}).then(function(e) {
-					debugger;
+					console.log(e)
 					if (e.data.code == 200) {
-						that.$sys.setApiUrl(e.data.data.fapiUrl);
+						let tData = e.data.data;
+						that.$sys.setTenant({
+							tenantId: tData.fno,
+							tenantName: tData.fname,
+							apiUrl: tData.fapiUrl
+						});
 						that.http.post("data/person/login", {
 							fuserno: uId,
 							fpassword: pwd,
 						}, {
-							baseUrl: e.data.data.fapiUrl
+							baseUrl: tData.fapiUrl
 						}).then(function(e) {
 							if (e.data.code === 200) {
 								var data = {
@@ -129,7 +134,6 @@
 						that.util.showToast(e.data.data)
 					}
 				}).catch(function(e) {
-					console.log(e)
 					that.util.showToast('服务器响应超时')
 				});
 			},

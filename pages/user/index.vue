@@ -12,6 +12,7 @@
 				<view class="desc">{{userInfo.orgName}}</view>
 			</view>
 		</view>
+		<view>{{tenantName}}</view>
 		<button style="width: 50%;margin-top: 100upx;" type="warn" @click="LoginOut">退出登录</button>
 		<page-foot tab="3"></page-foot>
 	</view>
@@ -27,7 +28,7 @@
 	export default {
 		data() {
 			return {
-
+				tenantName: this.$sys.getSysInfo().tenantName
 			}
 		},
 		onReady() {
