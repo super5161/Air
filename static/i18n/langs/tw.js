@@ -7,6 +7,8 @@ export const res = {
 	},
 	login: {
 		sysName: '大氣環境監測中心',
+		lbltenantId:'客    戶:',
+		placTenantId:'請輸入客戶編號',
 		lblUserName: '用戶名：',
 		placUserName: '請輸入用戶名',
 		lblPassword: '密&nbsp;&nbsp;&nbsp;&nbsp;碼',

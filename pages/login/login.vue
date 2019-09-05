@@ -6,6 +6,10 @@
 		</view>
 		<view class="form-content">
 			<view class="input-group">
+				<label for="tenantId">{{res.lbltenantId}}</label>
+				<input name="tenantId" type="text" v-model="tenantId" maxlength="10" :placeholder='res.placTenantId' />
+			</view>
+			<view class="input-group">
 				<label for="username">{{res.lblUserName}}</label>
 				<input name="username" type="text" v-model="username" maxlength="10" :placeholder='res.placUserName' />
 			</view>
@@ -44,6 +48,7 @@
 	export default {
 		data() {
 			return {
+				tenantId: '',
 				username: '',
 				password: '',
 				versionTop: '',
@@ -70,44 +75,62 @@
 		},
 		methods: {
 			Login: function() {
+				var utenantId = that.tenantId.trim();
 				var uId = that.username.trim();
 				var pwd = that.password.trim();
+				if (utenantId.length == 0) {
+					that.util.showToast('客户编号必须填写');
+					return;
+				}
 				if (uId.length == 0) {
-					uni.showToast({
-						title: "用户名必须填写",
-						icon: "none"
-					})
+					that.util.showToast('用户名必须填写');
 					return;
 				}
 
 				if (pwd.length == 0) {
-					uni.showToast({
-						title: "密码必须填写",
-						icon: "none"
-					})
+					that.util.showToast('密码必须填写');
 					return;
 				}
-				that.http.post("data/person/login", {
-					fuserno: uId,
-					fpassword: pwd,
+				let sys = this.$sys.getSysInfo();
+				console.log(sys);
+				that.http.get('smartPhone/getTenantInfo', {
+					fno: utenantId
+				}, {
+					baseUrl: sys.updateServer
 				}).then(function(e) {
-					if (e.data.code === 200) {
-						var data = {
-							userId: uId,
-							userName: e.data.data.fusername,
-							orgNo: e.data.data.fsiteNo,
-							orgName: e.data.data.fsiteName,
-							orgLevel: e.data.data.fsiteLevel
-						};
-						that.login(data);
-						uni.redirectTo({
-							url: "/pages/index/index"
-						})
+					debugger;
+					if (e.data.code == 200) {
+						that.$sys.setApiUrl(e.data.data.fapiUrl);
+						that.http.post("data/person/login", {
+							fuserno: uId,
+							fpassword: pwd,
+						}, {
+							baseUrl: e.data.data.fapiUrl
+						}).then(function(e) {
+							if (e.data.code === 200) {
+								var data = {
+									userId: uId,
+									userName: e.data.data.fusername,
+									orgNo: e.data.data.fsiteNo,
+									orgName: e.data.data.fsiteName,
+									orgLevel: e.data.data.fsiteLevel
+								};
+								that.login(data);
+								uni.redirectTo({
+									url: "/pages/index/index"
+								})
+							} else {
+								that.util.showToast(e.data.data)
+							}
+						}).catch(function() {
+							that.util.showToast('服务器响应超时')
+						});
 					} else {
-						that.util.showToast(e.data.msg)
+						that.util.showToast(e.data.data)
 					}
-				}).catch(function(e){
-					that.util.showToast("服务器响应超时")
+				}).catch(function(e) {
+					console.log(e)
+					that.util.showToast('服务器响应超时')
 				});
 			},
 			//切换语言

@@ -27,10 +27,15 @@ Vue.prototype.http = http;
 import store from './store/index.js';
 Vue.prototype.$store = store;
 
-/* begin fixedTop */
+/* begin util */
 import util from './utils/util.js';
 Vue.prototype.util = util;
-/* end fixedTop */
+/* end util */
+
+/* begin sys */
+import sys from './utils/sys.js';
+Vue.prototype.$sys = sys;
+/* end sys */
 
 
 Vue.config.productionTip = false;

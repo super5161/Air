@@ -1,11 +1,3 @@
-/*
-import http from './http'
-http.config.baseUrl = "http://localhost:8080/api/"
-http.get('user/list', {status: 1}).then((res)=>{console.log(JSON.stringify(res))})
-http.post('user', {id:1, status: 1}).then((res)=>{console.log(JSON.stringify(res))})
-http.put('user/1', {status: 2}).then((res)=>{console.log(JSON.stringify(res))})
-http.delete('user/1').then((res)=>{console.log(JSON.stringify(res))}) 
-*/
 "use strict";
 export default {
 	/*基本配置*/
@@ -23,18 +15,11 @@ export default {
 
 	//基础请求方式
 	request(options) {
-		let baseUrl = "http://139.224.13.75:8080/"; //请求基本地址
 		options = options || {};
-		options.url = baseUrl + options.url;
-		/*
-		_token  数据签名
-		*/
-		/*
-		 * Promise  then 成功调用 catch 失败调用  
-		 */
+		options.baseUrl = options.baseUrl; //请求基本地址
+		options.url = options.baseUrl + options.url;
 		return new Promise((resolve, reject) => {
 			let _config = Object.assign({}, this.config, options);
-
 			_config.requestId = new Date().getTime();
 			_config.success = function(res) {
 				resolve(res)
@@ -45,6 +30,10 @@ export default {
 			uni.request(_config);
 		});
 	},
+	
+	/*
+	* get 请求
+	*/
 	get(url, data, options) {
 		options = options || {};
 		options.url = url
@@ -52,6 +41,9 @@ export default {
 		options.method = 'GET'
 		return this.request(options)
 	},
+	/*
+	* post 请求
+	*/
 	post(url, data, options) {
 		options = options || {};
 		options.url = url
@@ -59,6 +51,9 @@ export default {
 		options.method = 'POST'
 		return this.request(options)
 	},
+	/*
+	* put 请求
+	*/
 	put(url, data, options) {
 		options = options || {};
 		options.url = url
@@ -66,6 +61,9 @@ export default {
 		options.method = 'PUT'
 		return this.request(options)
 	},
+	/*
+	* delete 请求
+	*/
 	delete(url, data, options) {
 		options = options || {};
 		options.url = url

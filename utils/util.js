@@ -87,22 +87,32 @@ export default {
 	 * 显示仪表盘 显示为百分比
 	 * chartid 图表ID
 	 * name 显示名称
-	 * data 数据
-	 * width 宽度
 	 * pixelRatio 
 	 * gaugeWidth 仪表盘背景的宽度
+	 * width 宽度
+	 * height 高度
 	 * */
 	showChartGauge(chartid, series, pixelRatio, gaugeWidth, width, height) {
 		let categories = [{
+				min: 0,
+				max: 100,
 				value: 0.2,
-				color: '#2fc25b'
+				color: '#8DC120'
+			},
+			{
+				value: 0.4,
+				color: '#E8BE2C'
+			},
+			{
+				value: 0.6,
+				color: '#EF8724'
 			},
 			{
 				value: 0.8,
-				color: '#f04864'
+				color: '#BF1229'
 			}, {
 				value: 1,
-				color: '#1890ff'
+				color: '#5C1E82'
 			}
 		];
 		let Charts = new wxCharts({
