@@ -26,6 +26,12 @@ export default {
 			return sys;
 		} catch (e) {}
 	},
+
+	/*获取api调用地址*/
+	getApiUrl: function() {
+		return this.getSysInfo().apiUrl;
+	},
+
 	/*设置服务器*/
 	setServerUrl: function(serverUrl) {
 		let sys = this.getSysInfo();
