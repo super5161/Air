@@ -40,6 +40,8 @@
 		onReady() {
 			_self.http.get("smartPhone/getAqiByFpointNo", {
 				fpointNo: this.orgId,
+			}, {
+				baseUrl: this.$sys.getApiUrl()
 			}).then(function(e) {
 				if (e.data.code === 200) {
 					_self.listData = e.data.data.list;

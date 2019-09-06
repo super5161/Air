@@ -40,6 +40,8 @@
 					fsiteNo: this.userInfo.orgNo,
 					seq: this.seq,
 					userId: this.userInfo.userId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						if (e.data.data.list.length > 0) {
@@ -49,7 +51,7 @@
 							_self.seq += 1;
 						}
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			}

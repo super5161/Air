@@ -25,7 +25,7 @@
 				<view class="text2">甲醛</view>
 				<view class="text2">CO2</view>
 				<view class="text2">TVOC</view>
-			</view>	
+			</view>
 			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fpointNo"
 			 @click="goDetail(item.fpointNo,item.fpointName)">
 				<view class="text1">{{item.fpointName}}</view>
@@ -92,12 +92,14 @@
 				this.showCharts();
 				_self.http.get("air/getAirDataByFpointNo", {
 					fpointNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						console.log(e.data.data.list)
 						_self.listData = e.data.data.list;
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -105,6 +107,8 @@
 			showCharts: function() {
 				_self.http.get("smartPhone/getPointAirAqiByFpointNo", {
 					fpointNo: this.orgId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let pixelRatio = _self.pixelRatio;

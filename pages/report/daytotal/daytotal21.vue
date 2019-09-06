@@ -105,6 +105,8 @@
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.userInfo.orgNo
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

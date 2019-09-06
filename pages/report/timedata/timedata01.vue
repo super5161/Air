@@ -48,7 +48,7 @@
 	} from "vuex";
 	var width;
 	export default {
-		onLoad: function() {
+		onLoad: function(event) {
 			_self = this;
 			uni.getSystemInfo({
 				success(res) {
@@ -56,13 +56,22 @@
 					_self.pixelRatio = 2;
 				}
 			})
-
+			let ds;
+			try {
+				ds = JSON.parse(decodeURIComponent(event.detail));
+			} catch (error) {}
+			debugger;
+			let userifo = this.userInfo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
 			this.setPageTitle();
 			this.getAqiDate();
 			this.getAqiTop();
 		},
 		data() {
 			return {
+				orgId: '',
+				orgName: '',
 				aqi: {},
 				pixelRatio: 1,
 				listDate: []
@@ -89,14 +98,16 @@
 			//设置标题
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.userInfo.orgName} 实时监控`,
+					title: `${this.orgName} 实时监控`,
 				});
 			},
-			
+
 			//或者AQI
 			getAqiDate: function() {
 				_self.http.get("air/getAirPointByFsiteNo", {
-					fsiteNo: this.userInfo.orgNo,
+					fsiteNo: this.orgId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.aqi = e.data.data;
@@ -119,7 +130,7 @@
 						_self.util.showChartArcbar("chartTb", tData, _self.pixelRatio, width, heigth);
 						_self.util.showChartArcbar("chartHb", hDate, _self.pixelRatio, width, heigth);
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -127,8 +138,10 @@
 			//获取aqi 排行
 			getAqiTop: function() {
 				_self.http.get("air/getAQIByUserId", {
-					fsiteParent: this.userInfo.orgNo,
+					fsiteParent: this.orgId,
 					userId: this.userInfo.userId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let list = e.data.data.list;
@@ -148,7 +161,7 @@
 						};
 						ChartTop = _self.util.showChartColumn("charts", chartDate);
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},

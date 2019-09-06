@@ -38,7 +38,11 @@
 		onReady() {
 			//1 市 2 区 3 学校
 			var level = this.$store.state.userInfo.orgLevel;
-			if (level === 1) {
+			if (level === 0) {
+				this.pageUrl.monthUrl = "/pages/report/daydata/daydata00";
+				this.pageUrl.quarterUrl = "/pages/report/daydata/daydata20";
+				this.pageUrl.yearUrl = "/pages/report/daydata/daydata30";
+			} else if (level === 1) {
 				this.pageUrl.monthUrl = "/pages/report/daydata/daydata01";
 				this.pageUrl.quarterUrl = "/pages/report/daydata/daydata21";
 				this.pageUrl.yearUrl = "/pages/report/daydata/daydata31";

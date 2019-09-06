@@ -48,13 +48,24 @@
 			wPicker
 		},
 		onLoad: function() {
+			_self = this;
+			let ds;
+			try {
+				ds = JSON.parse(decodeURIComponent(opts.detail));
+			} catch (error) {
+
+			}
+			let userifo = this.userInfo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
+			this.sdate = ds ? ds.date : this.getNowFormatMonth();
+
 			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			_self = this;
 		},
 		data() {
 			return {
@@ -118,7 +129,7 @@
 						series[0].data = datas || [];
 						_self.util.showChartLine("charts", categories, series, width);
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -135,7 +146,7 @@
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -147,7 +158,7 @@
 					date: this.sdate
 				}
 				uni.navigateTo({
-					url: "mondata01?detail=" + encodeURIComponent(JSON.stringify(detail))
+					url: "mondata02?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
 			},
 

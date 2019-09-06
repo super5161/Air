@@ -39,51 +39,49 @@
 			"style": {
 				"navigationBarTitleText": "空气质量"
 			}
+		},
+		//每月空气质量
+		{
+			"path": "pages/report/daydata/daydata00",
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata01",
-			"style": {
-				"navigationBarTitleText": "市2019/05月空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata02",
-			"style": {
-				"navigationBarTitleText": "区2019/05月空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata03",
-			"style": {
-				"navigationBarTitleText": "站2019/05月空气质量"
-			}
-		}, {
+			"style": {}
+		},
+		//每季空气质量
+		{
+			"path": "pages/report/daydata/daydata20",
+			"style": {}
+		},
+		{
 			"path": "pages/report/daydata/daydata21",
-			"style": {
-				"navigationBarTitleText": "市2019/1季空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata22",
-			"style": {
-				"navigationBarTitleText": "区2019/1季空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata23",
-			"style": {
-				"navigationBarTitleText": "站点2019/1季空气质量"
-			}
+			"style": {}
+		},
+		//每年空气质量
+		{
+			"path": "pages/report/daydata/daydata30",
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata31",
-			"style": {
-				"navigationBarTitleText": "市2018年空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata32",
-			"style": {
-				"navigationBarTitleText": "区2018年空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daydata/daydata33",
-			"style": {
-				"navigationBarTitleText": "站点2018年空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/daytotal/index",
 			"style": {
@@ -195,12 +193,12 @@
 				"navigationBarTitleText": "闵行区实时监控"
 			}
 		}, {
-			"path": "pages/report/timedata/timedata01",
+			"path": "pages/report/hourdata/hourdata",
 			"style": {
-				"navigationBarTitleText": "室外实时监控"
+				"navigationBarTitleText": "2019/05/05市空气质量"
 			}
 		}, {
-			"path": "pages/report/hourdata/hourdata",
+			"path": "pages/report/hourdata/hourdata01",
 			"style": {
 				"navigationBarTitleText": "2019/05/05市空气质量"
 			}
@@ -219,11 +217,13 @@
 			"style": {
 				"navigationBarTitleText": "市2019/05空气质量"
 			}
+		},
+		{
+			"path": "pages/report/mondata/mondata01",
+			"style": {}
 		}, {
 			"path": "pages/report/mondata/mondata02",
-			"style": {
-				"navigationBarTitleText": "闵行区2019/05空气质量"
-			}
+			"style": {}
 		}, {
 			"path": "pages/report/mondata/mondata03",
 			"style": {
@@ -242,10 +242,20 @@
 			"path": "pages/smart/index",
 			"style": {}
 		}, {
+			//实时监控
+			"path": "pages/report/timedata/timedata00",
+			"style": {}
+		}, {
+			"path": "pages/report/timedata/timedata01",
+			"style": {}
+		}, {
 			"path": "pages/report/timedata/timedata02",
 			"style": {}
 		}, {
 			"path": "pages/report/timedata/timedata03",
+			"style": {}
+		}, {
+			"path": "pages/sys/update",
 			"style": {}
 		}
 	],

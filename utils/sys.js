@@ -9,7 +9,7 @@ export default {
 		updateService: "smartPhone/getAppVersionInfo", //检测方法
 		apiUrl: 'http://139.224.13.75:8080/', //api 地址
 		sysVersion: '2.0.1', //当前系统版本
-		appId: '03', //01：空气，02：SMART，03：维护
+		appId: '01', //01：空气，02：SMART，03：维护
 		tenantId: '', //客户编号
 		tenantName: '', //客户名称
 	},

@@ -35,19 +35,20 @@
 			<canvas canvas-id="chartHb" id="chartHb" class="charts3" style="margin-left: 375upx;"></canvas>
 		</view>
 		<view class="uni-flex uni-row" style="margin-top: 20upx;">
-			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
+			<canvas canvas-id="charts" id="charts" @click="click" class="charts"></canvas>
 		</view>
 	</view>
 </template>
 
 <script>
 	var _self;
+	var ChartTop;
 	import {
 		mapState
 	} from "vuex";
 	var width;
 	export default {
-		onLoad: function(event) {
+		onLoad: function() {
 			_self = this;
 			uni.getSystemInfo({
 				success(res) {
@@ -55,23 +56,13 @@
 					_self.pixelRatio = 2;
 				}
 			})
-			let ds;
-			try {
-				ds = JSON.parse(decodeURIComponent(event.detail));
-			} catch (error) {
 
-			}
-			let userifo = this.userInfo;
-			this.orgId = ds ? ds.id : userifo.orgNo;
-			this.orgName = ds ? ds.orgName : userifo.orgName;
 			this.setPageTitle();
 			this.getAqiDate();
 			this.getAqiTop();
 		},
 		data() {
 			return {
-				orgId: '',
-				orgName: '',
 				aqi: {},
 				pixelRatio: 1,
 				listDate: []
@@ -98,14 +89,14 @@
 			//设置标题
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${_self.orgName} 实时监控`,
+					title: `${this.userInfo.orgName} 实时监控`,
 				});
 			},
 
 			//或者AQI
 			getAqiDate: function() {
 				_self.http.get("air/getAirPointByFsiteNo", {
-					fsiteNo: this.orgId,
+					fsiteNo: this.userInfo.orgNo,
 				}, {
 					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
@@ -137,9 +128,9 @@
 
 			//获取aqi 排行
 			getAqiTop: function() {
-				_self.http.get("air/getStationBYFsiteNo", {
-					fsiteNo: this.orgId,
-					fpointFlag: 1
+				_self.http.get("air/getAQIByUserId", {
+					fsiteParent: this.userInfo.orgNo,
+					userId: this.userInfo.userId
 				}, {
 					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
@@ -147,7 +138,7 @@
 						let list = e.data.data.list;
 						_self.listDate = list;
 						let categories = list.map(function(item) {
-							return item.fpointName
+							return item.fsiteName
 						});
 						let dates = list.map(function(item) {
 							return item.faqi
@@ -159,7 +150,7 @@
 								data: dates
 							}]
 						};
-						_self.util.showChartColumn("charts", chartDate);
+						ChartTop = _self.util.showChartColumn("charts", chartDate);
 					} else {
 						_self.util.showToast(e.data.msg)
 					}
@@ -183,6 +174,18 @@
 					index = 5;
 				}
 				return index;
+			},
+
+			click: function(e) {
+				var index = ChartTop.getCurrentDataIndex(e);
+				var item = this.listDate[index];
+				let detail = {
+					id: item.fsiteNo,
+					orgName: item.fsiteName
+				}
+				uni.navigateTo({
+					url: "timedata01?detail=" + encodeURIComponent(JSON.stringify(detail))
+				})
 			},
 		}
 	}

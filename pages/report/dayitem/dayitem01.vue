@@ -88,11 +88,13 @@
 				_self.http.get("airReport/getMonthExponent", {
 					month: this.sdate,
 					fsiteNo: this.userInfo.orgNo,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 

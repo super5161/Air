@@ -37,9 +37,10 @@
 		onReady() {
 			//1 市 2 区 3 学校
 			var level = this.$store.state.userInfo.orgLevel;
-			if (level === 1) {
+			if (level === 0) {
+				this.pageUrl.outdoorUrl = "/pages/report/timedata/timedata00";
+			} else if (level === 1) {
 				this.pageUrl.outdoorUrl = "/pages/report/timedata/timedata01";
-
 			} else if (level === 2) {
 				this.pageUrl.outdoorUrl = "/pages/report/timedata/timedata02";
 			} else {

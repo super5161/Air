@@ -80,6 +80,8 @@
 				_self.http.get("airReport/getYearStatistics", {
 					year: this.sdate,
 					fsiteNo: this.userInfo.orgNo
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.dataList = e.data.data.list;

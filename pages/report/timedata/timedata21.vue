@@ -48,7 +48,7 @@
 				<view class="text2">甲醛</view>
 				<view class="text2">CO2</view>
 				<view class="text2">TVOC</view>
-			</view>		
+			</view>
 			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fpointNo"
 			 @click="goDetail(item.fpointNo,item.fpointName)">
 				<view class="text1">{{item.fpointName}}</view>
@@ -108,6 +108,8 @@
 			getQuInfo: function() {
 				_self.http.get("smartPhone/getQuInfoByUserId", {
 					userId: this.userInfo.userId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.areaList = e.data.data.list;
@@ -129,6 +131,8 @@
 					this.http.get("smartPhone/getSchoolInfo", {
 						fsiteNo: _self.areaId,
 						userId: this.userInfo.userId,
+					}, {
+						baseUrl: this.$sys.getApiUrl()
 					}).then(function(e) {
 						if (e.data.code === 200) {
 							_self.schoolList = e.data.data.list;
@@ -177,11 +181,13 @@
 				this.showCharts();
 				_self.http.get("smartPhone/getZongzhanAirAqi", {
 					fsiteNo: this.schoolId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -189,6 +195,8 @@
 			showCharts: function() {
 				_self.http.get("smartPhone/getOftenAirAqiByFsiteNo", {
 					fsiteNo: this.schoolId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let pixelRatio = _self.pixelRatio;

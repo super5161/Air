@@ -1,4 +1,5 @@
 <template>
+
 	<view>
 		<view class="content">
 			<view class="tab" @tap="toggleTab(0)">月份选择 {{sdate}}</view>
@@ -10,11 +11,8 @@
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">地区</view>
 				<view class="text2">AQI</view>
-				<view class="text2">等级</view>
+				<view class="text2">空气类别</view>
 				<view class="text2">首要污染物</view>
-				<view class="text2">同比AQI</view>
-				<view class="text2">同比等级</view>
-				<view class="text2">同比首要污染物</view>
 			</view>
 			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo"
 			 @click="goDetail(item.fsiteNo,item.fsiteName)">
@@ -22,9 +20,6 @@
 				<view class="text2">{{item.faqi|intFielter}}</view>
 				<view class="text2">{{item.faqiType|emptyFielter}}</view>
 				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
-				<view class="text2">{{item.faqi2|intFielter}}</view>
-				<view class="text2">{{item.faqiType2|emptyFielter}}</view>
-				<view class="text2">{{item.fcontaminants2|emptyFielter}}</view>
 			</view>
 		</view>
 
@@ -39,7 +34,7 @@
 	import wPicker from "@/components/w-picker/w-picker.vue";
 	import {
 		mapState
-	} from 'vuex'
+	} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -47,14 +42,15 @@
 		components: {
 			wPicker
 		},
+
 		onLoad: function() {
+			_self = this;
 			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			_self = this;
 		},
 		data() {
 			return {
@@ -76,21 +72,19 @@
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
 			},
-			...mapState(['userInfo']),
+			...mapState(["userInfo"]),
 		},
 		onReady: function() {
 			this.getListData();
 			this.getChartData();
 		},
-
 		methods: {
 			toggleTab(index) {
 				this.tabIndex = index;
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				let date = val.result.replace('-', '');
-				this.sdate = date;
+				this.sdate = val.result.replace('-', '');
 				this.setPageTitle();
 				this.getListData();
 				this.getChartData();
@@ -103,8 +97,7 @@
 					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
-						let categories = [];
-						categories = e.data.data.list.map(function(item) {
+						let categories = e.data.data.list.map(function(item) {
 							return item.fday;
 						});
 						let series = [];
@@ -139,7 +132,6 @@
 					}
 				});
 			},
-
 			goDetail: function(id, storeName) {
 				let detail = {
 					id: id,
@@ -147,7 +139,7 @@
 					date: this.sdate
 				}
 				uni.navigateTo({
-					url: "mondata01?detail=" + encodeURIComponent(JSON.stringify(detail))
+					url: "daydata01?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
 			},
 
@@ -179,7 +171,7 @@
 			/**设置页面标题*/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.userInfo.orgName} 每月空气`,
+					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
 				});
 			},
 		}

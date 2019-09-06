@@ -252,4 +252,13 @@ export default {
 		}
 		return 0;
 	},
+
+	/*
+	 *异步错误返回
+	 */
+	asyncError(msg) {
+		return new Promise((resolve, reject) => {
+			reject(msg);
+		});
+	},
 };

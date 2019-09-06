@@ -124,6 +124,8 @@
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -150,6 +152,8 @@
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						that.listData = e.data.data.list;

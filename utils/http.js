@@ -16,7 +16,6 @@ export default {
 	//基础请求方式
 	request(options) {
 		options = options || {};
-		options.baseUrl = options.baseUrl; //请求基本地址
 		options.url = options.baseUrl + options.url;
 		return new Promise((resolve, reject) => {
 			let _config = Object.assign({}, this.config, options);

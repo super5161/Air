@@ -69,8 +69,8 @@
 		},
 		data() {
 			return {
-				orgId:'',
-				orgName:'',
+				orgId: '',
+				orgName: '',
 				aqi: {},
 				pixelRatio: 1,
 				listDate: []
@@ -105,6 +105,8 @@
 			getAqiDate: function() {
 				_self.http.get("air/getAirPointByFsiteNo", {
 					fsiteNo: this.orgId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.aqi = e.data.data;
@@ -137,6 +139,8 @@
 				_self.http.get("air/getAQIByUserId", {
 					fsiteParent: this.orgId,
 					userId: this.userInfo.userId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let list = e.data.data.list;

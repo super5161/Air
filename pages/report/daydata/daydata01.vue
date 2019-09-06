@@ -43,8 +43,18 @@
 			wPicker
 		},
 
-		onLoad: function() {
+		onLoad: function(opts) {
 			_self = this;
+			let ds;
+			try {
+				ds = JSON.parse(decodeURIComponent(opts.detail));
+			} catch (error) {
+
+			}
+			let userifo = this.userInfo;
+			this.orgId = ds ? ds.id : userifo.orgNo;
+			this.orgName = ds ? ds.orgName : userifo.orgName;
+			this.sdate = ds ? ds.date : this.getNowFormatMonth();
 			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
@@ -54,6 +64,8 @@
 		},
 		data() {
 			return {
+				orgId: '',
+				orgName: '',
 				title: 'Hello',
 				sdate: this.getNowFormatMonth(),
 				tabList: [{
@@ -92,7 +104,9 @@
 			getChartData: function() {
 				_self.http.get("airReport/getMonthLineChart", {
 					month: this.sdate,
-					fsiteNo: this.userInfo.orgNo
+					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = e.data.data.list.map(function(item) {
@@ -119,7 +133,9 @@
 			getListData: function() {
 				_self.http.get("airReport/getMonthAirData", {
 					month: this.sdate,
-					fsiteNo: this.userInfo.orgNo
+					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
@@ -167,7 +183,7 @@
 			/**设置页面标题*/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
+					title: `${this.sdate} ${this.orgName} 空气质量`,
 				});
 			},
 		}

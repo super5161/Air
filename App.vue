@@ -1,16 +1,44 @@
 <script>
 	export default {
 		onLaunch: function() {
-			console.log('App Launch')
+			let platform = uni.getSystemInfoSync().platform;
+			switch (platform) {
+				case 'android':
+				case 'ios':
+					this.$sys.removeSysImfo();//重置缓存
+					let sys = this.$sys.getSysInfo();
+					this.http.get('smartPhone/getAppVersionInfo', {
+						appNo: sys.appId
+					}, {
+						baseUrl: sys.updateServer
+					}).then(function(e) {
+						if (e.data.code === 200) {
+							let currentVerson = parseInt(sys.sysVersion.replace(/\./g, ''));
+							let latestVerson = parseInt(e.data.data.verson.replace(/\./g, ''));
+							console.log('currentVerson:' + currentVerson + '  latestVerson:' + latestVerson);
+							if (latestVerson > currentVerson) {
+								if (platform === 'android' && (e.data.data.androidLink == '' || e.data.data.androidLink == null)) return;
+								if (platform === 'ios' && (e.data.data.iosLink == '' || e.data.data.iosLink == null)) return;
+								uni.redirectTo({
+									url: "/pages/sys/update"
+								});
+							}
+						}
+					});
+					break;
+				default:
+					console.log('运行在开发者工具上');
+					break;
+			}
 		},
 		onShow: function() {
-			console.log('App Show')
+
 		},
 		onHide: function() {
-			console.log('App Hide')
+
 		},
 		created: function() {
-			console.log('App created')
+
 		}
 	}
 </script>

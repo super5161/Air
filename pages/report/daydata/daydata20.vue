@@ -9,24 +9,26 @@
 
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
-				<view class="text1">指标</view>
-				<view class="text2">季浓度</view>
-				<view class="text2">季平均</view>
-				<view class="text2">同比浓度</view>
-				<view class="text2">同比</view>
-				<view class="text2">环比浓度</view>
-				<view class="text2">环比</view>
+				<view class="text1">地区</view>
+				<view class="text2">AQI</view>
+				<view class="text2">空气类别</view>
+				<view class="text2">首要污染物</view>
 			</view>
-			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in dataList" :key="item.fsiteNo">
-				<view class="text1">{{item.fitemName}}</view>
-				<view class="text2">{{item.fitemRange}}</view>
-				<view class="text2">{{item.fitemValue}}</view>
-				<view class="text2">{{item.ftbValue}}</view>
-				<view class="text2">{{item.ftbRate}}</view>
-				<view class="text2">{{item.fhbValue}}</view>
-				<view class="text2">{{item.fhbRate}}</view>
+
+			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo"
+			 @click="goDetail(item.fsiteNo,item.fsiteName)">
+				<view class="text1">{{item.fsiteName}}</view>
+				<view class="text2">{{item.faqi|intFielter}}</view>
+				<view class="text2">{{item.faqiType|emptyFielter}}</view>
+				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
 			</view>
+
 		</view>
+
+		<view>
+			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
+		</view>
+
 	</view>
 </template>
 
@@ -35,8 +37,9 @@
 	import {
 		mapState
 	} from "vuex";
-	var width;
 	var _self;
+	var Charts;
+	var width;
 	export default {
 		components: {
 			wPicker
@@ -48,7 +51,7 @@
 				success(res) {
 					width = res.screenWidth - 10;
 				}
-			});
+			})
 		},
 		data() {
 			return {
@@ -57,10 +60,10 @@
 				tabList: [{
 					mode: "yearQuarter",
 					name: "年季",
-					value: [this.getNowYear(), this.getQuarter(this.getNowQuarter()) - 1] //年月在列表的序号
+					value: [this.getNowYear(), this.getQuarter(this.getNowQuarter()) - 1]
 				}],
 				tabIndex: 0,
-				dataList: [],
+				listData: [],
 			}
 		},
 		computed: {
@@ -81,7 +84,8 @@
 			...mapState(["userInfo"]),
 		},
 		onReady: function() {
-			this.getDate();
+			this.getListData();
+			this.getChartData();
 		},
 		methods: {
 			toggleTab(index) {
@@ -92,10 +96,11 @@
 				let date = val.result.replace('-', ' ');
 				this.sdate = date;
 				this.setPageTitle();
-				this.getDate();
+				this.getListData();
+				this.getChartData();
 			},
-			getDate: function() {
-				_self.http.get("airReport/getQuarterExponent", {
+			getChartData: function() {
+				_self.http.get("airReport/getQuarterLineChart", {
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.userInfo.orgNo
@@ -103,12 +108,52 @@
 					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
-						_self.dataList = e.data.data.list;
+						let categories = [];
+						categories = e.data.data.list.map(function(item) {
+							return item.ftime;
+						});
+						let series = [];
+						series[0] = {
+							name: "AQI",
+							data: [],
+						}
+						let datas = e.data.data.list.map(function(item) {
+							return item.faqi;
+						});
+						series[0].data = datas || [];
+						_self.util.showChartLine("charts", categories, series, width);
 					} else {
-						_self.util.showToast(e.data.data)
+						_self.util.showToast(e.data.msg)
 					}
 				});
 			},
+			/* 获取列表数据 */
+			getListData: function() {
+				_self.http.get("airReport/getQuarterAirData", {
+					year: this.year,
+					quarter: this.quarter,
+					fsiteNo: this.userInfo.orgNo
+				}, {
+					baseUrl: this.$sys.getApiUrl()
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						_self.listData = e.data.data.list;
+					} else {
+						_self.util.showToast(e.data.msg)
+					}
+				});
+			},
+			goDetail: function(id, storeName) {
+				let detail = {
+					id: id,
+					orgName: storeName,
+					date: this.sdate
+				}
+				uni.navigateTo({
+					url: "daydata21?detail=" + encodeURIComponent(JSON.stringify(detail))
+				})
+			},
+			/*获取年+季度描述*/
 			getNowYearQuarter: function() {
 				var date = new Date();
 				var year = date.getFullYear();
@@ -152,9 +197,10 @@
 				var currentdate = year - 2018;
 				return currentdate;
 			},
-			setPageTitle: function(sDate) {
+			/**设置页面标题*/
+			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.userInfo.orgName} 空气统计`,
+					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
 				});
 			},
 		}
@@ -167,7 +213,7 @@
 	}
 
 	.text1 {
-		width: 150upx;
+		width: 320upx;
 		color: #FFFFFF;
 		text-align: center;
 		height: 70upx;
@@ -175,7 +221,7 @@
 	}
 
 	.text2 {
-		width: 100upx;
+		width: 143upx;
 		color: #FFFFFF;
 		text-align: center;
 		height: 70upx;

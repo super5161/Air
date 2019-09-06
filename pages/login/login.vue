@@ -86,19 +86,16 @@
 					that.util.showToast('用户名必须填写');
 					return;
 				}
-
 				if (pwd.length == 0) {
 					that.util.showToast('密码必须填写');
 					return;
 				}
 				let sys = this.$sys.getSysInfo();
-				console.log(sys);
 				that.http.get('smartPhone/getTenantInfo', {
 					fno: utenantId
 				}, {
 					baseUrl: sys.updateServer
 				}).then(function(e) {
-					console.log(e)
 					if (e.data.code == 200) {
 						let tData = e.data.data;
 						that.$sys.setTenant({
@@ -106,35 +103,36 @@
 							tenantName: tData.fname,
 							apiUrl: tData.fapiUrl
 						});
-						that.http.post("data/person/login", {
+						return that.http.post("data/person/login", {
 							fuserno: uId,
 							fpassword: pwd,
 						}, {
 							baseUrl: tData.fapiUrl
-						}).then(function(e) {
-							if (e.data.code === 200) {
-								var data = {
-									userId: uId,
-									userName: e.data.data.fusername,
-									orgNo: e.data.data.fsiteNo,
-									orgName: e.data.data.fsiteName,
-									orgLevel: e.data.data.fsiteLevel
-								};
-								that.login(data);
-								uni.redirectTo({
-									url: "/pages/index/index"
-								})
-							} else {
-								that.util.showToast(e.data.data)
-							}
-						}).catch(function() {
-							that.util.showToast('服务器响应超时')
+						});
+					}
+					return that.util.asyncError(e.data.data);
+				}).then(function(e) {
+					if (e.data.code === 200) {
+						var data = {
+							userId: uId,
+							userName: e.data.data.fusername,
+							orgNo: e.data.data.fsiteNo,
+							orgName: e.data.data.fsiteName,
+							orgLevel: e.data.data.fsiteLevel
+						};
+						that.login(data);
+						uni.redirectTo({
+							url: "/pages/index/index"
 						});
 					} else {
-						that.util.showToast(e.data.data)
+						return that.util.asyncError(e.data.data);
 					}
 				}).catch(function(e) {
-					that.util.showToast('服务器响应超时')
+					if (e.errMsg) {
+						that.util.showToast('服务器响应超时')
+						return;
+					}
+					that.util.showToast(e)
 				});
 			},
 			//切换语言

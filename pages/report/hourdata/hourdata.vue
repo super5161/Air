@@ -89,7 +89,7 @@
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				this.sdate = val.result.replace(/-/g,'');
+				this.sdate = val.result.replace(/-/g, '');
 				this.setPageTitle();
 				this.getListData();
 				this.getChartData();
@@ -101,6 +101,8 @@
 				_self.http.get("airReport/getDayAirData", {
 					date: this.sdate,
 					fsiteNo: this.userInfo.orgNo
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					console.log(e.data.data.list)
 					if (e.data.code === 200) {
@@ -115,6 +117,8 @@
 				_self.http.get("airReport/getDayLineChart", {
 					date: this.sdate,
 					fsiteNo: this.userInfo.orgNo
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -144,7 +148,7 @@
 					date: this.sdate
 				}
 				uni.navigateTo({
-					url: "hourdata02?detail=" + encodeURIComponent(JSON.stringify(detail))
+					url: "hourdata01?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
 			},
 

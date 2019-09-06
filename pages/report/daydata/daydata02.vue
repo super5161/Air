@@ -133,6 +133,8 @@
 				_self.http.get("airReport/getMonthLineChart", {
 					month: this.sdate,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = e.data.data.list.map(function(item) {
@@ -161,6 +163,8 @@
 				_self.http.get("airReport/getMonthAirData", {
 					month: this.sdate,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;

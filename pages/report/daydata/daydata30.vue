@@ -1,20 +1,16 @@
 <template>
 	<view>
 		<view class="content">
-			<view class="tab" @tap="toggleTab(0)">月份选择 {{sdate}}</view>
+			<view class="tab" @tap="toggleTab(0)">年份选择 {{sdate}}</view>
 			<w-picker :mode="mode" startYear="2018" endYear="2030" step="1" :defaultVal="defaultVal" @confirm="onConfirm" ref="picker"
 			 themeColor="#f00"></w-picker>
 		</view>
-
 		<view class="list">
 			<view class="uni-flex uni-row off" style="min-height: 2rem;">
 				<view class="text1">地区</view>
 				<view class="text2">AQI</view>
-				<view class="text2">等级</view>
+				<view class="text2">空气类别</view>
 				<view class="text2">首要污染物</view>
-				<view class="text2">同比AQI</view>
-				<view class="text2">同比等级</view>
-				<view class="text2">同比首要污染物</view>
 			</view>
 			<view class="uni-flex uni-row" :class="[index%2===0 ? 'on' : 'off']" v-for="(item,index) in listData" :key="item.fsiteNo"
 			 @click="goDetail(item.fsiteNo,item.fsiteName)">
@@ -22,16 +18,11 @@
 				<view class="text2">{{item.faqi|intFielter}}</view>
 				<view class="text2">{{item.faqiType|emptyFielter}}</view>
 				<view class="text2">{{item.fcontaminants|emptyFielter}}</view>
-				<view class="text2">{{item.faqi2|intFielter}}</view>
-				<view class="text2">{{item.faqiType2|emptyFielter}}</view>
-				<view class="text2">{{item.fcontaminants2|emptyFielter}}</view>
 			</view>
 		</view>
-
 		<view>
 			<canvas canvas-id="charts" id="charts" class="charts"></canvas>
 		</view>
-
 	</view>
 </template>
 
@@ -39,7 +30,7 @@
 	import wPicker from "@/components/w-picker/w-picker.vue";
 	import {
 		mapState
-	} from 'vuex'
+	} from "vuex";
 	var _self;
 	var Charts;
 	var width;
@@ -48,22 +39,21 @@
 			wPicker
 		},
 		onLoad: function() {
+			_self = this;
 			this.setPageTitle();
 			uni.getSystemInfo({
 				success(res) {
 					width = res.screenWidth - 10;
 				}
 			})
-			_self = this;
 		},
 		data() {
 			return {
-				title: 'Hello',
-				sdate: this.getNowFormatMonth(),
+				sdate: this.getNowFormatYear(),
 				tabList: [{
-					mode: "yearMonth",
-					name: "年月",
-					value: [this.getNowYear(), this.getNowMonth()] //年月在列表的序号
+					mode: "year",
+					name: "年",
+					value: [this.getYearIndex()]
 				}],
 				tabIndex: 0,
 				listData: [],
@@ -76,28 +66,27 @@
 			defaultVal() {
 				return this.tabList[this.tabIndex].value
 			},
-			...mapState(['userInfo']),
+			...mapState(["userInfo"])
 		},
 		onReady: function() {
 			this.getListData();
 			this.getChartData();
 		},
-
 		methods: {
 			toggleTab(index) {
 				this.tabIndex = index;
 				this.$refs.picker.show();
 			},
 			onConfirm(val) {
-				let date = val.result.replace('-', '');
+				let date = val.result;
 				this.sdate = date;
 				this.setPageTitle();
 				this.getListData();
 				this.getChartData();
 			},
 			getChartData: function() {
-				_self.http.get("airReport/getMonthLineChart", {
-					month: this.sdate,
+				_self.http.get("airReport/getYearLineChart", {
+					year: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}, {
 					baseUrl: this.$sys.getApiUrl()
@@ -105,7 +94,7 @@
 					if (e.data.code === 200) {
 						let categories = [];
 						categories = e.data.data.list.map(function(item) {
-							return item.fday;
+							return item.ftime;
 						});
 						let series = [];
 						series[0] = {
@@ -113,7 +102,7 @@
 							data: [],
 						}
 						let datas = e.data.data.list.map(function(item) {
-							return item.faqi;
+							return item.faqi || 0;
 						});
 						series[0].data = datas || [];
 						_self.util.showChartLine("charts", categories, series, width);
@@ -124,10 +113,12 @@
 			},
 			/*
 			 * 获取列表数据
+			 * year 年
+			 * quarter 季度
 			 * */
-			getListData: function() {
-				_self.http.get("airReport/getMonthAirData", {
-					month: this.sdate,
+			getListData: function(year) {
+				_self.http.get("airReport/getYearAirData", {
+					year: this.sdate,
 					fsiteNo: this.userInfo.orgNo
 				}, {
 					baseUrl: this.$sys.getApiUrl()
@@ -147,39 +138,26 @@
 					date: this.sdate
 				}
 				uni.navigateTo({
-					url: "mondata01?detail=" + encodeURIComponent(JSON.stringify(detail))
+					url: "daydata31?detail=" + encodeURIComponent(JSON.stringify(detail))
 				})
 			},
-
-			getNowFormatMonth: function() {
+			getNowFormatYear: function() {
 				var date = new Date();
-				var seperator1 = "";
+				var seperator1 = "-";
 				var year = date.getFullYear();
-				var month = date.getMonth() + 1;
-				if (month >= 1 && month <= 9) {
-					month = "0" + month;
-				}
-				var currentdate = year + seperator1 + month;
+				var currentdate = year;
 				return currentdate;
 			},
-
-			getNowYear: function() {
+			getYearIndex() {
 				var date = new Date();
 				var year = date.getFullYear();
 				var currentdate = year - 2018;
 				return currentdate;
 			},
-
-			getNowMonth: function() {
-				var date = new Date();
-				var month = date.getMonth() + 1;
-				var currentdate = month - 1;
-				return currentdate;
-			},
 			/**设置页面标题*/
 			setPageTitle: function() {
 				uni.setNavigationBarTitle({
-					title: `${this.sdate} ${this.userInfo.orgName} 每月空气`,
+					title: `${this.sdate} ${this.userInfo.orgName} 空气质量`,
 				});
 			},
 		}

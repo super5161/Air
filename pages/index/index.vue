@@ -77,11 +77,15 @@
 			}
 		},
 		onReady: function() {
-			//1 市 2 区 3 学校
+			debugger;
+			//0 省 1 市 2 区 3 学校
 			var level = this.$store.state.userInfo.orgLevel;
-			if (level === 1) {
+			if (level === 0) {
 				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata";
 				this.pageUrl.mondata = "/pages/report/mondata/mondata";
+			} else if (level === 1) {
+				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata01";
+				this.pageUrl.mondata = "/pages/report/mondata/mondata01";
 			} else if (level === 2) {
 				this.pageUrl.hourdata = "/pages/report/hourdata/hourdata02";
 				this.pageUrl.mondata = "/pages/report/mondata/mondata02";

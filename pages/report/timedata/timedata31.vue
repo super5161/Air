@@ -121,6 +121,8 @@
 			getQuInfo: function() {
 				_self.http.get("smartPhone/getQuInfoByUserId", {
 					userId: this.userInfo.userId,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.areaList = e.data.data.list;
@@ -131,7 +133,7 @@
 						}
 						_self.getSchools();
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 			},
@@ -142,6 +144,8 @@
 					this.http.get("smartPhone/getSchoolInfo", {
 						fsiteNo: _self.areaId,
 						userId: this.userInfo.userId,
+					}, {
+						baseUrl: this.$sys.getApiUrl()
 					}).then(function(e) {
 						if (e.data.code === 200) {
 							_self.schoolList = e.data.data.list;
@@ -164,6 +168,8 @@
 				if (this.schoolId !== '') {
 					this.http.get("smartPhone/getAirDogBySiteNo", {
 						fsiteNo: _self.schoolId,
+					}, {
+						baseUrl: this.$sys.getApiUrl()
 					}).then(function(e) {
 						if (e.data.code === 200) {
 							_self.deviceList = e.data.data.list.map(function(item) {
@@ -219,11 +225,13 @@
 			//显示数据
 			showData: function() {
 				this.item = [];
-				this.fastItem=[];
+				this.fastItem = [];
 				if (this.schoolId === '' || this.areaId === '' || this.deviceMac === '')
 					return;
 				this.http.get("smartPhone/get24AqiByFmacno", {
 					fmacno: _self.deviceMac,
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.item = e.data.data.list;
@@ -231,7 +239,7 @@
 							_self.fastItem.push(_self.item[0]);
 						_self.showCharts();
 					} else {
-						_self.util.showToast(e.data.msg)
+						_self.util.showToast(e.data.data)
 					}
 				});
 

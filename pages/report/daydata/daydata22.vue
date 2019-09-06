@@ -126,6 +126,8 @@
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						let categories = [];
@@ -152,6 +154,8 @@
 					year: this.year,
 					quarter: this.quarter,
 					fsiteNo: this.orgId
+				}, {
+					baseUrl: this.$sys.getApiUrl()
 				}).then(function(e) {
 					if (e.data.code === 200) {
 						_self.listData = e.data.data.list;
@@ -190,7 +194,7 @@
 				let detail = {
 					id: id,
 					orgName: storeName,
-					date:this.sdate
+					date: this.sdate
 				}
 				uni.navigateTo({
 					url: "daydata23?detail=" + encodeURIComponent(JSON.stringify(detail))
