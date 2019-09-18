@@ -2,7 +2,7 @@
     "name" : "AirApp",
     "appid" : "__UNI__A5D3F10",
     "description" : "大气环境监测中心APP",
-    "versionName" : "2.0.0",
+    "versionName" : "3.0.0",
     "versionCode" : 200,
     "transformPx" : false,
     "app-plus" : {

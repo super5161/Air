@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "闵行区2019/05空气质量",
   "usingComponents": {
     "w-picker": "/components/w-picker/w-picker"
   }

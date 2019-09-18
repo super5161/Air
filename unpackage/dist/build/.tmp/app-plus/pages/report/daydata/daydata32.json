@@ -1,5 +1,4 @@
 {
-  "navigationBarTitleText": "区2018年空气质量",
   "usingComponents": {
     "w-picker": "/components/w-picker/w-picker"
   }
