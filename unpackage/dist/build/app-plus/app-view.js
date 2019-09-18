@@ -1358,7 +1358,7 @@ Z([3,'primary'])
 Z([3,'登录'])
 Z([3,'version'])
 Z([[7],[3,'versionTop']])
-Z([3,'Copyright © 1996-2020 轶伦.版权所有 ver 1.0'])
+Z([a,[[2,'+'],[1,'Copyright © 1996-2020 轶伦.版权所有 ver '],[[6],[[7],[3,'$root']],[3,'g0']]]])
 })(__WXML_GLOBAL__.ops_cached.$gwx_5);return __WXML_GLOBAL__.ops_cached.$gwx_5
 }
 function gz$gwx_6(){
