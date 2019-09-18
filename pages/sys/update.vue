@@ -50,7 +50,7 @@
 		methods: {
 			// 取得最新版本及其所有信息
 			getLatest() {
-				let sys = this.sys.getSysInfo();
+				let sys = this.$sys.getSysInfo();
 				this.http.get('smartPhone/getAppVersionInfo', {
 					appNo: sys.appId
 				}, {

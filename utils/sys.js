@@ -32,6 +32,11 @@ export default {
 		return this.getSysInfo().apiUrl;
 	},
 
+	/*获取系统版本号*/
+	getVersion: function() {
+		return this.getSysInfo().sysVersion;
+	},
+
 	/*设置服务器*/
 	setServerUrl: function(serverUrl) {
 		let sys = this.getSysInfo();

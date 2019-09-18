@@ -23,7 +23,7 @@
 			</view>
 			<button type="primary" @click="Login">登录</button>
 		</view>
-		<view class="version" :style="versionTop">Copyright © 1996-2020 轶伦.版权所有 ver 1.0</view>
+		<view class="version" :style="versionTop">Copyright © 1996-2020 轶伦.版权所有 ver {{$sys.getVersion()}}</view>
 	</view>
 </template>
 <script>
